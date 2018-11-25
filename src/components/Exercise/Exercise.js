@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import './Exercise.css'
 import Answer from 'components/Answer/Answer'
+import ProgressTracker from 'components/ProgressTracker/ProgressTracker'
 
 class Exercise extends Component {
   state = {
@@ -25,7 +26,8 @@ class Exercise extends Component {
 
       exercise.push({
         question: leftQuestions[ nextQuestionId ][this.state.rules.question],
-        answer: leftQuestions[ nextQuestionId ][this.state.rules.answer]
+        answer: leftQuestions[ nextQuestionId ][this.state.rules.answer],
+        result: undefined
       })
 
       leftQuestions.splice(nextQuestionId, 1)
@@ -43,6 +45,10 @@ class Exercise extends Component {
   render() {
     return (
       <div className="Exercise">
+        <ProgressTracker
+          progress={this.state.exercise}
+        />
+
         <div className="Question">
           {this.state.loading
             ? 'loading...'
@@ -54,8 +60,10 @@ class Exercise extends Component {
           onSubmit={this.checkAnswer.bind(this)}
         />
 
+
+
       </div>
-    );
+    )
   }
 }
 

@@ -1,14 +1,15 @@
 .Answer {
-  width: 50%;
+  width: 67%;
 }
 .Answer input {
   font-size: 70px;
   margin-top: 30px;
-  border: none;
+  border: 2px solid yellow;
   border-bottom: 1px solid grey;
   background-color: inherit;
   font-family: 'Plantin';
   padding: 0;
+  width: 100%;
 }
 .Answer input:focus {
   outline: none;

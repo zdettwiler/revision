@@ -3,6 +3,7 @@ import { shallow, mount } from 'enzyme'
 
 import Exercise from '../components/Exercise/Exercise'
 import Answer from '../components/Answer/Answer'
+import ProgressTracker from '../components/ProgressTracker/ProgressTracker'
 
 describe('<Exercise />', () => {
   let wrapper
@@ -30,6 +31,10 @@ describe('<Exercise />', () => {
 
   it('renders a <Answer />', () => {
     expect(wrapper.containsMatchingElement(<Answer />)).toEqual(true)
+  })
+
+  it('renders a <ProgressTracker />', () => {
+    expect(wrapper.containsMatchingElement(<ProgressTracker />)).toEqual(true)
   })
 
   // it('displays error message when no exercise is loaded', () => {

@@ -1,0 +1,30 @@
+.ProgressTracker {
+  width: 25%;
+  height: 100%;
+  float: right;
+  font-family: 'Times New Roman';
+  border: 1px solid green;
+}
+
+ul {
+  list-style: none;
+  margin-left: 0;
+  padding-left: 0;
+}
+
+li {
+  padding-left: 1em;
+  text-indent: -1em;
+}
+
+li.success:before {
+  content: "✓";
+  font-family: 'Menlo';
+  font-weight: bold;
+  padding-right: 5px;
+}
+li.fail:before {
+  content: "✕";
+  font-family: 'Menlo';
+  padding-right: 5px;
+}

@@ -1,18 +1,16 @@
 .Exercise {
-  width: 100%;
   height: 80%;
   margin: 100px 0 0 20%;
-  /* border: 2px solid blue; */
+  border: 2px solid blue;
 
 
 }
 
 .Question {
   height: 100px;
-  margin-top: 150px;
-  /* border: 2px solid red; */
+  width: 67%;
+  border: 2px solid red;
   /* font-family: 'SBL Greek'; */
   font-style: italic;
   font-size: 100px;
-
 }
