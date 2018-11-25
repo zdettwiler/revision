@@ -1,7 +1,8 @@
 import React from 'react'
-import { shallow } from 'enzyme'
+import { shallow, mount } from 'enzyme'
 
 import Exercise from '../components/Exercise/Exercise'
+import Answer from '../components/Answer/Answer'
 
 describe('<Exercise />', () => {
   let wrapper
@@ -26,4 +27,49 @@ describe('<Exercise />', () => {
   it('displays a question according to rules', () => {
     expect(wrapper.find('div.Question').text()).toEqual('ἀγαπη')
   })
+
+  it('renders a <Answer />', () => {
+    expect(wrapper.containsMatchingElement(<Answer />)).toEqual(true)
+  })
+
+  // it('displays error message when no exercise is loaded', () => {
+  //   wrapper.setProps({ rules: {}, set: {} })
+  //   expect(wrapper.find('.message').text()).toBe('error')
+  // })
+})
+
+describe('mounted <Exercise />', () => {
+  let wrapper
+  beforeEach(() => {
+    wrapper = mount(
+      <Exercise
+        rules={{
+          question: 'french',
+          answer:'translation'
+        }}
+        set={[{
+          french: "bonjour",
+          translation: "hello"
+        }]}
+      />
+    )
+  })
+
+  it('calls checkAnswer() on Enter press', () => {
+    const spy = jest.spyOn(wrapper.instance(), 'checkAnswer')
+    wrapper.instance().forceUpdate();
+    wrapper.find('input.answerInput').simulate('keypress', {
+      key: 'Enter',
+      target: { value: 'val' }
+    })
+    expect(spy).toHaveBeenCalledWith('val')
+  })
+
+  // it('does not call provided callback on press Enter', () => {
+  //   wrapper.find('input').simulate('keypress', {
+  //     key: 'a',
+  //     target: { value: 'val' }
+  //   })
+  //   expect(wrapper.find('input').text()).toEqual('012')
+  // });
 })

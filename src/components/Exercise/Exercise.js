@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
-import './Exercise.css';
+import './Exercise.css'
+import Answer from 'components/Answer/Answer'
 
 class Exercise extends Component {
   state = {
@@ -28,7 +29,6 @@ class Exercise extends Component {
       })
 
       leftQuestions.splice(nextQuestionId, 1)
-
     }
     this.setState({
       exercise,
@@ -36,11 +36,9 @@ class Exercise extends Component {
     })
   }
 
-  loadNextQuestion() {
-
+  checkAnswer(value) {
+    // console.log(value)
   }
-
-
 
   render() {
     return (
@@ -51,6 +49,10 @@ class Exercise extends Component {
             : this.state.exercise[this.state.currentQuestion].question
           }
         </div>
+
+        <Answer
+          onSubmit={this.checkAnswer.bind(this)}
+        />
 
       </div>
     );
