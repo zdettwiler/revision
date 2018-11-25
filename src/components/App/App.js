@@ -1,22 +1,38 @@
 import React, { Component } from 'react'
 import './App.css';
 import Exercise from 'components/Exercise/Exercise'
+// import vocabulaire from 'vocabulaire'
 
 class App extends Component {
   render() {
     return (
       <div className="App">
-        <a>Link</a>
+        <a href="">Link</a>
         <Exercise
           rules={{
             question: 'greek',
             answer:'translation'
           }}
-          set={{
-            greek: "ἀγαπη",
-            translation: "amour",
-            chapter: 3
-          }}
+          set={[{
+            "greek": "Ἀβρααμ",
+            "translation": "Abraham",
+            "chapter": 1
+          },
+          {
+            "greek": "ἀγαπη",
+            "translation": "amour",
+            "chapter": 3
+          },
+          {
+            "greek": "ἀγγελος",
+            "translation": "messager, ange",
+            "chapter": 2
+          },
+          {
+            "greek": "ἀγω",
+            "translation": "je dirige, j'apporte",
+            "chapter": 2
+          }]}
         />
 
       </div>

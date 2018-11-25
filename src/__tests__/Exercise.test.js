@@ -11,21 +11,16 @@ describe('<Exercise />', () => {
         question: 'greek',
         answer:'translation'
       }}
-      set={{
+      set={[{
         greek: "ἀγαπη",
         translation: "amour",
         chapter: 3
-      }}
+      }]}
     />)
   })
 
   it('renders a <div />', () => {
     expect(wrapper.find('div.Exercise').length).toEqual(1)
-  })
-
-  it('renders the nextQuestion', () => {
-    wrapper.setState({ nextQuestion: 'ἀγαπη' })
-    expect(wrapper.find('div.Question').text()).toEqual('ἀγαπη')
   })
 
   it('displays a question according to rules', () => {
