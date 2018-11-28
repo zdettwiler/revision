@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import './Exercise.css'
-import Answer from 'components/Answer/Answer'
+import QuestionAnswer from 'components/QuestionAnswer/QuestionAnswer'
 import ProgressTracker from 'components/ProgressTracker/ProgressTracker'
 
 class Exercise extends Component {
@@ -56,7 +56,7 @@ class Exercise extends Component {
           }
         </div>
 
-        <Answer
+        <QuestionAnswer
           onSubmit={this.checkAnswer.bind(this)}
         />
 

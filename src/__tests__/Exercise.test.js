@@ -2,7 +2,7 @@ import React from 'react'
 import { shallow, mount } from 'enzyme'
 
 import Exercise from '../components/Exercise/Exercise'
-import Answer from '../components/Answer/Answer'
+import QuestionAnswer from '../components/QuestionAnswer/QuestionAnswer'
 import ProgressTracker from '../components/ProgressTracker/ProgressTracker'
 
 describe('<Exercise />', () => {
@@ -29,8 +29,8 @@ describe('<Exercise />', () => {
     expect(wrapper.find('div.Question').text()).toEqual('ἀγαπη')
   })
 
-  it('renders a <Answer />', () => {
-    expect(wrapper.containsMatchingElement(<Answer />)).toEqual(true)
+  it('renders a <QuestionAnswer />', () => {
+    expect(wrapper.containsMatchingElement(<QuestionAnswer />)).toEqual(true)
   })
 
   it('renders a <ProgressTracker />', () => {

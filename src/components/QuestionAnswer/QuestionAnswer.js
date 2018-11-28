@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import './Answer.css'
+import './QuestionAnswer.css'
 
 class Answer extends Component {
 
@@ -11,7 +11,8 @@ class Answer extends Component {
 
   render() {
     return (
-      <div className="Answer">
+      <div className="QuestionAnswer">
+        <div className="Question"></div>
         <input className='answerInput'
           type='text'
           placeholder='answer'

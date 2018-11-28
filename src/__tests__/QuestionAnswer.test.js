@@ -1,21 +1,25 @@
 import React from 'react'
 import { shallow } from 'enzyme'
 
-import Answer from '../components/Answer/Answer'
+import QuestionAnswer from '../components/QuestionAnswer/QuestionAnswer'
 
-describe('<Answer />', () => {
+describe('<QuestionAnswer />', () => {
   let wrapper
 
   beforeEach(() => {
     wrapper = shallow(
-      <Answer
+      <QuestionAnswer
         onSubmit={jest.fn()}
       />
     )
   })
 
   it('renders a <div />', () => {
-    expect(wrapper.find('div.Answer').length).toEqual(1)
+    expect(wrapper.find('div.QuestionAnswer').length).toEqual(1)
+  })
+
+  it('renders a <div />', () => {
+    expect(wrapper.find('div.Question').length).toEqual(1)
   })
 
   it('renders a <input />', () => {

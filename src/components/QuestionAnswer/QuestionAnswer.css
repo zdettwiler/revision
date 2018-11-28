@@ -1,7 +1,7 @@
-.Answer {
+.QuestionAnswer {
   width: 67%;
 }
-.Answer input {
+.QuestionAnswer input {
   font-size: 70px;
   margin-top: 30px;
   border: 2px solid yellow;
@@ -11,6 +11,6 @@
   padding: 0;
   width: 100%;
 }
-.Answer input:focus {
+.QuestionAnswer input:focus {
   outline: none;
 }
