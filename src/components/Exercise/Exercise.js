@@ -49,17 +49,14 @@ class Exercise extends Component {
           progress={this.state.exercise}
         />
 
-        <div className="Question">
-          {this.state.loading
-            ? 'loading...'
-            : this.state.exercise[this.state.currentQuestion].question
-          }
-        </div>
 
-        <QuestionAnswer
-          onSubmit={this.checkAnswer.bind(this)}
-        />
-
+        {this.state.loading
+          ? 'loading...'
+          : (<QuestionAnswer
+              currentQuestion={this.state.exercise[this.state.currentQuestion].question}
+              onSubmit={this.checkAnswer.bind(this)}
+            />)
+        }
 
 
       </div>

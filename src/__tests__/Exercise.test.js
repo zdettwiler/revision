@@ -25,10 +25,6 @@ describe('<Exercise />', () => {
     expect(wrapper.find('div.Exercise').length).toEqual(1)
   })
 
-  it('displays a question according to rules', () => {
-    expect(wrapper.find('div.Question').text()).toEqual('ἀγαπη')
-  })
-
   it('renders a <QuestionAnswer />', () => {
     expect(wrapper.containsMatchingElement(<QuestionAnswer />)).toEqual(true)
   })
@@ -58,6 +54,10 @@ describe('mounted <Exercise />', () => {
         }]}
       />
     )
+  })
+
+  it('displays a question according to rules', () => {
+    expect(wrapper.find('div.Question').text()).toEqual('bonjour')
   })
 
   it('calls checkAnswer() on Enter press', () => {

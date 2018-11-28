@@ -12,7 +12,9 @@ class Answer extends Component {
   render() {
     return (
       <div className="QuestionAnswer">
-        <div className="Question"></div>
+        <div className="Question">
+          {this.props.currentQuestion}
+        </div>
         <input className='answerInput'
           type='text'
           placeholder='answer'

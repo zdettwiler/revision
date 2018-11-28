@@ -9,6 +9,7 @@ describe('<QuestionAnswer />', () => {
   beforeEach(() => {
     wrapper = shallow(
       <QuestionAnswer
+        currentQuestion={''}
         onSubmit={jest.fn()}
       />
     )
@@ -20,6 +21,11 @@ describe('<QuestionAnswer />', () => {
 
   it('renders a <div />', () => {
     expect(wrapper.find('div.Question').length).toEqual(1)
+  })
+
+  it('displays provided question', () => {
+    wrapper.setProps({ currentQuestion: 'question' })
+    expect(wrapper.find('div.Question').text()).toEqual('question')
   })
 
   it('renders a <input />', () => {
