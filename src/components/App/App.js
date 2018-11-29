@@ -13,11 +13,33 @@ class App extends Component {
             question: 'greek',
             answer:'translation'
           }}
-          set={[{
-            "greek": "bonjour",
-            "translation": "hello",
-            "chapter": 1
-          }]}
+          set={[
+            {
+              "greek": "Ἀβρααμ",
+              "translation": "Abraham",
+              "chapter": 1
+            },
+            {
+              "greek": "ἀγαπη",
+              "translation": "amour",
+              "chapter": 3
+            },
+            {
+              "greek": "ἀγγελος",
+              "translation": "messager, ange",
+              "chapter": 2
+            },
+            {
+              "greek": "ἀγω",
+              "translation": "je dirige, j'apporte",
+              "chapter": 2
+            },
+            {
+              "greek": "ἀδελφη",
+              "translation": "soeur",
+              "chapter": 3
+            }
+          ]}
         />
 
       </div>

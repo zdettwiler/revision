@@ -9,7 +9,7 @@ class Exercise extends Component {
     this.state = {
       exercise: [],
       currentQuestion: 0,
-      finished: false
+      status: 'no-exercise'
     }
   }
 
@@ -35,7 +35,7 @@ class Exercise extends Component {
 
       leftQuestions.splice(nextQuestionId, 1)
     }
-    this.setState({ exercise, finished: false })
+    this.setState({ exercise, status: 'revising' })
   }
 
   checkAnswer(value) {
@@ -47,19 +47,19 @@ class Exercise extends Component {
       ? 'success'
       : 'fail'
 
-    // currentQuestion++
-    let finished = currentQuestion === exercise.length
-      ? true
-      : false
+    currentQuestion++
+    let status = currentQuestion === exercise.length
+      ? 'finished'
+      : this.state.status
 
-    this.setState({ exercise, currentQuestion, finished })
+    this.setState({ exercise, currentQuestion, status })
 
   }
 
   render() {
     return (
       <div className="Exercise">
-        {(!!this.state.exercise.length && !this.state.finished) && (
+        {this.state.status === 'revising' && (
           <div>
             <ProgressTracker
               progress={this.state.exercise}
@@ -71,8 +71,12 @@ class Exercise extends Component {
           </div>
         )}
 
-        {(!this.state.exercise.length || this.state.finished) && (
+        {this.state.status === 'no-exercise' && (
           'no exercise available'
+        )}
+
+        {this.state.status === 'finished' && (
+          'finished exercise'
         )}
       </div>
     )

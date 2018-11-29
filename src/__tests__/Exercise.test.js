@@ -22,7 +22,7 @@ describe('<Exercise />', () => {
     expect(wrapper.find('div.Exercise').length).toEqual(1)
   })
 
-  it('renders a message if no data is loaded', () => {
+  it('renders no exercise available if no data is loaded', () => {
     wrapper = shallow(<Exercise
       rules={undefined}
       set={undefined}
@@ -30,6 +30,15 @@ describe('<Exercise />', () => {
     expect(wrapper.containsMatchingElement(
       <div className="Exercise">
         no exercise available
+      </div>
+    )).toBe(true)
+  })
+
+  it('renders finished exercise when game is finished', () => {
+    wrapper.setState({ status: 'finished' })
+    expect(wrapper.containsMatchingElement(
+      <div className="Exercise">
+        finished exercise
       </div>
     )).toBe(true)
   })
@@ -93,6 +102,23 @@ describe('mounted <Exercise />', () => {
       target: { value: 'hi' }
     })
     expect(wrapper.state().exercise[0].result).toBe('fail')
+  })
+
+  it('checkAnswer() moves on to next question', () => {
+    let currentQuestion = wrapper.state().currentQuestion
+    wrapper.find('input.answerInput').simulate('keypress', {
+      key: 'Enter',
+      target: { value: 'hello' }
+    })
+    expect(wrapper.state().currentQuestion).toBe(currentQuestion+1)
+  })
+
+  it('checkAnswer() changes status at the end', () => {
+    wrapper.find('input.answerInput').simulate('keypress', {
+      key: 'Enter',
+      target: { value: 'hello' }
+    })
+    expect(wrapper.state().status).toBe('finished')
   })
 
   // it('does not call provided callback on press Enter', () => {
