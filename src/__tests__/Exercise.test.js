@@ -9,10 +9,7 @@ describe('<Exercise />', () => {
   let wrapper
   beforeEach(() => {
     wrapper = shallow(<Exercise
-      rules={{
-        question: 'greek',
-        answer:'translation'
-      }}
+      rules={{ question: 'greek', answer:'translation' }}
       set={[{
         greek: "ἀγαπη",
         translation: "amour",
@@ -25,12 +22,24 @@ describe('<Exercise />', () => {
     expect(wrapper.find('div.Exercise').length).toEqual(1)
   })
 
+  it('renders a message if no data is loaded', () => {
+    wrapper = shallow(<Exercise
+      rules={undefined}
+      set={undefined}
+    />)
+    expect(wrapper.containsMatchingElement(
+      <div className="Exercise">
+        no exercise available
+      </div>
+    )).toBe(true)
+  })
+
   it('renders a <QuestionAnswer />', () => {
-    expect(wrapper.containsMatchingElement(<QuestionAnswer />)).toEqual(true)
+    expect(wrapper.containsMatchingElement(<QuestionAnswer />)).toBe(true)
   })
 
   it('renders a <ProgressTracker />', () => {
-    expect(wrapper.containsMatchingElement(<ProgressTracker />)).toEqual(true)
+    expect(wrapper.containsMatchingElement(<ProgressTracker />)).toBe(true)
   })
 
   // it('displays error message when no exercise is loaded', () => {
@@ -57,17 +66,33 @@ describe('mounted <Exercise />', () => {
   })
 
   it('displays a question according to rules', () => {
-    expect(wrapper.find('div.Question').text()).toEqual('bonjour')
+    expect(wrapper.find('div.Question').text()).toBe('bonjour')
   })
 
   it('calls checkAnswer() on Enter press', () => {
     const spy = jest.spyOn(wrapper.instance(), 'checkAnswer')
-    wrapper.instance().forceUpdate();
+    wrapper.instance().forceUpdate()
     wrapper.find('input.answerInput').simulate('keypress', {
       key: 'Enter',
       target: { value: 'val' }
     })
     expect(spy).toHaveBeenCalledWith('val')
+  })
+
+  it('checkAnswer() checks answer - success', () => {
+    wrapper.find('input.answerInput').simulate('keypress', {
+      key: 'Enter',
+      target: { value: 'hello' }
+    })
+    expect(wrapper.state().exercise[0].result).toBe('success')
+  })
+
+  it('checkAnswer() checks answer - fail', () => {
+    wrapper.find('input.answerInput').simulate('keypress', {
+      key: 'Enter',
+      target: { value: 'hi' }
+    })
+    expect(wrapper.state().exercise[0].result).toBe('fail')
   })
 
   // it('does not call provided callback on press Enter', () => {
