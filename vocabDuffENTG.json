@@ -1,0 +1,457 @@
+[
+  {
+    "greek": "Ἀβρααμ",
+    "translation": "Abraham",
+    "chapter": 1
+  },
+  {
+    "greek": "ἀγαπη",
+    "translation": "amour",
+    "chapter": 3
+  },
+  {
+    "greek": "ἀγγελος",
+    "translation": "messager, ange",
+    "chapter": 2
+  },
+  {
+    "greek": "ἀγω",
+    "translation": "je dirige, j'apporte",
+    "chapter": 2
+  },
+  {
+    "greek": "ἀδελφη",
+    "translation": "soeur",
+    "chapter": 3
+  },
+  {
+    "greek": "ἀδελφος",
+    "translation": "frère",
+    "chapter": 2
+  },
+  {
+    "greek": "ἀκουω",
+    "translation": "j'entends, j'écoute",
+    "chapter": 2
+  },
+  {
+    "greek": "ἁμαρτια",
+    "translation": "péché",
+    "chapter": 3
+  },
+  {
+    "greek": "ἀμην",
+    "translation": "amen, véritablement",
+    "chapter": 1
+  },
+  {
+    "greek": "ἀνθρωπος",
+    "translation": "être humain, personne",
+    "chapter": 2
+  },
+  {
+    "greek": "ἀπο+G",
+    "translation": "away from",
+    "chapter": 4
+  },
+  {
+    "greek": "ἀρτος",
+    "translation": "pain",
+    "chapter": 2
+  },
+  {
+    "greek": "ἀρχη",
+    "translation": "commencement",
+    "chapter": 3
+  },
+  {
+    "greek": "βαλλω",
+    "translation": "je jette",
+    "chapter": 2
+  },
+  {
+    "greek": "βασιλεια",
+    "translation": "règne, royaume",
+    "chapter": 3
+  },
+  {
+    "greek": "βιβλιον",
+    "translation": "livre, rouleau",
+    "chapter": 3
+  },
+  {
+    "greek": "βλεπω",
+    "translation": "je vois, je regarde",
+    "chapter": 2
+  },
+  {
+    "greek": "γη",
+    "translation": "terre",
+    "chapter": 3
+  },
+  {
+    "greek": "δαιμονιον",
+    "translation": "demon",
+    "chapter": 3
+  },
+  {
+    "greek": "Δαυιδ",
+    "translation": "",
+    "chapter": 0
+  },
+  {
+    "greek": "δια",
+    "translation": "",
+    "chapter": 0
+  },
+  {
+    "greek": "διδασκω",
+    "translation": "",
+    "chapter": 0
+  },
+  {
+    "greek": "δουλος ",
+    "translation": "",
+    "chapter": 0
+  },
+  {
+    "greek": "ἐκκλησια",
+    "translation": "",
+    "chapter": 0
+  },
+  {
+    "greek": "ἐν",
+    "translation": "",
+    "chapter": 0
+  },
+  {
+    "greek": "ἐνωπιον",
+    "translation": "",
+    "chapter": 0
+  },
+  {
+    "greek": "ἐξω",
+    "translation": "",
+    "chapter": 0
+  },
+  {
+    "greek": "ἐπι",
+    "translation": "",
+    "chapter": 0
+  },
+  {
+    "greek": "ἐργον",
+    "translation": "",
+    "chapter": 0
+  },
+  {
+    "greek": "εὐαγγελιον",
+    "translation": "",
+    "chapter": 0
+  },
+  {
+    "greek": "ζητεω",
+    "translation": "",
+    "chapter": 0
+  },
+  {
+    "greek": "ζωη",
+    "translation": "",
+    "chapter": 0
+  },
+  {
+    "greek": "ἡμερα",
+    "translation": "",
+    "chapter": 0
+  },
+  {
+    "greek": "θαλασσα",
+    "translation": "",
+    "chapter": 0
+  },
+  {
+    "greek": "θεος ",
+    "translation": "",
+    "chapter": 0
+  },
+  {
+    "greek": "Ἰακωβ",
+    "translation": "",
+    "chapter": 0
+  },
+  {
+    "greek": "ἱερον",
+    "translation": "",
+    "chapter": 0
+  },
+  {
+    "greek": "Ἰησους ",
+    "translation": "",
+    "chapter": 0
+  },
+  {
+    "greek": "Ἰσρηλ",
+    "translation": "",
+    "chapter": 0
+  },
+  {
+    "greek": "Ἰωσηφ",
+    "translation": "",
+    "chapter": 0
+  },
+  {
+    "greek": "καλεω",
+    "translation": "",
+    "chapter": 0
+  },
+  {
+    "greek": "καρδια",
+    "translation": "",
+    "chapter": 0
+  },
+  {
+    "greek": "κατα",
+    "translation": "",
+    "chapter": 0
+  },
+  {
+    "greek": "κατοικεω",
+    "translation": "",
+    "chapter": 0
+  },
+  {
+    "greek": "κοσμος ",
+    "translation": "",
+    "chapter": 0
+  },
+  {
+    "greek": "κυριος ",
+    "translation": "",
+    "chapter": 0
+  },
+  {
+    "greek": "λαλεω",
+    "translation": "",
+    "chapter": 0
+  },
+  {
+    "greek": "λαμβανω",
+    "translation": "",
+    "chapter": 0
+  },
+  {
+    "greek": "λαος ",
+    "translation": "",
+    "chapter": 0
+  },
+  {
+    "greek": "λελω",
+    "translation": "",
+    "chapter": 0
+  },
+  {
+    "greek": "λογος ",
+    "translation": "",
+    "chapter": 0
+  },
+  {
+    "greek": "λυω",
+    "translation": "",
+    "chapter": 0
+  },
+  {
+    "greek": "Μαρια/Μαριαμ",
+    "translation": "",
+    "chapter": 0
+  },
+  {
+    "greek": "μετα",
+    "translation": "",
+    "chapter": 0
+  },
+  {
+    "greek": "νομος ",
+    "translation": "",
+    "chapter": 0
+  },
+  {
+    "greek": "οἰκια",
+    "translation": "",
+    "chapter": 0
+  },
+  {
+    "greek": "οἰκος ",
+    "translation": "",
+    "chapter": 0
+  },
+  {
+    "greek": "οὐ οὐκ οὐχ",
+    "translation": "",
+    "chapter": 0
+  },
+  {
+    "greek": "οὐρανος ",
+    "translation": "",
+    "chapter": 0
+  },
+  {
+    "greek": "ὀχλος ",
+    "translation": "",
+    "chapter": 0
+  },
+  {
+    "greek": "παρα",
+    "translation": "",
+    "chapter": 0
+  },
+  {
+    "greek": "παρακαλεω",
+    "translation": "",
+    "chapter": 0
+  },
+  {
+    "greek": "μαραλαμβανω",
+    "translation": "",
+    "chapter": 0
+  },
+  {
+    "greek": "Παυλος ",
+    "translation": "",
+    "chapter": 0
+  },
+  {
+    "greek": "περι",
+    "translation": "",
+    "chapter": 0
+  },
+  {
+    "greek": "περιπατεω",
+    "translation": "",
+    "chapter": 0
+  },
+  {
+    "greek": "Πετρος ",
+    "translation": "",
+    "chapter": 0
+  },
+  {
+    "greek": "πιστευω",
+    "translation": "",
+    "chapter": 0
+  },
+  {
+    "greek": "πλοιον",
+    "translation": "",
+    "chapter": 0
+  },
+  {
+    "greek": "ποιεω",
+    "translation": "",
+    "chapter": 0
+  },
+  {
+    "greek": "που",
+    "translation": "",
+    "chapter": 0
+  },
+  {
+    "greek": "προ",
+    "translation": "",
+    "chapter": 0
+  },
+  {
+    "greek": "προσκυνεω",
+    "translation": "",
+    "chapter": 0
+  },
+  {
+    "greek": "προσωπον",
+    "translation": "",
+    "chapter": 0
+  },
+  {
+    "greek": "πως ",
+    "translation": "",
+    "chapter": 0
+  },
+  {
+    "greek": "ῥαββι",
+    "translation": "",
+    "chapter": 0
+  },
+  {
+    "greek": "σαββατον",
+    "translation": "",
+    "chapter": 0
+  },
+  {
+    "greek": "σημειον",
+    "translation": "",
+    "chapter": 0
+  },
+  {
+    "greek": "συν",
+    "translation": "",
+    "chapter": 0
+  },
+  {
+    "greek": "συναγω",
+    "translation": "",
+    "chapter": 0
+  },
+  {
+    "greek": "τεκνον",
+    "translation": "",
+    "chapter": 0
+  },
+  {
+    "greek": "τηρεω",
+    "translation": "",
+    "chapter": 0
+  },
+  {
+    "greek": "υἱος ",
+    "translation": "",
+    "chapter": 0
+  },
+  {
+    "greek": "ὑπαγω",
+    "translation": "",
+    "chapter": 0
+  },
+  {
+    "greek": "ὑπερ",
+    "translation": "",
+    "chapter": 0
+  },
+  {
+    "greek": "ὑπο",
+    "translation": "",
+    "chapter": 0
+  },
+  {
+    "greek": "φιλεω",
+    "translation": "",
+    "chapter": 0
+  },
+  {
+    "greek": "φωνη",
+    "translation": "",
+    "chapter": 0
+  },
+  {
+    "greek": "Χριστος ",
+    "translation": "",
+    "chapter": 0
+  },
+  {
+    "greek": "Ψυχη",
+    "translation": "",
+    "chapter": 0
+  },
+  {
+    "greek": "ὡρα",
+    "translation": "",
+    "chapter": 0
+  },
+]
