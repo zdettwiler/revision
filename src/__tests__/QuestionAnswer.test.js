@@ -49,7 +49,7 @@ describe('<QuestionAnswer />', () => {
       key: 'Enter',
       target: { value: 'val' }
     })
-    expect(onEnterPress).toHaveBeenCalledWith('val');
+    expect(onEnterPress).toHaveBeenCalledWith('val')
   })
 
   it('does not call provided callback on any key press', () => {
@@ -59,6 +59,24 @@ describe('<QuestionAnswer />', () => {
       key: 'a',
       target: { value: 'val' }
     })
-    expect(onAPress).not.toHaveBeenCalled();
+    expect(onAPress).not.toHaveBeenCalled()
+  })
+
+  it('calls handleChange() on change', () => {
+    const spy = jest.spyOn(wrapper.instance(), 'handleChange')
+    wrapper.instance().forceUpdate()
+    wrapper.find('input').simulate('change', { target: { value: 'val' } })
+    expect(wrapper.state().value).toBe('val')
+    expect(spy).toHaveBeenCalled()
+  })
+
+  it('clears answer input on submit', () => {
+    wrapper.instance().forceUpdate()
+    wrapper.find('input').simulate('change', { target: { value: 'val' } })
+    wrapper.find('input').simulate('keypress', {
+      key: 'Enter',
+      target: { value: 'val' }
+    })
+    expect(wrapper.state().value).toBe('')
   })
 })
