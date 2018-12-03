@@ -96,143 +96,158 @@
   },
   {
     "greek": "Δαυιδ",
-    "translation": "",
-    "chapter": 0
+    "translation": "David",
+    "chapter": 1
   },
   {
-    "greek": "δια",
-    "translation": "",
-    "chapter": 0
+    "greek": "δια+A",
+    "translation": "à cause de, à travers",
+    "chapter": 4
   },
   {
     "greek": "διδασκω",
-    "translation": "",
-    "chapter": 0
+    "translation": "j'enseigne",
+    "chapter": 2
   },
   {
     "greek": "δουλος ",
-    "translation": "",
-    "chapter": 0
+    "translation": "esclave",
+    "chapter": 2
   },
   {
     "greek": "ἐκκλησια",
-    "translation": "",
-    "chapter": 0
+    "translation": "assemblée",
+    "chapter": 3
   },
   {
-    "greek": "ἐν",
-    "translation": "",
-    "chapter": 0
+    "greek": "ἐν+D",
+    "translation": "dans",
+    "chapter": 4
   },
   {
     "greek": "ἐνωπιον",
-    "translation": "",
-    "chapter": 0
+    "translation": "devant, en présence de",
+    "chapter": 4
   },
   {
-    "greek": "ἐξω",
-    "translation": "",
-    "chapter": 0
+    "greek": "ἐξω+G",
+    "translation": "dehors",
+    "chapter": 4
   },
   {
-    "greek": "ἐπι",
-    "translation": "",
-    "chapter": 0
+    "greek": "ἐπι+A",
+    "translation": "VERIF sur",
+    "chapter": 4
+  },
+  {
+    "greek": "ἐπι+G",
+    "translation": "VERIFsur, au temps de",
+    "chapter": 4
+  },
+  {
+    "greek": "ἐπι+D",
+    "translation": "VERIF sur/dans, selon",
+    "chapter": 4
   },
   {
     "greek": "ἐργον",
-    "translation": "",
-    "chapter": 0
+    "translation": "oeuvre",
+    "chapter": 3
   },
   {
     "greek": "εὐαγγελιον",
-    "translation": "",
-    "chapter": 0
+    "translation": "bonne nouvelle, évangile",
+    "chapter": 3
   },
   {
     "greek": "ζητεω",
-    "translation": "",
-    "chapter": 0
+    "translation": "je cherche",
+    "chapter": 2
   },
   {
     "greek": "ζωη",
-    "translation": "",
-    "chapter": 0
+    "translation": "vie",
+    "chapter": 3
   },
   {
     "greek": "ἡμερα",
-    "translation": "",
-    "chapter": 0
+    "translation": "jour",
+    "chapter": 3
   },
   {
     "greek": "θαλασσα",
-    "translation": "",
-    "chapter": 0
+    "translation": "mer, lac",
+    "chapter": 3
   },
   {
-    "greek": "θεος ",
-    "translation": "",
-    "chapter": 0
+    "greek": "θεος",
+    "translation": "dieu, Dieu",
+    "chapter": 2
   },
   {
     "greek": "Ἰακωβ",
-    "translation": "",
-    "chapter": 0
+    "translation": "Jacob",
+    "chapter": 1
   },
   {
     "greek": "ἱερον",
-    "translation": "",
-    "chapter": 0
+    "translation": "temple",
+    "chapter": 3
   },
   {
-    "greek": "Ἰησους ",
-    "translation": "",
-    "chapter": 0
+    "greek": "Ἰησους",
+    "translation": "Jésus",
+    "chapter": 3
   },
   {
     "greek": "Ἰσρηλ",
-    "translation": "",
-    "chapter": 0
+    "translation": "Israël",
+    "chapter": 1
   },
   {
     "greek": "Ἰωσηφ",
-    "translation": "",
-    "chapter": 0
+    "translation": "Joseph",
+    "chapter": 1
   },
   {
     "greek": "καλεω",
-    "translation": "",
-    "chapter": 0
+    "translation": "j'appelle",
+    "chapter": 2
   },
   {
     "greek": "καρδια",
-    "translation": "",
-    "chapter": 0
+    "translation": "coeur",
+    "chapter": 3
   },
   {
-    "greek": "κατα",
-    "translation": "",
-    "chapter": 0
+    "greek": "κατα+A",
+    "translation": "d'après, selon",
+    "chapter": 4
+  },
+  {
+    "greek": "κατα+G",
+    "translation": "contre",
+    "chapter": 4
   },
   {
     "greek": "κατοικεω",
-    "translation": "",
-    "chapter": 0
+    "translation": "j'habite, je demeure",
+    "chapter": 4
   },
   {
     "greek": "κοσμος ",
-    "translation": "",
-    "chapter": 0
+    "translation": "monde, univers",
+    "chapter": 2
   },
   {
     "greek": "κυριος ",
-    "translation": "",
-    "chapter": 0
+    "translation": "seigneur, maître, monsieur",
+    "chapter": 2
   },
   {
     "greek": "λαλεω",
-    "translation": "",
-    "chapter": 0
+    "translation": "je parle, je dis",
+    "chapter": 2
   },
   {
     "greek": "λαμβανω",
