@@ -1,5 +1,5 @@
 .ProgressTracker {
-  width: 25%;
+  width: 300px;
   height: 100%;
   float: right;
   font-family: 'Times New Roman';
@@ -22,9 +22,12 @@ li.success:before {
   font-family: 'Menlo';
   font-weight: bold;
   padding-right: 5px;
+  color: green;
 }
 li.fail:before {
   content: "✕";
   font-family: 'Menlo';
+  font-weight: bold;
   padding-right: 5px;
+  color: red;
 }

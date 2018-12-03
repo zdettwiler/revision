@@ -1,6 +1,19 @@
 .QuestionAnswer {
-  width: 67%;
+  width: 50%;
+  margin: auto;
+  border: 1px purple solid
 }
+
+.QuestionAnswer .Question {
+  height: 200px;
+  width: 100%;
+  border: 2px solid red;
+  /* font-family: 'SBL Greek'; */
+  font-style: italic;
+  font-size: 150px;
+  text-align: center;
+}
+
 .QuestionAnswer input {
   font-size: 70px;
   margin-top: 30px;

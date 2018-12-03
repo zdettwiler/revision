@@ -7,7 +7,10 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <a href="">Link</a>
+        <div className="Navigation">
+          <a href="">Link</a>
+        </div>
+
         <Exercise
           rules={{
             question: 'greek',
