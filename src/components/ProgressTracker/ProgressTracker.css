@@ -3,7 +3,9 @@
   height: 100%;
   float: right;
   font-family: 'Times New Roman';
+  font-weight: bold;
   border: 1px solid green;
+  color: grey;
 }
 
 ul {
