@@ -12,7 +12,17 @@ class ExerciseResults extends Component {
   render() {
     return (
       <div className="ExerciseResults">
-
+        <ul>
+          { this.props.exercise.map((q, i) => {
+              return (
+                <li key={i} className={q.result}>
+                  {q.question + ' = ' + q.answer}
+                  {q.result === 'fail' ? ' (you: ' + q.response + ')' : ''}
+                </li>
+              )
+            })
+          }
+        </ul>
       </div>
     )
   }

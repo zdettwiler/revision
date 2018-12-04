@@ -103,6 +103,14 @@ describe('mounted <Exercise />', () => {
     expect(wrapper.state().exercise[0].result).toBe('fail')
   })
 
+  it('checkAnswer() saves user answer', () => {
+    wrapper.find('input.answerInput').simulate('keypress', {
+      key: 'Enter',
+      target: { value: 'hi' }
+    })
+    expect(wrapper.state().exercise[0].response).toBe('hi')
+  })
+
   it('checkAnswer() moves on to next question', () => {
     let currentQuestion = wrapper.state().currentQuestion
     wrapper.find('input.answerInput').simulate('keypress', {

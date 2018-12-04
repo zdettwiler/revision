@@ -31,6 +31,7 @@ class Exercise extends Component {
       exercise.push({
         question: leftQuestions[ nextQuestionId ][this.props.rules.question],
         answer: leftQuestions[ nextQuestionId ][this.props.rules.answer],
+        response: undefined,
         result: undefined
       })
 
@@ -44,6 +45,7 @@ class Exercise extends Component {
     let currentQuestion = this.state.currentQuestion
     let exercise = this.state.exercise
 
+    exercise[currentQuestion].response = value
     exercise[currentQuestion].result = exercise[currentQuestion].answer === value
       ? 'success'
       : 'fail'
@@ -77,7 +79,9 @@ class Exercise extends Component {
         )}
 
         {this.state.status === 'finished' && (
-          <ExerciseResults />
+          <ExerciseResults
+            exercise={this.state.exercise}
+          />
         )}
       </div>
     )
