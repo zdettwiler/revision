@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
-import './App.css';
+import './App.css'
 import Exercise from 'components/Exercise/Exercise'
-// import vocabulaire from 'vocabulaire'
+import vocabDuffENTG from 'vocabDuffENTG'
 
 class App extends Component {
   render() {
@@ -14,35 +14,9 @@ class App extends Component {
         <Exercise
           rules={{
             question: 'greek',
-            answer:'translation'
+            answer: 'english'
           }}
-          set={[
-            {
-              "greek": "Ἀβρααμ",
-              "translation": "Abraham",
-              "chapter": 1
-            },
-            {
-              "greek": "ἀγαπη",
-              "translation": "amour",
-              "chapter": 3
-            },
-            // {
-            //   "greek": "ἀγγελος",
-            //   "translation": "messager, ange",
-            //   "chapter": 2
-            // },
-            // {
-            //   "greek": "ἀγω",
-            //   "translation": "je dirige, j'apporte",
-            //   "chapter": 2
-            // },
-            // {
-            //   "greek": "ἀδελφη",
-            //   "translation": "soeur",
-            //   "chapter": 3
-            // }
-          ]}
+          set={vocabDuffENTG}
         />
 
       </div>
