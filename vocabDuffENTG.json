@@ -1,472 +1,614 @@
 [
   {
     "greek": "Ἀβρααμ",
-    "translation": "Abraham",
+    "french": "Abraham",
+    "english": "Abraham",
     "chapter": 1
   },
   {
     "greek": "ἀγαπη",
-    "translation": "amour",
+    "french": "amour",
+    "english": "love",
     "chapter": 3
   },
   {
     "greek": "ἀγγελος",
-    "translation": "messager, ange",
+    "french": "messager, ange",
+    "english": "messenger, angel",
     "chapter": 2
   },
   {
     "greek": "ἀγω",
-    "translation": "je dirige, j'apporte",
+    "french": "je dirige, j'apporte",
+    "english": "I lead, I bring",
     "chapter": 2
   },
   {
     "greek": "ἀδελφη",
-    "translation": "soeur",
+    "french": "soeur",
+    "english": "sister",
     "chapter": 3
   },
   {
     "greek": "ἀδελφος",
-    "translation": "frère",
+    "french": "frère",
+    "english": "brother",
     "chapter": 2
   },
   {
     "greek": "ἀκουω",
-    "translation": "j'entends, j'écoute",
+    "french": "j'entends, j'écoute",
+    "english": "I hear, I listen to",
     "chapter": 2
   },
   {
     "greek": "ἁμαρτια",
-    "translation": "péché",
+    "french": "péché",
+    "english": "sin",
     "chapter": 3
   },
   {
     "greek": "ἀμην",
-    "translation": "amen, véritablement",
+    "french": "amen, véritablement",
+    "english": "amen, truly",
     "chapter": 1
   },
   {
     "greek": "ἀνθρωπος",
-    "translation": "être humain, personne",
+    "french": "être humain, personne",
+    "english": "human being, person",
     "chapter": 2
   },
   {
     "greek": "ἀπο+G",
-    "translation": "away from",
+    "french": "écarté de",
+    "english": "away from",
     "chapter": 4
   },
   {
     "greek": "ἀρτος",
-    "translation": "pain",
+    "french": "pain",
+    "english": "bread",
     "chapter": 2
   },
   {
     "greek": "ἀρχη",
-    "translation": "commencement",
+    "french": "commencement",
+    "english": "beginning",
     "chapter": 3
   },
   {
     "greek": "βαλλω",
-    "translation": "je jette",
+    "french": "je jette",
+    "english": "I throw",
     "chapter": 2
   },
   {
     "greek": "βασιλεια",
-    "translation": "règne, royaume",
+    "french": "règne, royaume",
+    "english": "reign, kingship, kingdom",
     "chapter": 3
   },
   {
     "greek": "βιβλιον",
-    "translation": "livre, rouleau",
+    "french": "livre, rouleau",
+    "english": "book, scroll",
     "chapter": 3
   },
   {
     "greek": "βλεπω",
-    "translation": "je vois, je regarde",
+    "french": "je vois, je regarde",
+    "english": "I see, I watch",
     "chapter": 2
   },
   {
     "greek": "γη",
-    "translation": "terre",
+    "french": "terre",
+    "english": "earth, soil, land",
     "chapter": 3
   },
   {
     "greek": "δαιμονιον",
-    "translation": "demon",
+    "french": "démon",
+    "english": "demon",
     "chapter": 3
   },
   {
     "greek": "Δαυιδ",
-    "translation": "David",
+    "french": "David",
+    "english": "David",
     "chapter": 1
   },
   {
     "greek": "δια+A",
-    "translation": "à cause de, à travers",
+    "french": "à cause de",
+    "english": "because of",
+    "chapter": 4
+  },
+  {
+    "greek": "δια+G",
+    "french": "à travers de",
+    "english": "through",
     "chapter": 4
   },
   {
     "greek": "διδασκω",
-    "translation": "j'enseigne",
+    "french": "j'enseigne",
+    "english": "I teach",
     "chapter": 2
   },
   {
     "greek": "δουλος ",
-    "translation": "esclave",
+    "french": "esclave",
+    "english": "slave",
     "chapter": 2
   },
   {
     "greek": "ἐκκλησια",
-    "translation": "assemblée",
+    "french": "assemblée",
+    "english": "assembly",
     "chapter": 3
   },
   {
     "greek": "ἐν+D",
-    "translation": "dans",
+    "french": "dans",
+    "english": "in",
     "chapter": 4
   },
   {
-    "greek": "ἐνωπιον",
-    "translation": "devant, en présence de",
+    "greek": "ἐνωπιον+G",
+    "french": "devant, en présence de",
+    "english": "in front of, in presence of",
     "chapter": 4
   },
   {
     "greek": "ἐξω+G",
-    "translation": "dehors",
+    "french": "dehors",
+    "english": "outside",
     "chapter": 4
   },
   {
     "greek": "ἐπι+A",
-    "translation": "VERIF sur",
+    "french": "VERIF sur",
+    "english": "onto",
     "chapter": 4
   },
   {
     "greek": "ἐπι+G",
-    "translation": "VERIFsur, au temps de",
+    "french": "VERIF sur, au temps de",
+    "english": "on, in the time of",
     "chapter": 4
   },
   {
     "greek": "ἐπι+D",
-    "translation": "VERIF sur/dans, selon",
+    "french": "VERIF sur/dans, à cause de",
+    "english": "on, in , on the basis of",
     "chapter": 4
   },
   {
     "greek": "ἐργον",
-    "translation": "oeuvre",
+    "french": "oeuvre",
+    "english": "work, deed",
     "chapter": 3
   },
   {
     "greek": "εὐαγγελιον",
-    "translation": "bonne nouvelle, évangile",
+    "french": "bonne nouvelle, évangile",
+    "english": "good news, gospel",
+    "chapter": 3
+  },
+  {
+    "greek": "εχω",
+    "french": "j'ai, je tiens",
+    "english": "I have, I hold",
     "chapter": 3
   },
   {
     "greek": "ζητεω",
-    "translation": "je cherche",
+    "french": "je cherche",
+    "english": "I seek",
     "chapter": 2
   },
   {
     "greek": "ζωη",
-    "translation": "vie",
+    "french": "vie",
+    "english": "life",
     "chapter": 3
   },
   {
     "greek": "ἡμερα",
-    "translation": "jour",
+    "french": "jour",
+    "english": "day",
     "chapter": 3
   },
   {
     "greek": "θαλασσα",
-    "translation": "mer, lac",
+    "french": "mer, lac",
+    "english": "sea, lake",
     "chapter": 3
   },
   {
     "greek": "θεος",
-    "translation": "dieu, Dieu",
+    "french": "dieu, Dieu",
+    "english": "god, God",
     "chapter": 2
   },
   {
     "greek": "Ἰακωβ",
-    "translation": "Jacob",
+    "french": "Jacob",
+    "english": "Jacob",
     "chapter": 1
   },
   {
     "greek": "ἱερον",
-    "translation": "temple",
+    "french": "temple",
+    "english": "temple",
     "chapter": 3
   },
   {
     "greek": "Ἰησους",
-    "translation": "Jésus",
+    "french": "Jésus",
+    "english": "Jesus",
     "chapter": 3
   },
   {
     "greek": "Ἰσρηλ",
-    "translation": "Israël",
+    "french": "Israël",
+    "english": "Israel",
     "chapter": 1
   },
   {
     "greek": "Ἰωσηφ",
-    "translation": "Joseph",
+    "french": "Joseph",
+    "english": "Joseph",
     "chapter": 1
   },
   {
     "greek": "καλεω",
-    "translation": "j'appelle",
+    "french": "j'appelle",
+    "english": "I call",
     "chapter": 2
   },
   {
     "greek": "καρδια",
-    "translation": "coeur",
+    "french": "coeur",
+    "english": "heart",
     "chapter": 3
   },
   {
     "greek": "κατα+A",
-    "translation": "d'après, selon",
+    "french": "d'après, selon",
+    "english": "according to",
     "chapter": 4
   },
   {
     "greek": "κατα+G",
-    "translation": "contre",
+    "french": "contre",
+    "english": "against",
     "chapter": 4
   },
   {
     "greek": "κατοικεω",
-    "translation": "j'habite, je demeure",
+    "french": "j'habite, je demeure",
+    "english": "I dwell, I inhabit, I live",
     "chapter": 4
   },
   {
     "greek": "κοσμος ",
-    "translation": "monde, univers",
+    "french": "monde, univers",
+    "english": "world,",
     "chapter": 2
   },
   {
     "greek": "κυριος ",
-    "translation": "seigneur, maître, monsieur",
+    "french": "seigneur, maître, monsieur",
+    "english": "lord, master, sir",
     "chapter": 2
   },
   {
     "greek": "λαλεω",
-    "translation": "je parle, je dis",
+    "french": "je parle, je dis",
+    "english": "I speak, I say",
     "chapter": 2
   },
   {
     "greek": "λαμβανω",
-    "translation": "",
-    "chapter": 0
+    "french": "je prends, je reçois",
+    "english": "I take, I receive",
+    "chapter": 2
   },
   {
     "greek": "λαος ",
-    "translation": "",
-    "chapter": 0
+    "french": "peuple, nation",
+    "english": "people, nation",
+    "chapter": 2
   },
   {
     "greek": "λελω",
-    "translation": "",
-    "chapter": 0
+    "french": "je dis, je parle",
+    "english": "I say, I speak, I tell",
+    "chapter": 2
   },
   {
-    "greek": "λογος ",
-    "translation": "",
-    "chapter": 0
+    "greek": "λογος",
+    "french": "parole, message",
+    "english": "word, message",
+    "chapter": 2
   },
   {
     "greek": "λυω",
-    "translation": "",
-    "chapter": 0
+    "french": "je détache",
+    "english": "I untie",
+    "chapter": 2
   },
   {
     "greek": "Μαρια/Μαριαμ",
-    "translation": "",
-    "chapter": 0
+    "french": "Marie",
+    "english": "Mary",
+    "chapter": 3
   },
   {
-    "greek": "μετα",
-    "translation": "",
-    "chapter": 0
+    "greek": "μετα+A",
+    "french": "après",
+    "english": "after",
+    "chapter": 4
   },
   {
-    "greek": "νομος ",
-    "translation": "",
-    "chapter": 0
+    "greek": "μετα+G",
+    "french": "avec",
+    "english": "with",
+    "chapter": 4
+  },
+  {
+    "greek": "νομος",
+    "french": "loi",
+    "english": "law",
+    "chapter": 2
   },
   {
     "greek": "οἰκια",
-    "translation": "",
-    "chapter": 0
+    "french": "maison, maisonnée",
+    "english": "house, household",
+    "chapter": 3
   },
   {
-    "greek": "οἰκος ",
-    "translation": "",
-    "chapter": 0
+    "greek": "οἰκος",
+    "french": "maisonnée, maison",
+    "english": "household, house",
+    "chapter": 2
   },
   {
     "greek": "οὐ οὐκ οὐχ",
-    "translation": "",
-    "chapter": 0
+    "french": "pas",
+    "english": "not",
+    "chapter": 4
   },
   {
-    "greek": "οὐρανος ",
-    "translation": "",
-    "chapter": 0
+    "greek": "οὐρανος",
+    "french": "ciel",
+    "english": "heaven",
+    "chapter": 2
   },
   {
-    "greek": "ὀχλος ",
-    "translation": "",
-    "chapter": 0
+    "greek": "ὀχλος",
+    "french": "foule",
+    "english": "crowd",
+    "chapter": 2
   },
   {
-    "greek": "παρα",
-    "translation": "",
-    "chapter": 0
+    "greek": "παρα+A",
+    "french": "aux côtés de",
+    "english": "alongside",
+    "chapter": 4
+  },
+  {
+    "greek": "παρα+G",
+    "french": "depuis le côté",
+    "english": "from beside",
+    "chapter": 4
+  },
+  {
+    "greek": "παρα+D",
+    "french": "à côté",
+    "english": "beside",
+    "chapter": 4
   },
   {
     "greek": "παρακαλεω",
-    "translation": "",
-    "chapter": 0
+    "french": "j'exhorte, je requête, je conforte, j'encourage",
+    "english": "I exhort, I request, I comfort, I encourage",
+    "chapter": 4
   },
   {
-    "greek": "μαραλαμβανω",
-    "translation": "",
-    "chapter": 0
+    "greek": "παραλαμβανω",
+    "french": "je prends, je reçois",
+    "english": "I take, I receive",
+    "chapter": 4
   },
   {
-    "greek": "Παυλος ",
-    "translation": "",
-    "chapter": 0
+    "greek": "Παυλος",
+    "french": "Paul",
+    "english": "Paul",
+    "chapter": 3
   },
   {
-    "greek": "περι",
-    "translation": "",
-    "chapter": 0
+    "greek": "περι+A",
+    "french": "autour de, approximativement",
+    "english": "around, approximately",
+    "chapter": 4
+  },
+  {
+    "greek": "περι+G",
+    "french": "concernant, à propos de",
+    "english": "concerning, about",
+    "chapter": 4
   },
   {
     "greek": "περιπατεω",
-    "translation": "",
-    "chapter": 0
+    "french": "je marche, je vie",
+    "english": "I walk about, I live",
+    "chapter": 4
   },
   {
-    "greek": "Πετρος ",
-    "translation": "",
-    "chapter": 0
+    "greek": "Πετρος",
+    "french": "Pierre",
+    "english": "Peter",
+    "chapter": 3
   },
   {
-    "greek": "πιστευω",
-    "translation": "",
-    "chapter": 0
+    "greek": "πιστευω+D",
+    "french": "je crois en, je fais confiance en, j'ai foi en",
+    "english": "I believe in, I trust, I have faith in",
+    "chapter": 3
   },
   {
     "greek": "πλοιον",
-    "translation": "",
-    "chapter": 0
+    "french": "bâteau",
+    "english": "boat",
+    "chapter": 3
   },
   {
     "greek": "ποιεω",
-    "translation": "",
-    "chapter": 0
+    "french": "je fais, je fabrique",
+    "english": "I do, I make",
+    "chapter": 2
   },
   {
     "greek": "που",
-    "translation": "",
-    "chapter": 0
+    "french": "où",
+    "english": "where",
+    "chapter": 4
   },
   {
-    "greek": "προ",
-    "translation": "",
-    "chapter": 0
+    "greek": "προ+G",
+    "french": "avant",
+    "english": "before",
+    "chapter": 4
   },
   {
-    "greek": "προσκυνεω",
-    "translation": "",
-    "chapter": 0
+    "greek": "προσκυνεω+D",
+    "french": "je loue",
+    "english": "I worship",
+    "chapter": 4
   },
   {
     "greek": "προσωπον",
-    "translation": "",
-    "chapter": 0
+    "french": "visage",
+    "english": "face",
+    "chapter": 3
   },
   {
-    "greek": "πως ",
-    "translation": "",
-    "chapter": 0
+    "greek": "πως",
+    "french": "comment",
+    "english": "how",
+    "chapter": 4
   },
   {
     "greek": "ῥαββι",
-    "translation": "",
-    "chapter": 0
+    "french": "rabbi",
+    "english": "rabbi",
+    "chapter": 1
   },
   {
     "greek": "σαββατον",
-    "translation": "",
-    "chapter": 0
+    "french": "Sabbat",
+    "english": "Sabbath",
+    "chapter": 3
   },
   {
     "greek": "σημειον",
-    "translation": "",
-    "chapter": 0
+    "french": "signe, miracle",
+    "english": "sign",
+    "chapter": 3
   },
   {
-    "greek": "συν",
-    "translation": "",
-    "chapter": 0
+    "greek": "συν+D",
+    "french": "ensemble avec",
+    "english": "together with",
+    "chapter": 4
   },
   {
     "greek": "συναγω",
-    "translation": "",
-    "chapter": 0
+    "french": "je rassemble",
+    "english": "to gather, to bring together",
+    "chapter": 4
   },
   {
     "greek": "τεκνον",
-    "translation": "",
-    "chapter": 0
+    "french": "enfant",
+    "english": "child",
+    "chapter": 3
   },
   {
     "greek": "τηρεω",
-    "translation": "",
-    "chapter": 0
+    "french": "je garde",
+    "english": "I keep",
+    "chapter": 2
   },
   {
     "greek": "υἱος ",
-    "translation": "",
-    "chapter": 0
+    "french": "fils",
+    "english": "son",
+    "chapter": 2
   },
   {
     "greek": "ὑπαγω",
-    "translation": "",
-    "chapter": 0
+    "french": "je pars",
+    "english": "I depart",
+    "chapter": 4
   },
   {
-    "greek": "ὑπερ",
-    "translation": "",
-    "chapter": 0
+    "greek": "ὑπερ+A",
+    "french": "au-dessus de",
+    "english": "above",
+    "chapter": 4
   },
   {
-    "greek": "ὑπο",
-    "translation": "",
-    "chapter": 0
+    "greek": "ὑπερ+G",
+    "french": "",
+    "english": "on behalf of",
+    "chapter": 4
+  },
+  {
+    "greek": "ὑπο+A",
+    "french": "sous",
+    "english": "under",
+    "chapter": 4
+  },
+  {
+    "greek": "ὑπο+G",
+    "french": "par, entre les mains de",
+    "english": "by, at the hands of",
+    "chapter": 4
   },
   {
     "greek": "φιλεω",
-    "translation": "",
-    "chapter": 0
+    "french": "j'aime",
+    "english": "I love, I like",
+    "chapter": 2
   },
   {
     "greek": "φωνη",
-    "translation": "",
-    "chapter": 0
+    "french": "son, voix",
+    "english": "sound, voice",
+    "chapter": 3
   },
   {
-    "greek": "Χριστος ",
-    "translation": "",
-    "chapter": 0
+    "greek": "Χριστος",
+    "french": "Christ, Messie",
+    "english": "Christ, Messiah",
+    "chapter": 2
   },
   {
     "greek": "Ψυχη",
-    "translation": "",
-    "chapter": 0
+    "french": "âme, soi",
+    "english": "soul, self",
+    "chapter": 3
   },
   {
     "greek": "ὡρα",
-    "translation": "",
-    "chapter": 0
+    "french": "heure, occasion",
+    "english": "hour, occasion",
+    "chapter": 3
   },
 ]
