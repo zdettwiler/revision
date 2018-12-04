@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import './Exercise.css'
 import QuestionAnswer from 'components/QuestionAnswer/QuestionAnswer'
 import ProgressTracker from 'components/ProgressTracker/ProgressTracker'
+import ExerciseResults from 'components/ExerciseResults/ExerciseResults'
 
 class Exercise extends Component {
   constructor(props) {
@@ -76,7 +77,7 @@ class Exercise extends Component {
         )}
 
         {this.state.status === 'finished' && (
-          'finished exercise'
+          <ExerciseResults />
         )}
       </div>
     )

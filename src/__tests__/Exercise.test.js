@@ -4,6 +4,7 @@ import { shallow, mount } from 'enzyme'
 import Exercise from '../components/Exercise/Exercise'
 import QuestionAnswer from '../components/QuestionAnswer/QuestionAnswer'
 import ProgressTracker from '../components/ProgressTracker/ProgressTracker'
+import ExerciseResults from '../components/ExerciseResults/ExerciseResults'
 
 describe('<Exercise />', () => {
   let wrapper
@@ -34,12 +35,10 @@ describe('<Exercise />', () => {
     )).toBe(true)
   })
 
-  it('renders finished exercise when game is finished', () => {
+  it('renders results when game is finished', () => {
     wrapper.setState({ status: 'finished' })
     expect(wrapper.containsMatchingElement(
-      <div className="Exercise">
-        finished exercise
-      </div>
+      <ExerciseResults />
     )).toBe(true)
   })
 
