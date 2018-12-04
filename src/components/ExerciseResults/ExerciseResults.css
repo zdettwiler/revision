@@ -3,3 +3,13 @@
   margin: auto;
   border: 1px purple solid
 }
+
+.score {
+  font-size: 50px;
+  font-weight: bold;
+}
+.summary {
+  font-size: 20px;
+  font-style: italic;
+  margin-left: 30px;
+}

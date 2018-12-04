@@ -27,21 +27,21 @@ class App extends Component {
               "translation": "amour",
               "chapter": 3
             },
-            {
-              "greek": "ἀγγελος",
-              "translation": "messager, ange",
-              "chapter": 2
-            },
-            {
-              "greek": "ἀγω",
-              "translation": "je dirige, j'apporte",
-              "chapter": 2
-            },
-            {
-              "greek": "ἀδελφη",
-              "translation": "soeur",
-              "chapter": 3
-            }
+            // {
+            //   "greek": "ἀγγελος",
+            //   "translation": "messager, ange",
+            //   "chapter": 2
+            // },
+            // {
+            //   "greek": "ἀγω",
+            //   "translation": "je dirige, j'apporte",
+            //   "chapter": 2
+            // },
+            // {
+            //   "greek": "ἀδελφη",
+            //   "translation": "soeur",
+            //   "chapter": 3
+            // }
           ]}
         />
 
