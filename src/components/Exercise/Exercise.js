@@ -36,7 +36,12 @@ class Exercise extends Component {
       })
 
       leftQuestions.splice(nextQuestionId, 1)
+
+      if (exercise.length >= this.props.rules.nbQuestions) {
+        break
+      }
     }
+
     this.setState({ exercise, status: 'revising' })
   }
 

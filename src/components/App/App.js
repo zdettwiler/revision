@@ -14,7 +14,10 @@ class App extends Component {
         <Exercise
           rules={{
             question: 'greek',
-            answer: 'english'
+            answer: 'english',
+            category: 'chapter',
+            chosenCategory: 1,
+            nbQuestions: 1
           }}
           set={vocabDuffENTG}
         />

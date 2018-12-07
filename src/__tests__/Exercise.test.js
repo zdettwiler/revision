@@ -10,12 +10,24 @@ describe('<Exercise />', () => {
   let wrapper
   beforeEach(() => {
     wrapper = shallow(<Exercise
-      rules={{ question: 'greek', answer:'translation' }}
-      set={[{
-        greek: "ἀγαπη",
-        translation: "amour",
-        chapter: 3
-      }]}
+      rules={{ question: 'greek', answer:'french', nbQuestions: 2 }}
+      set={[
+        {
+          greek: 'Ἀβρααμ',
+          french: 'Abraham',
+          chapter: 1
+        },
+        {
+          greek: 'ἀγαπη',
+          french: 'amour',
+          chapter: 3
+        },
+        {
+          greek: 'ἀδελφη',
+          french: 'soeur',
+          chapter: 3
+        }
+      ]}
     />)
   })
 
@@ -54,6 +66,10 @@ describe('<Exercise />', () => {
   //   wrapper.setProps({ rules: {}, set: {} })
   //   expect(wrapper.find('.message').text()).toBe('error')
   // })
+
+  it('creates an exercise of length defined by rule', () => {
+    expect(wrapper.state('exercise').length).toBe(2)
+  })
 })
 
 describe('mounted <Exercise />', () => {
