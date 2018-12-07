@@ -149,6 +149,40 @@ describe('mounted <Exercise />', () => {
     expect(wrapper.state().exercise[0].result).toBe('fail')
   })
 
+  it('checkAnswer() accepts any value from comma-separated answer', () => {
+    wrapper = mount(
+      <Exercise
+        question='french'
+        answer='translation'
+        set={[{
+          french: "bonjour",
+          translation: "hello, hi"
+        }]}
+      />
+    )
+    wrapper.find('input.answerInput').simulate('keypress', {
+      key: 'Enter',
+      target: { value: 'hello' }
+    })
+    expect(wrapper.state().exercise[0].result).toBe('success')
+
+    wrapper = mount(
+      <Exercise
+        question='french'
+        answer='translation'
+        set={[{
+          french: "bonjour",
+          translation: "hello, hi"
+        }]}
+      />
+    )
+    wrapper.find('input.answerInput').simulate('keypress', {
+      key: 'Enter',
+      target: { value: 'hi' }
+    })
+    expect(wrapper.state().exercise[0].result).toBe('success')
+  })
+
   it('checkAnswer() saves user answer', () => {
     wrapper.find('input.answerInput').simulate('keypress', {
       key: 'Enter',

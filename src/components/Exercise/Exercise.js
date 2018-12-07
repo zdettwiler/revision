@@ -56,7 +56,7 @@ class Exercise extends Component {
     let exercise = this.state.exercise
 
     exercise[currentQuestion].response = value
-    exercise[currentQuestion].result = exercise[currentQuestion].answer === value
+    exercise[currentQuestion].result = exercise[currentQuestion].answer.split(', ').includes(value)
       ? 'success'
       : 'fail'
 
