@@ -12,13 +12,11 @@ class App extends Component {
         </div>
 
         <Exercise
-          rules={{
-            question: 'greek',
-            answer: 'english',
-            category: 'chapter',
-            chosenCategory: 1,
-            nbQuestions: 1
-          }}
+          question='greek'
+          answer='english'
+          category='chapter'
+          chosenCategory={2}
+          nbQuestions={10}
           set={vocabDuffENTG}
         />
 

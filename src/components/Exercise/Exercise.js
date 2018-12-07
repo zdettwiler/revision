@@ -15,33 +15,38 @@ class Exercise extends Component {
   }
 
   componentDidMount() {
-    if (this.props.rules !== undefined && this.props.set !== undefined) {
+    if (this.props.set !== undefined) {
       this.createExercise()
     }
   }
 
   createExercise() {
     let exercise = []
-    let leftQuestions = this.props.set
+
+    let leftQuestions = 'chosenCategory' in this.props && 'category' in this.props
+      ? this.props.set.filter(question => {
+          return question[this.props.category] === this.props.chosenCategory
+        })
+      : this.props.set
+
     let nextQuestionId
 
     while (leftQuestions.length > 0) {
       nextQuestionId = Math.round((leftQuestions.length-1) * Math.random())
 
       exercise.push({
-        question: leftQuestions[ nextQuestionId ][this.props.rules.question],
-        answer: leftQuestions[ nextQuestionId ][this.props.rules.answer],
+        question: leftQuestions[ nextQuestionId ][this.props.question],
+        answer: leftQuestions[ nextQuestionId ][this.props.answer],
         response: undefined,
         result: undefined
       })
 
       leftQuestions.splice(nextQuestionId, 1)
 
-      if (exercise.length >= this.props.rules.nbQuestions) {
+      if (exercise.length >= this.props.nbQuestions) {
         break
       }
     }
-
     this.setState({ exercise, status: 'revising' })
   }
 

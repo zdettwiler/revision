@@ -6,29 +6,36 @@ import QuestionAnswer from '../components/QuestionAnswer/QuestionAnswer'
 import ProgressTracker from '../components/ProgressTracker/ProgressTracker'
 import ExerciseResults from '../components/ExerciseResults/ExerciseResults'
 
+const set = [
+  {
+    greek: 'Ἀβρααμ',
+    french: 'Abraham',
+    chapter: 1
+  },
+  {
+    greek: 'ἀγαπη',
+    french: 'amour',
+    chapter: 3
+  },
+  {
+    greek: 'ἀδελφη',
+    french: 'soeur',
+    chapter: 3
+  }
+]
 describe('<Exercise />', () => {
   let wrapper
   beforeEach(() => {
-    wrapper = shallow(<Exercise
-      rules={{ question: 'greek', answer:'french', nbQuestions: 2 }}
-      set={[
-        {
-          greek: 'Ἀβρααμ',
-          french: 'Abraham',
-          chapter: 1
-        },
-        {
-          greek: 'ἀγαπη',
-          french: 'amour',
-          chapter: 3
-        },
-        {
-          greek: 'ἀδελφη',
-          french: 'soeur',
-          chapter: 3
-        }
-      ]}
-    />)
+    wrapper = shallow(
+      <Exercise
+        question='greek'
+        answer='french'
+        category='chapter'
+        chosenCategory={1}
+        nbQuestions={2}
+        set={set}
+      />
+    )
   })
 
   it('renders a <div />', () => {
@@ -37,7 +44,6 @@ describe('<Exercise />', () => {
 
   it('renders no exercise available if no data is loaded', () => {
     wrapper = shallow(<Exercise
-      rules={undefined}
       set={undefined}
     />)
     expect(wrapper.containsMatchingElement(
@@ -68,7 +74,33 @@ describe('<Exercise />', () => {
   // })
 
   it('creates an exercise of length defined by rule', () => {
-    expect(wrapper.state('exercise').length).toBe(2)
+    wrapper = shallow(
+      <Exercise
+        question='greek'
+        answer='french'
+        category='chapter'
+        chosenCategory={3}
+        nbQuestions={1}
+        set={set}
+      />
+    )
+
+    expect(wrapper.state('exercise').length).toBe(1)
+  })
+
+  it('creates an exercise from category defined by rule', () => {
+    wrapper = shallow(
+      <Exercise
+        question='greek'
+        answer='french'
+        category='chapter'
+        chosenCategory={1}
+        set={set}
+      />
+    )
+    expect(wrapper.state('exercise').length).toBe(1)
+    expect(wrapper.state('exercise')[0].question).toBe('Ἀβρααμ')
+
   })
 })
 
@@ -77,10 +109,8 @@ describe('mounted <Exercise />', () => {
   beforeEach(() => {
     wrapper = mount(
       <Exercise
-        rules={{
-          question: 'french',
-          answer:'translation'
-        }}
+        question='french'
+        answer='translation'
         set={[{
           french: "bonjour",
           translation: "hello"
