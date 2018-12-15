@@ -22,7 +22,7 @@ class ExerciseResults extends Component {
     return (
       <div className='ExerciseResults'>
         <div className='score-container'>
-          <span className='score'>{this.state.score}%</span>
+          <span className='score'>{Math.round(this.state.score)}%</span>
           <span className='summary'>({this.state.nbQuestions} questions)</span>
         </div>
         <ul>

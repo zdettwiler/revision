@@ -14,6 +14,8 @@ class ProgressTracker extends Component {
                     {q.question + ' = ' + q.answer}
                   </li>
                 )
+              } else {
+                return ''
               }
             })
           }

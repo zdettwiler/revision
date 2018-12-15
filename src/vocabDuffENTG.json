@@ -158,7 +158,7 @@
   {
     "greek": "ἐνωπιον+G",
     "french": "devant, en présence de",
-    "english": "in front of, in presence of",
+    "english": "in front of, in presence of, before",
     "chapter": 4
   },
   {
@@ -296,7 +296,7 @@
   {
     "greek": "κοσμος ",
     "french": "monde, univers",
-    "english": "world,",
+    "english": "world",
     "chapter": 2
   },
   {
@@ -524,7 +524,7 @@
   {
     "greek": "συν+D",
     "french": "ensemble avec",
-    "english": "together with",
+    "english": "together with, with",
     "chapter": 4
   },
   {
@@ -600,7 +600,7 @@
     "chapter": 2
   },
   {
-    "greek": "Ψυχη",
+    "greek": "ψυχη",
     "french": "âme, soi",
     "english": "soul, self",
     "chapter": 3

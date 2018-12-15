@@ -15,8 +15,8 @@ class App extends Component {
           question='greek'
           answer='english'
           category='chapter'
-          chosenCategory={2}
-          nbQuestions={10}
+          chosenCategory={4}
+          // nbQuestions={10}
           set={vocabDuffENTG}
         />
 
