@@ -14,7 +14,7 @@ describe('<App />', () => {
     expect(wrapper.find('div.App').length).toEqual(1)
   })
 
-  it('renders a <Exercise />', () => {
-    expect(wrapper.containsMatchingElement(<Exercise />)).toEqual(true)
-  })
+  // it('renders a <Exercise />', () => {
+  //   expect(wrapper.containsMatchingElement(<Exercise />)).toEqual(true)
+  // })
 })

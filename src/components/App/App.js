@@ -3,6 +3,7 @@ import './App.css'
 import { BrowserRouter, Switch, Route, Link } from 'react-router-dom'
 
 import Home from 'components/Home/Home'
+import Revise from 'components/Revise/Revise'
 import Exercise from 'components/Exercise/Exercise'
 import vocabDuffENTG from 'vocabDuffENTG'
 
@@ -19,10 +20,11 @@ class App extends Component {
             </div>
 
             <Switch>
-              <Route path='/' component={Home} />
-              <Route path='/exercise' component={Exercise} />
+              <Route path='/' exact component={Home} />
+              // <Route path='/exercise' component={Exercise} />
+              <Route path='/revise/:set/chapters/:chapters/questions/:questions' component={Revise} />
             </Switch>
-            
+
           </div>
         </BrowserRouter>
 
