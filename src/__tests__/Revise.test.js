@@ -1,14 +1,21 @@
 import React from 'react'
-import { shallow } from 'enzyme'
+import { shallow, mount } from 'enzyme'
 
 import Revise from '../components/Revise/Revise'
+import QuestionAnswer from '../components/QuestionAnswer/QuestionAnswer'
+import ProgressTracker from '../components/ProgressTracker/ProgressTracker'
+import ExerciseResults from '../components/ExerciseResults/ExerciseResults'
 
 describe('<Revise />', () => {
   let wrapper
   beforeEach(() => {
     wrapper = shallow(
       <Revise
-        match={{ params: {} }}
+        match={{ params: {
+          set: 'greek-duff',
+          chapters: '1',
+          nbQuestions: 10
+        } }}
       />
     )
   })
@@ -16,6 +23,33 @@ describe('<Revise />', () => {
   it('renders a <div />', () => {
     expect(wrapper.find('div.Revise').length).toEqual(1)
   })
+
+  it('if loading, it renders a loading message', () => {
+    wrapper.setState({ status: 'loading' })
+    expect(wrapper.text()).toBe('loading...')
+  })
+
+  it('renders a <QuestionAnswer />', () => {
+    expect(wrapper.containsMatchingElement(<QuestionAnswer />)).toBe(true)
+  })
+
+  it('renders a <ProgressTracker />', () => {
+    expect(wrapper.containsMatchingElement(<ProgressTracker />)).toBe(true)
+  })
+
+  // it('loads set', () => {
+  //   expect(wrapper.state('set')).toBe([])
+  // })
+
+  it('loads chapters', () => {
+    expect(wrapper.state('chapters')).toEqual([1])
+  })
+
+  it('loads nbQuestions', () => {
+    expect(wrapper.state('nbQuestions')).toBe(10)
+  })
+
+
 
   describe('creates an exercise correctly', () => {
 
