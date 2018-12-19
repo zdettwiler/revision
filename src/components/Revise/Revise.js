@@ -6,7 +6,7 @@ class Revise extends Component {
       <div className='Revise'>
         <h2>Revise</h2>
         <p>{this.props.match.params.set} {this.props.match.params.chapters} {this.props.match.params.questions}</p>
-
+        <p>{this.props.match.params.savedEx}</p>
       </div>
     );
   }
