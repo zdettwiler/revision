@@ -77,6 +77,7 @@ class Revise extends Component {
   }
 
   render() {
+    console.log(this.state.exercise)
     return (
       <div className='Revise'>
         {this.state.status === 'revising' && (
@@ -94,7 +95,7 @@ class Revise extends Component {
         {this.state.status === 'loading' && (
           'loading...'
         )}
-        
+
       </div>
     );
   }

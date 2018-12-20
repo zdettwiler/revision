@@ -51,6 +51,12 @@ describe('<Revise />', () => {
 
 
 
+  // it('exercise questions are from defined chapter', () => {
+  //   expect(wrapper.state('exercise').length).toBe(10)
+  // })
+
+
+
   describe('creates an exercise correctly', () => {
 
     it('creates an array of single chapter to revise', () => {
@@ -61,7 +67,6 @@ describe('<Revise />', () => {
           }}
         />
       )
-
       expect(wrapper.state('chapters')).toEqual([1])
     })
 
@@ -73,7 +78,6 @@ describe('<Revise />', () => {
           }}
         />
       )
-
       expect(wrapper.state('chapters')).toEqual([1, 2, 5, 7])
     })
 
@@ -85,7 +89,6 @@ describe('<Revise />', () => {
           }}
         />
       )
-
       expect(wrapper.state('chapters')).toEqual([1, 2, 3, 4])
     })
 
@@ -97,8 +100,11 @@ describe('<Revise />', () => {
           }}
         />
       )
-
       expect(wrapper.state('chapters')).toEqual([1, 2, 3, 7, 12, 15, 16, 17])
+    })
+
+    it('exercise is of defined length', () => {
+      expect(wrapper.state('exercise').length).toBe(10)
     })
 
   })
