@@ -1,0 +1,21 @@
+{
+  "name": "revision",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "start": "babel-node --presets es2015 src/server.js",    
+    "test": "jest --watch"
+  },
+  "dependencies": {
+    "express": "^4.16.4",
+    "nodemon": "^1.18.9"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-env": "^1.7.0",
+    "concurrently": "^4.1.0",
+    "jest": "^23.6.0",
+    "rimraf": "^2.6.2",
+    "supertest": "^3.3.0"
+  }
+}
