@@ -64,21 +64,18 @@ describe('<Revise />', () => {
     expect(global.fetch).toHaveBeenCalledWith('/api/revise/greek/chapters/1/questions/6')
   })
 
-  /*it('loads nbQuestions', () => {
-    expect(wrapper.state('nbQuestions')).toBe(10)
-  })
-
   it('calls checkAnswer() on Enter press', () => {
     const spy = jest.spyOn(wrapper.instance(), 'checkAnswer')
     wrapper.instance().forceUpdate()
-    wrapper.find('input.answerInput').simulate('keypress', {
-      key: 'Enter',
-      target: { value: 'val' }
-    })
+    wrapper.setState({ status: 'revising', exercise: [{
+      question: '',
+      answer: ''
+    }] })
+    wrapper.find(QuestionAnswer).prop('onSubmit')('val')
     expect(spy).toHaveBeenCalledWith('val')
   })
 
-  it('checkAnswer() checks answer - success', () => {
+  /*it('checkAnswer() checks answer - success', () => {
     wrapper.find('input.answerInput').simulate('keypress', {
       key: 'Enter',
       target: { value: 'hello' }
