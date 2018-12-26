@@ -3,9 +3,9 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "start": "cd server && npm run dev",
     "client": "cd client && npm start",
     "server": "cd server && npm start",
+    "start": "cd server && npm run dev",
 
     "test": "cd server && npm run test"
   }

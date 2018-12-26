@@ -5,7 +5,6 @@ import { BrowserRouter, Switch, Route, Link } from 'react-router-dom'
 import Home from 'components/Home/Home'
 import Revise from 'components/Revise/Revise'
 import Exercise from 'components/Exercise/Exercise'
-import vocabDuffENTG from 'vocabDuffENTG'
 
 class App extends Component {
   render() {
