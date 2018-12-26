@@ -13,6 +13,7 @@ class Revise extends Component {
     }
 
     this.getExercise = this.getExercise.bind(this)
+    this.checkAnswer = this.checkAnswer.bind(this)
   }
 
   componentDidMount() {
@@ -20,6 +21,8 @@ class Revise extends Component {
     && this.props.match.params.chapters
     && this.props.match.params.nbQuestions) {
       this.getExercise()
+    } else {
+      // console.log('exercise config error')
     }
   }
 
@@ -29,13 +32,30 @@ class Revise extends Component {
       + '/questions/' + this.props.match.params.nbQuestions)
       .then(resp => resp.json())
       .then(data => {
-        console.log(data)
         this.setState({ exercise: data, status: 'revising' })
       })
+      .catch(e => console.log(e))
+  }
+
+  checkAnswer(value) {
+    // console.log(value)
+    let currentQuestion = this.state.currentQuestion
+    let exercise = this.state.exercise
+
+    exercise[currentQuestion].response = value
+    exercise[currentQuestion].result = exercise[currentQuestion].answer.split(', ').includes(value)
+      ? 'success'
+      : 'fail'
+
+    currentQuestion++
+    let status = currentQuestion === exercise.length
+      ? 'finished'
+      : this.state.status
+
+    this.setState({ exercise, currentQuestion, status })
   }
 
   render() {
-    console.log(this.state.exercise)
     return (
       <div className='Revise'>
         {this.state.status === 'revising' && (
@@ -45,7 +65,7 @@ class Revise extends Component {
             />
             <QuestionAnswer
               currentQuestion={this.state.exercise[this.state.currentQuestion].question}
-              // onSubmit={this.checkAnswer.bind(this)}
+              onSubmit={this.checkAnswer}
             />
           </div>
         )}

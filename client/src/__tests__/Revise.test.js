@@ -12,9 +12,9 @@ describe('<Revise />', () => {
     wrapper = shallow(
       <Revise
         match={{ params: {
-          set: 'greek-duff',
+          set: 'greek',
           chapters: '1',
-          nbQuestions: 10
+          nbQuestions: 6
         } }}
       />
     )
@@ -30,82 +30,126 @@ describe('<Revise />', () => {
   })
 
   it('renders a <QuestionAnswer />', () => {
+    expect(wrapper.containsMatchingElement(<QuestionAnswer />)).toBe(false)
+    wrapper.setState({ status: 'revising', exercise: [{
+      question: '',
+      answer: ''
+    }] })
     expect(wrapper.containsMatchingElement(<QuestionAnswer />)).toBe(true)
   })
 
   it('renders a <ProgressTracker />', () => {
+    expect(wrapper.containsMatchingElement(<ProgressTracker />)).toBe(false)
+    wrapper.setState({ status: 'revising', exercise: [{
+      question: '',
+      answer: ''
+    }] })
     expect(wrapper.containsMatchingElement(<ProgressTracker />)).toBe(true)
   })
 
-  // it('loads set', () => {
-  //   expect(wrapper.state('set')).toBe([])
-  // })
+  it('calls the right api url', () => {
+    const mockSuccessResponse = [{
+      question: '',
+      answer: ''
+    }]
+    const mockJsonPromise = Promise.resolve(mockSuccessResponse)
+    const mockFetchPromise = Promise.resolve({
+      json: () => mockJsonPromise,
+    })
 
-  it('loads chapters', () => {
-    expect(wrapper.state('chapters')).toEqual([1])
+    jest.spyOn(global, 'fetch').mockImplementation(() => mockFetchPromise)
+    wrapper.instance().componentDidMount()
+
+    expect(global.fetch).toHaveBeenCalledTimes(1);
+    expect(global.fetch).toHaveBeenCalledWith('/api/revise/greek/chapters/1/questions/6')
   })
 
-  it('loads nbQuestions', () => {
+  /*it('loads nbQuestions', () => {
     expect(wrapper.state('nbQuestions')).toBe(10)
   })
 
-
-
-  // it('exercise questions are from defined chapter', () => {
-  //   expect(wrapper.state('exercise').length).toBe(10)
-  // })
-
-
-
-  describe('creates an exercise correctly', () => {
-
-    it('creates an array of single chapter to revise', () => {
-      let wrapper = shallow(
-        <Revise
-          match={{
-            params: { chapters: '1' }
-          }}
-        />
-      )
-      expect(wrapper.state('chapters')).toEqual([1])
+  it('calls checkAnswer() on Enter press', () => {
+    const spy = jest.spyOn(wrapper.instance(), 'checkAnswer')
+    wrapper.instance().forceUpdate()
+    wrapper.find('input.answerInput').simulate('keypress', {
+      key: 'Enter',
+      target: { value: 'val' }
     })
-
-    it('creates an array of list of single chapters to revise', () => {
-      let wrapper = shallow(
-        <Revise
-          match={{
-            params: { chapters: '1,2,5,7' }
-          }}
-        />
-      )
-      expect(wrapper.state('chapters')).toEqual([1, 2, 5, 7])
-    })
-
-    it('creates an array of chapters to revise from range', () => {
-      let wrapper = shallow(
-        <Revise
-          match={{
-            params: { chapters: '1-4' }
-          }}
-        />
-      )
-      expect(wrapper.state('chapters')).toEqual([1, 2, 3, 4])
-    })
-
-    it('creates an array of chapters to revise from combination of list and range', () => {
-      let wrapper = shallow(
-        <Revise
-          match={{
-            params: { chapters: '1-3, 7, 12, 15-17' }
-          }}
-        />
-      )
-      expect(wrapper.state('chapters')).toEqual([1, 2, 3, 7, 12, 15, 16, 17])
-    })
-
-    it('exercise is of defined length', () => {
-      expect(wrapper.state('exercise').length).toBe(10)
-    })
-
+    expect(spy).toHaveBeenCalledWith('val')
   })
+
+  it('checkAnswer() checks answer - success', () => {
+    wrapper.find('input.answerInput').simulate('keypress', {
+      key: 'Enter',
+      target: { value: 'hello' }
+    })
+    expect(wrapper.state().exercise[0].result).toBe('success')
+  })
+
+  it('checkAnswer() checks answer - fail', () => {
+    wrapper.find('input.answerInput').simulate('keypress', {
+      key: 'Enter',
+      target: { value: 'hi' }
+    })
+    expect(wrapper.state().exercise[0].result).toBe('fail')
+  })
+
+  it('checkAnswer() accepts any value from comma-separated answer', () => {
+    wrapper = mount(
+      <Exercise
+        question='french'
+        answer='translation'
+        set={[{
+          french: "bonjour",
+          translation: "hello, hi"
+        }]}
+      />
+    )
+    wrapper.find('input.answerInput').simulate('keypress', {
+      key: 'Enter',
+      target: { value: 'hello' }
+    })
+    expect(wrapper.state().exercise[0].result).toBe('success')
+
+    wrapper = mount(
+      <Exercise
+        question='french'
+        answer='translation'
+        set={[{
+          french: "bonjour",
+          translation: "hello, hi"
+        }]}
+      />
+    )
+    wrapper.find('input.answerInput').simulate('keypress', {
+      key: 'Enter',
+      target: { value: 'hi' }
+    })
+    expect(wrapper.state().exercise[0].result).toBe('success')
+  })
+
+  it('checkAnswer() saves user answer', () => {
+    wrapper.find('input.answerInput').simulate('keypress', {
+      key: 'Enter',
+      target: { value: 'hi' }
+    })
+    expect(wrapper.state().exercise[0].response).toBe('hi')
+  })
+
+  it('checkAnswer() moves on to next question', () => {
+    let currentQuestion = wrapper.state().currentQuestion
+    wrapper.find('input.answerInput').simulate('keypress', {
+      key: 'Enter',
+      target: { value: 'hello' }
+    })
+    expect(wrapper.state().currentQuestion).toBe(currentQuestion+1)
+  })
+
+  it('checkAnswer() changes status at the end', () => {
+    wrapper.find('input.answerInput').simulate('keypress', {
+      key: 'Enter',
+      target: { value: 'hello' }
+    })
+    expect(wrapper.state().status).toBe('finished')
+  })*/
 })

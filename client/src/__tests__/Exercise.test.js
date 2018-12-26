@@ -23,6 +23,7 @@ const set = [
     chapter: 3
   }
 ]
+
 describe('<Exercise />', () => {
   let wrapper
   beforeEach(() => {
@@ -42,7 +43,7 @@ describe('<Exercise />', () => {
     expect(wrapper.find('div.Exercise').length).toEqual(1)
   })
 
-  it('renders no exercise available if no data is loaded', () => {
+  it("renders 'no exercise available' if no data is loaded", () => {
     wrapper = shallow(<Exercise
       set={undefined}
     />)
