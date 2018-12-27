@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import QuestionAnswer from 'components/QuestionAnswer/QuestionAnswer'
 import ProgressTracker from 'components/ProgressTracker/ProgressTracker'
+import ExerciseResults from 'components/ExerciseResults/ExerciseResults'
 
 class Revise extends Component {
 
@@ -68,6 +69,12 @@ class Revise extends Component {
               onSubmit={this.checkAnswer}
             />
           </div>
+        )}
+
+        {this.state.status === 'finished' && (
+          <ExerciseResults
+            exercise={this.state.exercise}
+          />
         )}
 
         {this.state.status === 'loading' && (

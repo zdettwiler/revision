@@ -47,6 +47,17 @@ describe('<Revise />', () => {
     expect(wrapper.containsMatchingElement(<ProgressTracker />)).toBe(true)
   })
 
+  it('renders a <ExerciseResults /> at the end of exercise', () => {
+    expect(wrapper.containsMatchingElement(<ExerciseResults />)).toBe(false)
+    wrapper.setState({ status: 'finished', exercise: [{
+      question: 'a',
+      answer: 'b',
+      response: 'b',
+      result: true
+    }] })
+    expect(wrapper.containsMatchingElement(<ExerciseResults />)).toBe(true)
+  })
+
   it('calls the right api url', () => {
     const mockSuccessResponse = [{
       question: '',
