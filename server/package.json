@@ -3,7 +3,9 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "start": "babel-node --presets es2015 src/server.js",    
+    "server": "babel-node --presets es2015 src/server.js",
+    "client": "cd ../client && npm start",
+    "start": "concurrently \"npm run server\" \"npm run client\"", 
     "test": "jest --watch"
   },
   "dependencies": {

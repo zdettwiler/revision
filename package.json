@@ -3,10 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "client": "cd client && npm start",
-    "server": "cd server && npm start",
-    "start": "cd server && npm run dev",
-
+    "start": "cd server && npm run start",
     "test": "cd server && npm run test"
   }
 }
