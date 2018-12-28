@@ -138,15 +138,9 @@
     "chapter": 2
   },
   {
-<<<<<<< HEAD:src/vocabDuffENTG.json
-    "greek": "δουλος",
-    "french": "esclave",
-    "english": "slave",
-=======
     "greek": "λαμβανω",
     "french": "je prends, je reçois",
     "english": "I take, I receive",
->>>>>>> routing:server/vocabDuffENTG.json
     "chapter": 2
   },
   {
@@ -264,12 +258,6 @@
     "chapter": 3
   },
   {
-<<<<<<< HEAD:src/vocabDuffENTG.json
-    "greek": "ἐπι+D",
-    "french": "VERIF sur/dans, à cause de",
-    "english": "on, in, on the basis of",
-    "chapter": 4
-=======
     "greek": "γη",
     "french": "terre",
     "english": "earth, soil, land",
@@ -286,7 +274,6 @@
     "french": "assemblée",
     "english": "assembly",
     "chapter": 3
->>>>>>> routing:server/vocabDuffENTG.json
   },
   {
     "greek": "ἐργον",
@@ -821,5 +808,197 @@
     "french": "éternel",
     "english": "eternal",
     "chapter": 5
+  },
+  {
+    "greek": "ἀνοιγω",
+    "french": "",
+    "english": "I open",
+    "chapter": 6
+  },
+  {
+    "greek": "ἀποκαλυπτω",
+    "french": "",
+    "english": "I reveal, I uncover",
+    "chapter": 6
+  },
+  {
+    "greek": "βαπτιζω",
+    "french": "",
+    "english": "I baptise, I dip",
+    "chapter": 6
+  },
+  {
+    "greek": "γραφω",
+    "french": "",
+    "english": "I write",
+    "chapter": 6
+  },
+  {
+    "greek": "διωκω",
+    "french": "",
+    "english": "I persecute, I pursue",
+    "chapter": 6
+  },
+  {
+    "greek": "δοξαζω",
+    "french": "",
+    "english": "I praise, I glorify",
+    "chapter": 6
+  },
+  {
+    "greek": "κηρυσσω",
+    "french": "",
+    "english": "I proclaim, I preach",
+    "chapter": 6
+  },
+  {
+    "greek": "κραζω",
+    "french": "",
+    "english": "I cry out",
+    "chapter": 6
+  },
+  {
+    "greek": "πεμπω",
+    "french": "",
+    "english": "I send",
+    "chapter": 6
+  },
+  {
+    "greek": "πειθω",
+    "french": "",
+    "english": "I convince, I persuade",
+    "chapter": 6
+  },
+  {
+    "greek": "σωζω",
+    "french": "",
+    "english": "I save, I rescue, I heal",
+    "chapter": 6
+  },
+  {
+    "greek": "ὑπαρχω",
+    "french": "",
+    "english": "I exist, I am",
+    "chapter": 6
+  },
+  {
+    "greek": "αἰτεω",
+    "french": "",
+    "english": "I ask (for)",
+    "chapter": 6
+  },
+  {
+    "greek": "εὐλογεω",
+    "french": "",
+    "english": "I speak well of, I bless, I praise",
+    "chapter": 6
+  },
+  {
+    "greek": "εὐχαριστεω",
+    "french": "",
+    "english": "I give thanks",
+    "chapter": 6
+  },
+  {
+    "greek": "οἰκοδομεω",
+    "french": "",
+    "english": "I build (up)",
+    "chapter": 6
+  },
+  {
+    "greek": "προσεχω + D",
+    "french": "",
+    "english": "I take heed of, I pay attention to",
+    "chapter": 6
+  },
+  {
+    "greek": "ἀρτι",
+    "french": "",
+    "english": "now, just now",
+    "chapter": 6
+  },
+  {
+    "greek": "ἐτι",
+    "french": "",
+    "english": "still, yet",
+    "chapter": 6
+  },
+  {
+    "greek": "ἠδη",
+    "french": "",
+    "english": "already",
+    "chapter": 6
+  },
+  {
+    "greek": "νυν",
+    "french": "",
+    "english": "now",
+    "chapter": 6
+  },
+  {
+    "greek": "ὁτε",
+    "french": "",
+    "english": "when",
+    "chapter": 6
+  },
+  {
+    "greek": "οὐκετι",
+    "french": "",
+    "english": "no longer",
+    "chapter": 6
+  },
+  {
+    "greek": "οὐπω",
+    "french": "",
+    "english": "not yet",
+    "chapter": 6
+  },
+  {
+    "greek": "παλιν",
+    "french": "",
+    "english": "back, again",
+    "chapter": 6
+  },
+  {
+    "greek": "παντοτε",
+    "french": "",
+    "english": "always",
+    "chapter": 6
+  },
+  {
+    "greek": "ποτε",
+    "french": "",
+    "english": "once, at some time",
+    "chapter": 6
+  },
+  {
+    "greek": "σημερον",
+    "french": "",
+    "english": "today",
+    "chapter": 6
+  },
+  {
+    "greek": "τοτε",
+    "french": "",
+    "english": "then",
+    "chapter": 6
+  },
+  {
+    "greek": "δυο",
+    "french": "",
+    "english": "two",
+    "chapter": 6
+  },
+  {
+    "greek": "Τιμοθεοσ",
+    "french": "",
+    "english": "Timothy",
+    "chapter": 6
+  },
+  {
+    "greek": "τοπος",
+    "french": "",
+    "english": "place",
+    "chapter": 6
   }
 ]
