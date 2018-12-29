@@ -17,4 +17,6 @@ app.get('/api/revise/:set/chapters/:chapters/questions/:nbQuestions', (req, res)
   res.json(createExercise(req.params.set, req.params.chapters, req.params.nbQuestions))
 })
 
+app.use('/*', staticFiles)
+
 export default app
