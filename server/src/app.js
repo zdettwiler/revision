@@ -18,7 +18,8 @@ app.get('/api/revise/:set/chapters/:chapters/questions/:nbQuestions', (req, res)
 
 // handles any other requests
 app.get('*', (req, res) => {
-  res.status(200).sendFile(path.join(__dirname, '../../client/build/index.html'))
+  console.log(path.join(__dirname, '../../client/build/index.html'))
+  // res.status(200).sendFile(path.join(__dirname, '../../client/build/index.html'))
 })
 
 // app.get('/*', staticFiles)
