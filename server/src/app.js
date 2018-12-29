@@ -6,7 +6,7 @@ const app = express()
 
 console.log(path.join(__dirname, '../../client/build'))
 // get reference to the client build directory
-const staticFiles = express.static(path.join(__dirname, '../../client/build'))
+const staticFiles = express.static(path.join(__dirname, '../../../client/build'))
 // pass the static files (react app) to the express app.
 app.use(staticFiles)
 
@@ -18,8 +18,8 @@ app.get('/api/revise/:set/chapters/:chapters/questions/:nbQuestions', (req, res)
 
 // handles any other requests
 app.get('*', (req, res) => {
-  console.log(path.join(__dirname, '../../client/build/index.html'))
-  // res.status(200).sendFile(path.join(__dirname, '../../client/build/index.html'))
+  console.log(path.join(__dirname, '../../../client/build/index.html'))
+  res.status(200).sendFile(path.join(__dirname, '../../../client/build/index.html'))
 })
 
 // app.get('/*', staticFiles)
