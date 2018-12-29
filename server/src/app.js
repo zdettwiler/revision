@@ -1,7 +1,13 @@
 import express from 'express'
 import createExercise from './createExercise'
+import path from 'path'
 
 const app = express()
+
+// get reference to the client build directory
+const staticFiles = express.static(path.join(__dirname, '../../client/build'))
+// pass the static files (react app) to the express app.
+app.use(staticFiles)
 
 app.get('/', (req, res) => {
   res.status(200).send('Hello World!')

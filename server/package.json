@@ -3,20 +3,23 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "server": "babel-node --presets es2015 src/server.js",
-    "client": "cd ../client && npm start",
-    "start": "concurrently \"npm run server\" \"npm run client\"", 
+    "start": "nodemon -r babel-register src/server.js",
+    "build": "babel . --ignore node_modules,build --out-dir build",
+    "start:prod": "node build/server.js",
     "test": "jest --watch"
   },
   "dependencies": {
-    "express": "^4.16.4",
-    "nodemon": "^1.18.9"
+    "babel-cli": "^6.26.0",
+    "babel-plugin-transform-runtime": "^6.23.0",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-stage-0": "^6.24.1",
+    "body-parser": "^1.18.3",
+    "express": "^4.16.4"
   },
   "devDependencies": {
-    "babel-cli": "^6.26.0",
-    "babel-preset-env": "^1.7.0",
-    "concurrently": "^4.1.0",
+    "babel-register": "^6.26.0",
     "jest": "^23.6.0",
+    "nodemon": "^1.18.9",
     "rimraf": "^2.6.2",
     "supertest": "^3.3.0"
   }
