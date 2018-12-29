@@ -1,4 +1,4 @@
-import vocabDuffENTG from '../vocabDuffENTG'
+import vocabDuffENTG from '../vocabDuffENTG.json'
 
 function getChaptersArray(chapters) {
   let chaptersArray = []
