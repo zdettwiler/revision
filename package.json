@@ -1,9 +1,11 @@
 {
   "name": "revision",
   "version": "0.1.0",
+  "main": "server/src/app.js",
   "private": true,
   "scripts": {
     "start": "cd server && npm run start",
-    "test": "cd server && npm run test"
+    "test": "cd server && npm run test",
+    "heroku-postbuild": "cd client && npm install && npm run build"
   }
 }
