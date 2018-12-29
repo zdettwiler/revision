@@ -1,4 +1,5 @@
-import vocabDuffENTG from '../vocabDuffENTG.json'
+// import vocabDuffENTG from '../vocabDuffENTG.json'
+const vocabDuffENTG = require('../vocabDuffENTG.json')
 
 function getChaptersArray(chapters) {
   let chaptersArray = []

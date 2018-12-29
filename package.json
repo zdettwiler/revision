@@ -15,7 +15,6 @@
     "build": "concurrently \"cd client && npm run build\" \"cd server && npm run build\"",
     "start:prod": "cd server && npm run start:prod",
     "test": "cd server && npm run test",
-
     "heroku-postbuild": "npm run build"
   }
 }
