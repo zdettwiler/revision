@@ -6,10 +6,202 @@
     "chapter": 1
   },
   {
+    "greek": "ἀγαθος",
+    "french": "bon",
+    "english": "good",
+    "chapter": 5
+  },
+  {
+    "greek": "ἀγαπη",
+    "french": "amour",
+    "english": "love",
+    "chapter": 3
+  },
+  {
+    "greek": "ἀγαπητος",
+    "french": "",
+    "english": "beloved",
+    "chapter": 5
+  },
+  {
+    "greek": "ἀγγελος",
+    "french": "messager, ange",
+    "english": "messenger, angel",
+    "chapter": 2
+  },
+  {
+    "greek": "ἁγιος",
+    "french": "saint",
+    "english": "holy",
+    "chapter": 5
+  },
+  {
+    "greek": "ἀγω",
+    "french": "je dirige, j'apporte",
+    "english": "I lead, I bring",
+    "chapter": 2
+  },
+  {
+    "greek": "ἀδελφη",
+    "french": "soeur",
+    "english": "sister",
+    "chapter": 3
+  },
+  {
+    "greek": "ἀδελφος",
+    "french": "frère",
+    "english": "brother",
+    "chapter": 2
+  },
+  {
+    "greek": "αἰτεω",
+    "french": "",
+    "english": "I ask (for)",
+    "chapter": 6
+  },
+  {
+    "greek": "αἰωνιος",
+    "french": "éternel",
+    "english": "eternal",
+    "chapter": 5
+  },
+  {
+    "greek": "ἀκολουθεω + D",
+    "french": "",
+    "english": "I follow",
+    "chapter": 7
+  },
+  {
+    "greek": "ἀκουω",
+    "french": "j'entends, j'écoute",
+    "english": "I hear, I listen to",
+    "chapter": 2
+  },
+  {
+    "greek": "ἀλλα",
+    "french": "mais",
+    "english": "but",
+    "chapter": 5
+  },
+  {
+    "greek": "ἁμαρτια",
+    "french": "péché",
+    "english": "sin",
+    "chapter": 3
+  },
+  {
     "greek": "ἀμην",
     "french": "amen, véritablement",
     "english": "amen, truly",
     "chapter": 1
+  },
+  {
+    "greek": "ἀναγω",
+    "french": "",
+    "english": "I lead up, I restore",
+    "chapter": 7
+  },
+  {
+    "greek": "ἀνθρωπος",
+    "french": "être humain, personne",
+    "english": "human being, person",
+    "chapter": 2
+  },
+  {
+    "greek": "ἀνοιγω",
+    "french": "",
+    "english": "I open",
+    "chapter": 6
+  },
+  {
+    "greek": "ἀπο+G",
+    "french": "écarté de",
+    "english": "away from",
+    "chapter": 4
+  },
+  {
+    "greek": "ἀποκαλυπτω",
+    "french": "",
+    "english": "I reveal, I uncover",
+    "chapter": 6
+  },
+  {
+    "greek": "ἀποστολος",
+    "french": "",
+    "english": "apostle",
+    "chapter": 7
+  },
+  {
+    "greek": "ἀρτι",
+    "french": "",
+    "english": "now, just now",
+    "chapter": 6
+  },
+  {
+    "greek": "ἀρτος",
+    "french": "pain",
+    "english": "bread",
+    "chapter": 2
+  },
+  {
+    "greek": "ἀρχη",
+    "french": "commencement",
+    "english": "beginning",
+    "chapter": 3
+  },
+  {
+    "greek": "βαλλω",
+    "french": "je jette",
+    "english": "I throw",
+    "chapter": 2
+  },
+  {
+    "greek": "βαπτιζω",
+    "french": "",
+    "english": "I baptise, I dip",
+    "chapter": 6
+  },
+  {
+    "greek": "βασιλεια",
+    "french": "règne, royaume",
+    "english": "reign, kingship, kingdom",
+    "chapter": 3
+  },
+  {
+    "greek": "βιβλιον",
+    "french": "livre, rouleau",
+    "english": "book, scroll",
+    "chapter": 3
+  },
+  {
+    "greek": "βλεπω",
+    "french": "je vois, je regarde",
+    "english": "I see, I watch",
+    "chapter": 2
+  },
+  {
+    "greek": "Γαλιλαια",
+    "french": "Galilée",
+    "english": "Galilee",
+    "chapter": 5
+  },
+  {
+    "greek": "γη",
+    "french": "terre",
+    "english": "earth, soil, land",
+    "chapter": 3
+  },
+  {
+    "greek": "γραφω",
+    "french": "",
+    "english": "I write",
+    "chapter": 6
+  },
+  {
+    "greek": "δαιμονιον",
+    "french": "démon",
+    "english": "demon",
+    "chapter": 3
   },
   {
     "greek": "Δαυιδ",
@@ -18,10 +210,322 @@
     "chapter": 1
   },
   {
+    "greek": "δει",
+    "french": "",
+    "english": "it is necessary",
+    "chapter": 7
+  },
+  {
+    "greek": "δεω",
+    "french": "",
+    "english": "I bind, I tie up",
+    "chapter": 7
+  },
+  {
+    "greek": "δια+A",
+    "french": "à cause de",
+    "english": "because of",
+    "chapter": 4
+  },
+  {
+    "greek": "δια+G",
+    "french": "à travers de",
+    "english": "through",
+    "chapter": 4
+  },
+  {
+    "greek": "διδασκω",
+    "french": "j'enseigne",
+    "english": "I teach",
+    "chapter": 2
+  },
+  {
+    "greek": "δικαιος",
+    "french": "juste",
+    "english": "upright, just",
+    "chapter": 5
+  },
+  {
+    "greek": "δικαιοσυνη",
+    "french": "",
+    "english": "righteousness",
+    "chapter": 7
+  },
+  {
+    "greek": "διωκω",
+    "french": "",
+    "english": "I persecute, I pursue",
+    "chapter": 6
+  },
+  {
+    "greek": "δοκεω",
+    "french": "",
+    "english": "I think, I seem",
+    "chapter": 7
+  },
+  {
+    "greek": "δοξαζω",
+    "french": "",
+    "english": "I praise, I glorify",
+    "chapter": 6
+  },
+  {
+    "greek": "δουλος ",
+    "french": "esclave",
+    "english": "slave",
+    "chapter": 2
+  },
+  {
+    "greek": "δυο",
+    "french": "",
+    "english": "two",
+    "chapter": 6
+  },
+  {
+    "greek": "εἰ",
+    "french": "si",
+    "english": "if",
+    "chapter": 5
+  },
+  {
+    "greek": "εἰμι",
+    "french": "je suis",
+    "english": "I am",
+    "chapter": 5
+  },
+  {
+    "greek": "εἰρηνη",
+    "french": "paix",
+    "english": "peace",
+    "chapter": 5
+  },
+  {
+    "greek": "ἑκαστος",
+    "french": "chaque",
+    "english": "each",
+    "chapter": 5
+  },
+  {
+    "greek": "ἐκκλησια",
+    "french": "assemblée",
+    "english": "assembly",
+    "chapter": 3
+  },
+  {
+    "greek": "ἐλεεω",
+    "french": "",
+    "english": "I have mercy on, I pity",
+    "chapter": 7
+  },
+  {
+    "greek": "ἐν+D",
+    "french": "dans",
+    "english": "in",
+    "chapter": 4
+  },
+  {
+    "greek": "ἐντολη",
+    "french": "",
+    "english": "commandment",
+    "chapter": 7
+  },
+  {
+    "greek": "ἐνωπιον+G",
+    "french": "devant, en présence de",
+    "english": "in front of, in presence of, before",
+    "chapter": 4
+  },
+  {
+    "greek": "ἐξεστι",
+    "french": "",
+    "english": "it is permitted",
+    "chapter": 7
+  },
+  {
+    "greek": "ἐξουσια",
+    "french": "",
+    "english": "authority",
+    "chapter": 7
+  },
+  {
+    "greek": "ἐξω+G",
+    "french": "dehors",
+    "english": "outside",
+    "chapter": 4
+  },
+  {
+    "greek": "ἐπι+A",
+    "french": "VERIF sur",
+    "english": "onto",
+    "chapter": 4
+  },
+  {
+    "greek": "ἐπι+D",
+    "french": "VERIF sur/dans, à cause de",
+    "english": "on, in, on the basis of",
+    "chapter": 4
+  },
+  {
+    "greek": "ἐπι+G",
+    "french": "VERIF sur, au temps de",
+    "english": "on, in the time of",
+    "chapter": 4
+  },
+  {
+    "greek": "ἐργον",
+    "french": "oeuvre",
+    "english": "work, deed",
+    "chapter": 3
+  },
+  {
+    "greek": "ἑτερος",
+    "french": "autre, différent",
+    "english": "another, different",
+    "chapter": 5
+  },
+  {
+    "greek": "ἐτι",
+    "french": "",
+    "english": "still, yet",
+    "chapter": 6
+  },
+  {
+    "greek": "εὐαγγελιον",
+    "french": "bonne nouvelle, évangile",
+    "english": "good news, gospel",
+    "chapter": 3
+  },
+  {
+    "greek": "εὐλογεω",
+    "french": "",
+    "english": "I speak well of, I bless, I praise",
+    "chapter": 6
+  },
+  {
+    "greek": "εὐχαριστεω",
+    "french": "",
+    "english": "I give thanks",
+    "chapter": 6
+  },
+  {
+    "greek": "εχω",
+    "french": "j'ai, je tiens",
+    "english": "I have, I hold",
+    "chapter": 3
+  },
+  {
+    "greek": "ζητεω",
+    "french": "je cherche",
+    "english": "I seek",
+    "chapter": 2
+  },
+  {
+    "greek": "ζωη",
+    "french": "vie",
+    "english": "life",
+    "chapter": 3
+  },
+  {
+    "greek": "ἠ",
+    "french": "ou",
+    "english": "or",
+    "chapter": 5
+  },
+  {
+    "greek": "ἠδη",
+    "french": "",
+    "english": "already",
+    "chapter": 6
+  },
+  {
+    "greek": "ἡμερα",
+    "french": "jour",
+    "english": "day",
+    "chapter": 3
+  },
+  {
+    "greek": "θαλασσα",
+    "french": "mer, lac",
+    "english": "sea, lake",
+    "chapter": 3
+  },
+  {
+    "greek": "θανατος",
+    "french": "",
+    "english": "death",
+    "chapter": 7
+  },
+  {
+    "greek": "θελω",
+    "french": "",
+    "english": "I wish, I want",
+    "chapter": 7
+  },
+  {
+    "greek": "θεος",
+    "french": "dieu, Dieu",
+    "english": "god, God",
+    "chapter": 2
+  },
+  {
+    "greek": "θεωρεω",
+    "french": "",
+    "english": "I look at",
+    "chapter": 7
+  },
+  {
+    "greek": "θηριον",
+    "french": "",
+    "english": "animal, beast",
+    "chapter": 7
+  },
+  {
     "greek": "Ἰακωβ",
     "french": "Jacob",
     "english": "Jacob",
     "chapter": 1
+  },
+  {
+    "greek": "ἰδιος",
+    "french": "",
+    "english": "one’s own",
+    "chapter": 5
+  },
+  {
+    "greek": "ἱερον",
+    "french": "temple",
+    "english": "temple",
+    "chapter": 3
+  },
+  {
+    "greek": "Ἱεροσολυμα",
+    "french": "Jérusalem",
+    "english": "Jerusalem",
+    "chapter": 5
+  },
+  {
+    "greek": "Ἰερουσαλημ",
+    "french": "Jérusalem",
+    "english": "Jerusalem",
+    "chapter": 5
+  },
+  {
+    "greek": "Ἰησους",
+    "french": "Jésus",
+    "english": "Jesus",
+    "chapter": 3
+  },
+  {
+    "greek": "ἱματιον",
+    "french": "",
+    "english": "garment",
+    "chapter": 7
+  },
+  {
+    "greek": "Ἰουδαιος",
+    "french": "juif",
+    "english": "Jewish, Jew",
+    "chapter": 5
   },
   {
     "greek": "Ἰσρηλ",
@@ -36,82 +540,22 @@
     "chapter": 1
   },
   {
-    "greek": "ῥαββι",
-    "french": "rabbi",
-    "english": "rabbi",
-    "chapter": 1
+    "greek": "καινος",
+    "french": "nouveau",
+    "english": "new",
+    "chapter": 5
   },
   {
-    "greek": "ἀγγελος",
-    "french": "messager, ange",
-    "english": "messenger, angel",
-    "chapter": 2
+    "greek": "καιρος",
+    "french": "temps, saison",
+    "english": "time, season",
+    "chapter": 5
   },
   {
-    "greek": "ἀγω",
-    "french": "je dirige, j'apporte",
-    "english": "I lead, I bring",
-    "chapter": 2
-  },
-  {
-    "greek": "ἀδελφος",
-    "french": "frère",
-    "english": "brother",
-    "chapter": 2
-  },
-  {
-    "greek": "ἀκουω",
-    "french": "j'entends, j'écoute",
-    "english": "I hear, I listen to",
-    "chapter": 2
-  },
-  {
-    "greek": "ἀνθρωπος",
-    "french": "être humain, personne",
-    "english": "human being, person",
-    "chapter": 2
-  },
-  {
-    "greek": "ἀρτος",
-    "french": "pain",
-    "english": "bread",
-    "chapter": 2
-  },
-  {
-    "greek": "βαλλω",
-    "french": "je jette",
-    "english": "I throw",
-    "chapter": 2
-  },
-  {
-    "greek": "βλεπω",
-    "french": "je vois, je regarde",
-    "english": "I see, I watch",
-    "chapter": 2
-  },
-  {
-    "greek": "διδασκω",
-    "french": "j'enseigne",
-    "english": "I teach",
-    "chapter": 2
-  },
-  {
-    "greek": "δουλος",
-    "french": "esclave",
-    "english": "slave",
-    "chapter": 2
-  },
-  {
-    "greek": "ζητεω",
-    "french": "je cherche",
-    "english": "I seek",
-    "chapter": 2
-  },
-  {
-    "greek": "θεος",
-    "french": "dieu, Dieu",
-    "english": "god, God",
-    "chapter": 2
+    "greek": "κακος",
+    "french": "mauvais",
+    "english": "bad",
+    "chapter": 5
   },
   {
     "greek": "καλεω",
@@ -120,13 +564,67 @@
     "chapter": 2
   },
   {
-    "greek": "κοσμος",
+    "greek": "καλος",
+    "french": "",
+    "english": "beautiful, good",
+    "chapter": 5
+  },
+  {
+    "greek": "καρδια",
+    "french": "coeur",
+    "english": "heart",
+    "chapter": 3
+  },
+  {
+    "greek": "κατα+A",
+    "french": "d'après, selon",
+    "english": "according to",
+    "chapter": 4
+  },
+  {
+    "greek": "κατα+G",
+    "french": "contre",
+    "english": "against",
+    "chapter": 4
+  },
+  {
+    "greek": "καταργεω",
+    "french": "",
+    "english": "I make ineffective, I abolish",
+    "chapter": 7
+  },
+  {
+    "greek": "κατοικεω",
+    "french": "j'habite, je demeure",
+    "english": "I dwell, I inhabit, I live",
+    "chapter": 4
+  },
+  {
+    "greek": "κεφαλη",
+    "french": "tête",
+    "english": "head",
+    "chapter": 5
+  },
+  {
+    "greek": "κηρυσσω",
+    "french": "",
+    "english": "I proclaim, I preach",
+    "chapter": 6
+  },
+  {
+    "greek": "κοσμος ",
     "french": "monde, univers",
     "english": "world",
     "chapter": 2
   },
   {
-    "greek": "κυριος",
+    "greek": "κραζω",
+    "french": "",
+    "english": "I cry out",
+    "chapter": 6
+  },
+  {
+    "greek": "κυριος ",
     "french": "seigneur, maître, monsieur",
     "english": "lord, master, sir",
     "chapter": 2
@@ -144,13 +642,13 @@
     "chapter": 2
   },
   {
-    "greek": "λαος",
+    "greek": "λαος ",
     "french": "peuple, nation",
     "english": "people, nation",
     "chapter": 2
   },
   {
-    "greek": "λελω",
+    "greek": "λεγω",
     "french": "je dis, je parle",
     "english": "I say, I speak, I tell",
     "chapter": 2
@@ -168,166 +666,10 @@
     "chapter": 2
   },
   {
-    "greek": "νομος",
-    "french": "loi",
-    "english": "law",
-    "chapter": 2
-  },
-  {
-    "greek": "οἰκος",
-    "french": "maisonnée, maison",
-    "english": "household, house",
-    "chapter": 2
-  },
-  {
-    "greek": "οὐρανος",
-    "french": "ciel",
-    "english": "heaven",
-    "chapter": 2
-  },
-  {
-    "greek": "ὀχλος",
-    "french": "foule",
-    "english": "crowd",
-    "chapter": 2
-  },
-  {
-    "greek": "ποιεω",
-    "french": "je fais, je fabrique",
-    "english": "I do, I make",
-    "chapter": 2
-  },
-  {
-    "greek": "τηρεω",
-    "french": "je garde",
-    "english": "I keep",
-    "chapter": 2
-  },
-  {
-    "greek": "υἱος",
-    "french": "fils",
-    "english": "son",
-    "chapter": 2
-  },
-  {
-    "greek": "φιλεω",
-    "french": "j'aime",
-    "english": "I love, I like",
-    "chapter": 2
-  },
-  {
-    "greek": "Χριστος",
-    "french": "Christ, Messie",
-    "english": "Christ, Messiah",
-    "chapter": 2
-  },
-  {
-    "greek": "ἀγαπη",
-    "french": "amour",
-    "english": "love",
-    "chapter": 3
-  },
-  {
-    "greek": "ἀδελφη",
-    "french": "soeur",
-    "english": "sister",
-    "chapter": 3
-  },
-  {
-    "greek": "ἁμαρτια",
-    "french": "péché",
-    "english": "sin",
-    "chapter": 3
-  },
-  {
-    "greek": "ἀρχη",
-    "french": "commencement",
-    "english": "beginning",
-    "chapter": 3
-  },
-  {
-    "greek": "βασιλεια",
-    "french": "règne, royaume",
-    "english": "reign, kingship, kingdom",
-    "chapter": 3
-  },
-  {
-    "greek": "βιβλιον",
-    "french": "livre, rouleau",
-    "english": "book, scroll",
-    "chapter": 3
-  },
-  {
-    "greek": "γη",
-    "french": "terre",
-    "english": "earth, soil, land",
-    "chapter": 3
-  },
-  {
-    "greek": "δαιμονιον",
-    "french": "démon",
-    "english": "demon",
-    "chapter": 3
-  },
-  {
-    "greek": "ἐκκλησια",
-    "french": "assemblée",
-    "english": "assembly",
-    "chapter": 3
-  },
-  {
-    "greek": "ἐργον",
-    "french": "oeuvre",
-    "english": "work, deed",
-    "chapter": 3
-  },
-  {
-    "greek": "εὐαγγελιον",
-    "french": "bonne nouvelle, évangile",
-    "english": "good news, gospel",
-    "chapter": 3
-  },
-  {
-    "greek": "εχω",
-    "french": "j'ai, je tiens",
-    "english": "I have, I hold",
-    "chapter": 3
-  },
-  {
-    "greek": "ζωη",
-    "french": "vie",
-    "english": "life",
-    "chapter": 3
-  },
-  {
-    "greek": "ἡμερα",
-    "french": "jour",
-    "english": "day",
-    "chapter": 3
-  },
-  {
-    "greek": "θαλασσα",
-    "french": "mer, lac",
-    "english": "sea, lake",
-    "chapter": 3
-  },
-  {
-    "greek": "ἱερον",
-    "french": "temple",
-    "english": "temple",
-    "chapter": 3
-  },
-  {
-    "greek": "Ἰησους",
-    "french": "Jésus",
-    "english": "Jesus",
-    "chapter": 3
-  },
-  {
-    "greek": "καρδια",
-    "french": "coeur",
-    "english": "heart",
-    "chapter": 3
+    "greek": "μακαριος",
+    "french": "bénis, heureux",
+    "english": "blessed, happy",
+    "chapter": 5
   },
   {
     "greek": "Μαρια/Μαριαμ",
@@ -336,148 +678,22 @@
     "chapter": 3
   },
   {
-    "greek": "οἰκια",
-    "french": "maison, maisonnée",
-    "english": "house, household",
-    "chapter": 3
+    "greek": "μαρτυρεω",
+    "french": "",
+    "english": "I bear witness, I testify",
+    "chapter": 7
   },
   {
-    "greek": "Παυλος",
-    "french": "Paul",
-    "english": "Paul",
-    "chapter": 3
+    "greek": "μεγας μεγαλη μεγα",
+    "french": "",
+    "english": "large, great",
+    "chapter": 5
   },
   {
-    "greek": "Πετρος",
-    "french": "Pierre",
-    "english": "Peter",
-    "chapter": 3
-  },
-  {
-    "greek": "πιστευω+D",
-    "french": "je crois en, je fais confiance en, j'ai foi en",
-    "english": "I believe in, I trust, I have faith in",
-    "chapter": 3
-  },
-  {
-    "greek": "πλοιον",
-    "french": "bâteau",
-    "english": "boat",
-    "chapter": 3
-  },
-  {
-    "greek": "προσωπον",
-    "french": "visage",
-    "english": "face",
-    "chapter": 3
-  },
-  {
-    "greek": "σαββατον",
-    "french": "Sabbat",
-    "english": "Sabbath",
-    "chapter": 3
-  },
-  {
-    "greek": "σημειον",
-    "french": "signe, miracle",
-    "english": "sign",
-    "chapter": 3
-  },
-  {
-    "greek": "τεκνον",
-    "french": "enfant",
-    "english": "child",
-    "chapter": 3
-  },
-  {
-    "greek": "φωνη",
-    "french": "son, voix",
-    "english": "sound, voice",
-    "chapter": 3
-  },
-  {
-    "greek": "ψυχη",
-    "french": "âme, soi",
-    "english": "soul, self",
-    "chapter": 3
-  },
-  {
-    "greek": "ὡρα",
-    "french": "heure, occasion",
-    "english": "hour, occasion",
-    "chapter": 3
-  },
-  {
-    "greek": "ἀπο+G",
-    "french": "écarté de",
-    "english": "away from",
-    "chapter": 4
-  },
-  {
-    "greek": "δια+A",
-    "french": "à cause de",
-    "english": "because of",
-    "chapter": 4
-  },
-  {
-    "greek": "δια+G",
-    "french": "à travers de",
-    "english": "through",
-    "chapter": 4
-  },
-  {
-    "greek": "ἐν+D",
-    "french": "dans",
-    "english": "in",
-    "chapter": 4
-  },
-  {
-    "greek": "ἐνωπιον+G",
-    "french": "devant, en présence de",
-    "english": "in front of, in presence of, before",
-    "chapter": 4
-  },
-  {
-    "greek": "ἐξω+G",
-    "french": "dehors",
-    "english": "outside",
-    "chapter": 4
-  },
-  {
-    "greek": "ἐπι+A",
-    "french": "VERIF sur",
-    "english": "onto",
-    "chapter": 4
-  },
-  {
-    "greek": "ἐπι+G",
-    "french": "VERIF sur, au temps de",
-    "english": "on, in the time of",
-    "chapter": 4
-  },
-  {
-    "greek": "ἐπι+D",
-    "french": "VERIF sur/dans, à cause de",
-    "english": "on, in , on the basis of",
-    "chapter": 4
-  },
-  {
-    "greek": "κατα+A",
-    "french": "d'après, selon",
-    "english": "according to",
-    "chapter": 4
-  },
-  {
-    "greek": "κατα+G",
-    "french": "contre",
-    "english": "against",
-    "chapter": 4
-  },
-  {
-    "greek": "κατοικεω",
-    "french": "j'habite, je demeure",
-    "english": "I dwell, I inhabit, I live",
-    "chapter": 4
+    "greek": "μελλω",
+    "french": "",
+    "english": "I intend, I am about",
+    "chapter": 7
   },
   {
     "greek": "μετα+A",
@@ -492,15 +708,159 @@
     "chapter": 4
   },
   {
+    "greek": "μετανοεω",
+    "french": "",
+    "english": "I repent, I change my mind",
+    "chapter": 7
+  },
+  {
+    "greek": "μη",
+    "french": "",
+    "english": "not",
+    "chapter": 7
+  },
+  {
+    "greek": "μηδε",
+    "french": "",
+    "english": "and not, but not",
+    "chapter": 7
+  },
+  {
+    "greek": "μηκετι",
+    "french": "",
+    "english": "no longer",
+    "chapter": 7
+  },
+  {
+    "greek": "μητε",
+    "french": "",
+    "english": "and not, nor",
+    "chapter": 7
+  },
+  {
+    "greek": "μνημειον",
+    "french": "",
+    "english": "tomb, monument",
+    "chapter": 7
+  },
+  {
+    "greek": "μονος",
+    "french": "seulement, seul",
+    "english": "only, alone",
+    "chapter": 5
+  },
+  {
+    "greek": "νεκρος",
+    "french": "mort",
+    "english": "dead",
+    "chapter": 5
+  },
+  {
+    "greek": "νομος",
+    "french": "loi",
+    "english": "law",
+    "chapter": 2
+  },
+  {
+    "greek": "νυν",
+    "french": "",
+    "english": "now",
+    "chapter": 6
+  },
+  {
+    "greek": "οἰκια",
+    "french": "maison, maisonnée",
+    "english": "house, household",
+    "chapter": 3
+  },
+  {
+    "greek": "οἰκοδομεω",
+    "french": "",
+    "english": "I build (up)",
+    "chapter": 6
+  },
+  {
+    "greek": "οἰκος",
+    "french": "maisonnée, maison",
+    "english": "household, house",
+    "chapter": 2
+  },
+  {
+    "greek": "ὀπισω",
+    "french": "",
+    "english": "behind",
+    "chapter": 7
+  },
+  {
+    "greek": "ὁσος",
+    "french": "",
+    "english": "as great, how great, as much, how much",
+    "chapter": 5
+  },
+  {
+    "greek": "ὁτε",
+    "french": "",
+    "english": "when",
+    "chapter": 6
+  },
+  {
     "greek": "οὐ οὐκ οὐχ",
     "french": "pas",
     "english": "not",
     "chapter": 4
   },
   {
+    "greek": "οὐκετι",
+    "french": "",
+    "english": "no longer",
+    "chapter": 6
+  },
+  {
+    "greek": "οὐπω",
+    "french": "",
+    "english": "not yet",
+    "chapter": 6
+  },
+  {
+    "greek": "οὐρανος",
+    "french": "ciel",
+    "english": "heaven",
+    "chapter": 2
+  },
+  {
+    "greek": "ὀφθαλμος",
+    "french": "",
+    "english": "eye",
+    "chapter": 7
+  },
+  {
+    "greek": "ὀχλος",
+    "french": "foule",
+    "english": "crowd",
+    "chapter": 2
+  },
+  {
+    "greek": "παλιν",
+    "french": "",
+    "english": "back, again",
+    "chapter": 6
+  },
+  {
+    "greek": "παντοτε",
+    "french": "",
+    "english": "always",
+    "chapter": 6
+  },
+  {
     "greek": "παρα+A",
     "french": "aux côtés de",
     "english": "alongside",
+    "chapter": 4
+  },
+  {
+    "greek": "παρα+D",
+    "french": "à côté",
+    "english": "beside",
     "chapter": 4
   },
   {
@@ -510,10 +870,10 @@
     "chapter": 4
   },
   {
-    "greek": "παρα+D",
-    "french": "à côté",
-    "english": "beside",
-    "chapter": 4
+    "greek": "παραβολη",
+    "french": "",
+    "english": "parable",
+    "chapter": 7
   },
   {
     "greek": "παρακαλεω",
@@ -526,6 +886,30 @@
     "french": "je prends, je reçois",
     "english": "I take, I receive",
     "chapter": 4
+  },
+  {
+    "greek": "παρρησια",
+    "french": "",
+    "english": "outspokenness, boldness",
+    "chapter": 7
+  },
+  {
+    "greek": "Παυλος",
+    "french": "Paul",
+    "english": "Paul",
+    "chapter": 3
+  },
+  {
+    "greek": "πειθω",
+    "french": "",
+    "english": "I convince, I persuade",
+    "chapter": 6
+  },
+  {
+    "greek": "πεμπω",
+    "french": "",
+    "english": "I send",
+    "chapter": 6
   },
   {
     "greek": "περι+A",
@@ -546,6 +930,54 @@
     "chapter": 4
   },
   {
+    "greek": "Πετρος",
+    "french": "Pierre",
+    "english": "Peter",
+    "chapter": 3
+  },
+  {
+    "greek": "πιστευω+D",
+    "french": "je crois en, je fais confiance en, j'ai foi en",
+    "english": "I believe in, I trust, I have faith in",
+    "chapter": 3
+  },
+  {
+    "greek": "πιστος",
+    "french": "fidèle, croyant",
+    "english": "faithful, believing",
+    "chapter": 5
+  },
+  {
+    "greek": "πλοιον",
+    "french": "bâteau",
+    "english": "boat",
+    "chapter": 3
+  },
+  {
+    "greek": "ποιεω",
+    "french": "je fais, je fabrique",
+    "english": "I do, I make",
+    "chapter": 2
+  },
+  {
+    "greek": "πολυς,  πολλη, πολυ",
+    "french": "",
+    "english": "much, many",
+    "chapter": 5
+  },
+  {
+    "greek": "πονηρος",
+    "french": "",
+    "english": "evil, wicked",
+    "chapter": 5
+  },
+  {
+    "greek": "ποτε",
+    "french": "",
+    "english": "once, at some time",
+    "chapter": 6
+  },
+  {
     "greek": "που",
     "french": "où",
     "english": "where",
@@ -558,16 +990,58 @@
     "chapter": 4
   },
   {
+    "greek": "προβατον",
+    "french": "",
+    "english": "sheep",
+    "chapter": 7
+  },
+  {
+    "greek": "προσεχω + D",
+    "french": "",
+    "english": "I take heed of, I pay attention to",
+    "chapter": 6
+  },
+  {
     "greek": "προσκυνεω+D",
     "french": "je loue",
     "english": "I worship",
     "chapter": 4
   },
   {
+    "greek": "προσωπον",
+    "french": "visage",
+    "english": "face",
+    "chapter": 3
+  },
+  {
     "greek": "πως",
     "french": "comment",
     "english": "how",
     "chapter": 4
+  },
+  {
+    "greek": "ῥαββι",
+    "french": "rabbi",
+    "english": "rabbi",
+    "chapter": 1
+  },
+  {
+    "greek": "σαββατον",
+    "french": "Sabbat",
+    "english": "Sabbath",
+    "chapter": 3
+  },
+  {
+    "greek": "σημειον",
+    "french": "signe, miracle",
+    "english": "sign",
+    "chapter": 3
+  },
+  {
+    "greek": "σημερον",
+    "french": "",
+    "english": "today",
+    "chapter": 6
   },
   {
     "greek": "συν+D",
@@ -578,14 +1052,74 @@
   {
     "greek": "συναγω",
     "french": "je rassemble",
-    "english": "to gather, to bring together",
+    "english": "I gather, I bring together",
     "chapter": 4
+  },
+  {
+    "greek": "συναγωγη",
+    "french": "synagogue",
+    "english": "synagogue",
+    "chapter": 5
+  },
+  {
+    "greek": "σωζω",
+    "french": "",
+    "english": "I save, I rescue, I heal",
+    "chapter": 6
+  },
+  {
+    "greek": "τεκνον",
+    "french": "enfant",
+    "english": "child",
+    "chapter": 3
+  },
+  {
+    "greek": "τηρεω",
+    "french": "je garde",
+    "english": "I keep",
+    "chapter": 2
+  },
+  {
+    "greek": "Τιμοθεοσ",
+    "french": "",
+    "english": "Timothy",
+    "chapter": 6
+  },
+  {
+    "greek": "τοπος",
+    "french": "",
+    "english": "place",
+    "chapter": 6
+  },
+  {
+    "greek": "τοτε",
+    "french": "",
+    "english": "then",
+    "chapter": 6
+  },
+  {
+    "greek": "τυφλος",
+    "french": "aveugle",
+    "english": "blind",
+    "chapter": 5
+  },
+  {
+    "greek": "υἱος ",
+    "french": "fils",
+    "english": "son",
+    "chapter": 2
   },
   {
     "greek": "ὑπαγω",
     "french": "je pars",
     "english": "I depart",
     "chapter": 4
+  },
+  {
+    "greek": "ὑπαρχω",
+    "french": "",
+    "english": "I exist, I am",
+    "chapter": 6
   },
   {
     "greek": "ὑπερ+A",
@@ -612,142 +1146,46 @@
     "chapter": 4
   },
   {
-    "greek": "ἀγαθος",
-    "french": "bon",
-    "english": "good",
-    "chapter": 5
-  },
-  {
-    "greek": "ἀγαπητος",
+    "greek": "φαρισαιος",
     "french": "",
-    "english": "beloved",
-    "chapter": 5
+    "english": "Pharisee",
+    "chapter": 7
   },
   {
-    "greek": "ἁγιος",
-    "french": "saint",
-    "english": "holy",
-    "chapter": 5
+    "greek": "φιλεω",
+    "french": "j'aime",
+    "english": "I love, I like",
+    "chapter": 2
   },
   {
-    "greek": "δικαιος",
-    "french": "juste",
-    "english": "upright, just",
-    "chapter": 5
+    "greek": "φωνη",
+    "french": "son, voix",
+    "english": "sound, voice",
+    "chapter": 3
   },
   {
-    "greek": "ἑκαστος",
-    "french": "chaque",
-    "english": "each",
-    "chapter": 5
-  },
-  {
-    "greek": "ἑτερος",
-    "french": "autre, différent",
-    "english": "another, different",
-    "chapter": 5
-  },
-  {
-    "greek": "ἰδιος",
+    "greek": "χαρα",
     "french": "",
-    "english": "one’s own",
-    "chapter": 5
+    "english": "joy",
+    "chapter": 7
   },
   {
-    "greek": "Ἰουδαιος",
-    "french": "juif",
-    "english": "Jewish, Jew",
-    "chapter": 5
+    "greek": "Χριστος",
+    "french": "Christ, Messie",
+    "english": "Christ, Messiah",
+    "chapter": 2
   },
   {
-    "greek": "κακος",
-    "french": "mauvais",
-    "english": "bad",
-    "chapter": 5
+    "greek": "ψυχη",
+    "french": "âme, soi",
+    "english": "soul, self",
+    "chapter": 3
   },
   {
-    "greek": "καλος",
-    "french": "",
-    "english": "beautiful, good",
-    "chapter": 5
-  },
-  {
-    "greek": "καινος",
-    "french": "nouveau",
-    "english": "new",
-    "chapter": 5
-  },
-  {
-    "greek": "μακαριος",
-    "french": "bénis, heureux",
-    "english": "blessed, happy",
-    "chapter": 5
-  },
-  {
-    "greek": "μονος",
-    "french": "seulement, seul",
-    "english": "only, alone",
-    "chapter": 5
-  },
-  {
-    "greek": "νεκρος",
-    "french": "mort",
-    "english": "dead",
-    "chapter": 5
-  },
-  {
-    "greek": "ὁσος",
-    "french": "",
-    "english": "as great, how great, as much, how much",
-    "chapter": 5
-  },
-  {
-    "greek": "πιστος",
-    "french": "fidèle, croyant",
-    "english": "faithful, believing",
-    "chapter": 5
-  },
-  {
-    "greek": "πονηρος",
-    "french": "",
-    "english": "evil, wicked",
-    "chapter": 5
-  },
-  {
-    "greek": "τυφλος",
-    "french": "aveugle",
-    "english": "blind",
-    "chapter": 5
-  },
-  {
-    "greek": "μεγας μεγαλη μεγα",
-    "french": "",
-    "english": "large, great",
-    "chapter": 5
-  },
-  {
-    "greek": "πολυς,  πολλη, πολυ",
-    "french": "",
-    "english": "much, many",
-    "chapter": 5
-  },
-  {
-    "greek": "ἀλλα",
-    "french": "mais",
-    "english": "but",
-    "chapter": 5
-  },
-  {
-    "greek": "εἰ",
-    "french": "si",
-    "english": "if",
-    "chapter": 5
-  },
-  {
-    "greek": "ἠ",
-    "french": "ou",
-    "english": "or",
-    "chapter": 5
+    "greek": "ὡρα",
+    "french": "heure, occasion",
+    "english": "hour, occasion",
+    "chapter": 3
   },
   {
     "greek": "ὡς",
@@ -756,249 +1194,51 @@
     "chapter": 5
   },
   {
-    "greek": "Γαλιλαια",
-    "french": "Galilée",
-    "english": "Galilee",
-    "chapter": 5
-  },
-  {
-    "greek": "εἰρηνη",
-    "french": "paix",
-    "english": "peace",
-    "chapter": 5
-  },
-  {
-    "greek": "κεφαλη",
-    "french": "tête",
-    "english": "head",
-    "chapter": 5
-  },
-  {
-    "greek": "συναγωγη",
-    "french": "synagogue",
-    "english": "synagogue",
-    "chapter": 5
-  },
-  {
-    "greek": "καιρος",
-    "french": "temps, saison",
-    "english": "time, season",
-    "chapter": 5
-  },
-  {
-    "greek": "εἰμι",
+    "greek": "είμι",
     "french": "je suis",
     "english": "I am",
     "chapter": 5
   },
   {
-    "greek": "Ἱεροσολυμα",
-    "french": "Jérusalem",
-    "english": "Jerusalem",
+    "greek": "εί",
+    "french": "tu es",
+    "english": "you are",
     "chapter": 5
   },
   {
-    "greek": "Ἰερουσαλημ",
-    "french": "Jérusalem",
-    "english": "Jerusalem",
+    "greek": "έστι",
+    "french": "il est",
+    "english": "he is",
     "chapter": 5
   },
   {
-    "greek": "αἰωνιος",
-    "french": "éternel",
-    "english": "eternal",
+    "greek": "έστιν",
+    "french": "il est",
+    "english": "he is",
     "chapter": 5
   },
   {
-    "greek": "ἀνοιγω",
-    "french": "",
-    "english": "I open",
-    "chapter": 6
+    "greek": "έσμεν",
+    "french": "nous sommes",
+    "english": "we are",
+    "chapter": 5
   },
   {
-    "greek": "ἀποκαλυπτω",
-    "french": "",
-    "english": "I reveal, I uncover",
-    "chapter": 6
+    "greek": "έστε",
+    "french": "vous êtes",
+    "english": "you are",
+    "chapter": 5
   },
   {
-    "greek": "βαπτιζω",
-    "french": "",
-    "english": "I baptise, I dip",
-    "chapter": 6
+    "greek": "είσι",
+    "french": "ils sont",
+    "english": "they are",
+    "chapter": 5
   },
   {
-    "greek": "γραφω",
-    "french": "",
-    "english": "I write",
-    "chapter": 6
-  },
-  {
-    "greek": "διωκω",
-    "french": "",
-    "english": "I persecute, I pursue",
-    "chapter": 6
-  },
-  {
-    "greek": "δοξαζω",
-    "french": "",
-    "english": "I praise, I glorify",
-    "chapter": 6
-  },
-  {
-    "greek": "κηρυσσω",
-    "french": "",
-    "english": "I proclaim, I preach",
-    "chapter": 6
-  },
-  {
-    "greek": "κραζω",
-    "french": "",
-    "english": "I cry out",
-    "chapter": 6
-  },
-  {
-    "greek": "πεμπω",
-    "french": "",
-    "english": "I send",
-    "chapter": 6
-  },
-  {
-    "greek": "πειθω",
-    "french": "",
-    "english": "I convince, I persuade",
-    "chapter": 6
-  },
-  {
-    "greek": "σωζω",
-    "french": "",
-    "english": "I save, I rescue, I heal",
-    "chapter": 6
-  },
-  {
-    "greek": "ὑπαρχω",
-    "french": "",
-    "english": "I exist, I am",
-    "chapter": 6
-  },
-  {
-    "greek": "αἰτεω",
-    "french": "",
-    "english": "I ask (for)",
-    "chapter": 6
-  },
-  {
-    "greek": "εὐλογεω",
-    "french": "",
-    "english": "I speak well of, I bless, I praise",
-    "chapter": 6
-  },
-  {
-    "greek": "εὐχαριστεω",
-    "french": "",
-    "english": "I give thanks",
-    "chapter": 6
-  },
-  {
-    "greek": "οἰκοδομεω",
-    "french": "",
-    "english": "I build (up)",
-    "chapter": 6
-  },
-  {
-    "greek": "προσεχω + D",
-    "french": "",
-    "english": "I take heed of, I pay attention to",
-    "chapter": 6
-  },
-  {
-    "greek": "ἀρτι",
-    "french": "",
-    "english": "now, just now",
-    "chapter": 6
-  },
-  {
-    "greek": "ἐτι",
-    "french": "",
-    "english": "still, yet",
-    "chapter": 6
-  },
-  {
-    "greek": "ἠδη",
-    "french": "",
-    "english": "already",
-    "chapter": 6
-  },
-  {
-    "greek": "νυν",
-    "french": "",
-    "english": "now",
-    "chapter": 6
-  },
-  {
-    "greek": "ὁτε",
-    "french": "",
-    "english": "when",
-    "chapter": 6
-  },
-  {
-    "greek": "οὐκετι",
-    "french": "",
-    "english": "no longer",
-    "chapter": 6
-  },
-  {
-    "greek": "οὐπω",
-    "french": "",
-    "english": "not yet",
-    "chapter": 6
-  },
-  {
-    "greek": "παλιν",
-    "french": "",
-    "english": "back, again",
-    "chapter": 6
-  },
-  {
-    "greek": "παντοτε",
-    "french": "",
-    "english": "always",
-    "chapter": 6
-  },
-  {
-    "greek": "ποτε",
-    "french": "",
-    "english": "once, at some time",
-    "chapter": 6
-  },
-  {
-    "greek": "σημερον",
-    "french": "",
-    "english": "today",
-    "chapter": 6
-  },
-  {
-    "greek": "τοτε",
-    "french": "",
-    "english": "then",
-    "chapter": 6
-  },
-  {
-    "greek": "δυο",
-    "french": "",
-    "english": "two",
-    "chapter": 6
-  },
-  {
-    "greek": "Τιμοθεοσ",
-    "french": "",
-    "english": "Timothy",
-    "chapter": 6
-  },
-  {
-    "greek": "τοπος",
-    "french": "",
-    "english": "place",
-    "chapter": 6
+    "greek": "είσιν",
+    "french": "ils sont",
+    "english": "they are",
+    "chapter": 5
   }
 ]
