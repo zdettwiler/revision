@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import pixelWidth from 'string-pixel-width'
 import './QuestionAnswer.css'
-import { Input } from 'semantic-ui-react'
 
 class Answer extends Component {
   constructor(props) {
