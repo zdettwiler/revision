@@ -5,13 +5,12 @@
 }
 
 .QuestionAnswer .Question {
-  height: 200px;
-  /* width: auto; */
-  border: 2px solid red;
+  /* height: 200px; */
   /* font-family: 'SBL Greek'; */
   font-style: italic;
   font-size: 150px;
   text-align: center;
+  border: 2px solid red;
 }
 
 .QuestionAnswer input {
@@ -20,7 +19,8 @@
   margin: auto;
   font-size: 70px;
   margin-top: 30px;
-  border: 2px solid yellow;
+  border: none;
+  /* border: 2px solid yellow; */
   border-bottom: 1px solid grey;
   background-color: inherit;
   font-family: 'Plantin';

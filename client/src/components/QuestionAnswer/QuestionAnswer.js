@@ -26,10 +26,18 @@ class Answer extends Component {
   }
 
   render() {
+    let questionFontSize = 150
+    while (pixelWidth(this.props.currentQuestion, {
+      font: 'Times New Roman',
+      size: questionFontSize
+    }) > 900) {
+      questionFontSize -= 10
+    }
     console.log(pixelWidth(this.props.currentQuestion, { font: 'Times New Roman', size: 150 }))
+    console.log(document.getElementsByClassName('.Question').offsetWidth)
     return (
       <div className="QuestionAnswer">
-        <div className="Question">
+        <div className="Question" style={{ fontSize: questionFontSize }}>
           {this.props.currentQuestion}
         </div>
         <input className='answerInput'
