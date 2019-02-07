@@ -11,7 +11,7 @@ body {
 }
 
 div {
-  /* border: none !important; */
+  border: none !important;
 }
 
 select {
