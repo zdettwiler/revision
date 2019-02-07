@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
+import pixelWidth from 'string-pixel-width'
 import './QuestionAnswer.css'
+import { Input } from 'semantic-ui-react'
 
 class Answer extends Component {
   constructor(props) {
@@ -24,6 +26,7 @@ class Answer extends Component {
   }
 
   render() {
+    console.log(pixelWidth(this.props.currentQuestion, { font: 'Times New Roman', size: 150 }))
     return (
       <div className="QuestionAnswer">
         <div className="Question">
@@ -36,6 +39,7 @@ class Answer extends Component {
           value={this.state.value}
           onChange={this.handleChange}
         />
+
       </div>
     );
   }

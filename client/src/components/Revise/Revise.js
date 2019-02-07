@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import './Revise.css'
 import QuestionAnswer from 'components/QuestionAnswer/QuestionAnswer'
 import ProgressTracker from 'components/ProgressTracker/ProgressTracker'
 import ExerciseResults from 'components/ExerciseResults/ExerciseResults'
@@ -60,7 +61,7 @@ class Revise extends Component {
     return (
       <div className='Revise'>
         {this.state.status === 'revising' && (
-          <div>
+          <div className='flex'>
             <ProgressTracker
               progress={this.state.exercise}
             />
