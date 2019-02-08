@@ -18,7 +18,7 @@ function getChaptersArray(chapters) {
   return chaptersArray
 }
 
-export default function createExercise(set, chapters, nbQuestions) {
+export default function createCustomExercise(set, chapters, nbQuestions) {
   set = vocabDuffENTG
   chapters = getChaptersArray(chapters)
 
