@@ -6,7 +6,7 @@
 
 .QuestionAnswer .Question {
   /* height: 200px; */
-  /* font-family: 'SBL Greek'; */
+  font-family: 'SBL Greek', serif;
   font-style: italic;
   font-size: 150px;
   text-align: center;

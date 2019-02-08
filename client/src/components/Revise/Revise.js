@@ -58,12 +58,14 @@ class Revise extends Component {
   }
 
   render() {
+    let reversedEx = this.state.exercise.slice().reverse()
+    console.log(this.state.exercise, reversedEx)
     return (
       <div className='Revise'>
         {this.state.status === 'revising' && (
           <div className='flex'>
             <ProgressTracker
-              progress={this.state.exercise}
+              progress={reversedEx}
             />
             <QuestionAnswer
               currentQuestion={this.state.exercise[this.state.currentQuestion].question}

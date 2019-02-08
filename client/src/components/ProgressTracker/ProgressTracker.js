@@ -4,6 +4,7 @@ import './ProgressTracker.css'
 class ProgressTracker extends Component {
 
   render() {
+    // console.log(this.props.progress)
     return (
       <div className='ProgressTracker'>
         <ul>

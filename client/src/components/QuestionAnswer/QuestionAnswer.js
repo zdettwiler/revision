@@ -32,8 +32,7 @@ class Answer extends Component {
     }) > 900) {
       questionFontSize -= 10
     }
-    console.log(pixelWidth(this.props.currentQuestion, { font: 'Times New Roman', size: 150 }))
-    console.log(document.getElementsByClassName('.Question').offsetWidth)
+
     return (
       <div className="QuestionAnswer">
         <div className="Question" style={{ fontSize: questionFontSize }}>
