@@ -1,18 +1,12 @@
 import mongoose from 'mongoose'
 import validator from 'validator'
+import { revisionBoxes } from './constants'
 
 /*
  * Only for greek for now; in the future, it will need to be adaptable to any
  * collection of words added.
  */
 
-const revisionBoxes = [
-  'every-day',
-  'every-three-days',
-  'every-week',
-  'every-other-week',
-  'before-test'
-]
 
 const wordSchema = new mongoose.Schema({
   greek: {
