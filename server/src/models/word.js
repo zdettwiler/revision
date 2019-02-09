@@ -1,6 +1,6 @@
 import mongoose from 'mongoose'
 import validator from 'validator'
-import { revisionBoxes } from './constants'
+import { revisionBoxes } from '../constants'
 
 /*
  * Only for greek for now; in the future, it will need to be adaptable to any
@@ -36,8 +36,6 @@ const wordSchema = new mongoose.Schema({
   },
   lastRevised: {
     type: Date,
-    required: true,
-    default: new Date,
     // validate: value => validator.isBefore(value, new Date)
   }
 })

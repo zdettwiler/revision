@@ -6,7 +6,7 @@
     "start": "nodemon -r babel-register src/server.js",
     "build": "babel . --ignore node_modules,build --out-dir build --copy-files",
     "start:prod": "node build/src/server.js",
-    "test": "jest --watch"
+    "test": "mocha --compilers js:babel-core/register"
   },
   "dependencies": {
     "babel-cli": "^6.26.0",
@@ -21,8 +21,10 @@
   },
   "devDependencies": {
     "babel-register": "^6.26.0",
-    "jest": "^23.6.0",
+    "chai": "^4.2.0",
+    "mocha": "^5.2.0",
     "nodemon": "^1.18.9",
+    "sinon": "^7.2.3",
     "supertest": "^3.3.0"
   }
 }
