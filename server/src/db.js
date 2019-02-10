@@ -4,7 +4,21 @@ if (process.env.NODE_ENV !== 'production') {
   require('dotenv').load();
 }
 
-const credentials = `${process.env.MONGODB_USER}:${process.env.MONGODB_PSW}`
+let credentials
+let server
+let database
+
+if (process.env.NODE_ENV === 'test') {
+  credentials = `${process.env.MONGODB_TEST_USER}:${process.env.MONGODB_TEST_PSW}`
+  server = process.env.MONGODB_TEST_SERVER
+  database = process.env.MONGODB_TEST_DATABASE
+
+} else {
+  credentials = `${process.env.MONGODB_USER}:${process.env.MONGODB_PSW}`
+  server = process.env.MONGODB_SERVER
+  database = process.env.MONGODB_DATABASE
+
+}
 
 class DB {
   constructor() {
@@ -12,7 +26,8 @@ class DB {
   }
 
   _connect() {
-    mongoose.connect(`mongodb://${credentials}@${process.env.MONGODB_SERVER}/${process.env.MONGODB_DATABASE}`,
+    mongoose.connect(
+      `mongodb://${credentials}@${server}/${database}`,
       { useNewUrlParser: true })
     .then(() => {
       console.log('Database connection successful')
@@ -21,6 +36,22 @@ class DB {
       console.error('Database connection error', err)
     })
   }
+
+  disconnect() {
+    console.log('Disconnecting from database')
+    mongoose.disconnect()
+  }
+
+  dropCollection(collection, callback) {
+    console.log('Dropping ', collection)
+    if (collection in mongoose.connection.collections) {
+      mongoose.connection.dropCollection(collection, err => {
+        callback(err)
+      })
+    } else {
+      throw 'Error: Collection does not exist!'
+    }
+  }
 }
 
-module.exports = new DB()
+export default new DB()

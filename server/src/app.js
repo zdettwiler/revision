@@ -1,9 +1,11 @@
 import express from 'express'
 import path from 'path'
 import createCustomExercise from './createCustomExercise'
+import createDailyExercise from './createDailyExercise'
+
 
 import db from './db'
-import WordModel from './models/word'
+import Word from './models/word'
 
 const app = express()
 
@@ -13,15 +15,16 @@ app.get('/api/revise/:set/chapters/:chapters/questions/:nbQuestions', (req, res)
 })
 
 // testing endpoint
-app.get('/test', (req, res) => {
-  // let word = new WordModel({
+app.get('/test', async (req, res) => {
+  res.send(await createDailyExercise())
+  // let word = new Word({
   //   greek: 'κακος',
   //   french: 'mauvais',
   //   english: 'bad',
   //   chapter: 2
   // })
 
-  // let word = new WordModel({
+  // let word = new Word({
   //   greek: 'πλοιον',
   //   french: 'bâteau',
   //   english: 'boat',
@@ -36,15 +39,15 @@ app.get('/test', (req, res) => {
   //     console.error(err)
   //   })
 
-  WordModel.find({
-    chapter: 2
-  })
-  .then(doc => {
-    res.send(doc)
-  })
-  .catch(err => {
-    res.send(err)
-  })
+  // Word.find({
+  //   revisionBox: 'every-day'
+  // }).limit(5)
+  // .then(doc => {
+  //   res.send(doc)
+  // })
+  // .catch(err => {
+  //   res.send(err)
+  // })
 })
 
 // handles any other requests

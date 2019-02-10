@@ -1,0 +1,34 @@
+[
+  {
+    "revisionBox":"every-day",
+    "lastRevised":"2019-02-08T23:10:24.879Z",
+    "greek":"κακος",
+    "french":"mauvais",
+    "english":"bad",
+    "chapter":5
+  },
+  {
+    "revisionBox":"every-three-days",
+    "lastRevised":"2019-02-05T23:10:24.879Z",
+    "greek":"πλοιον",
+    "french":"bâteau",
+    "english":"boat",
+    "chapter":3
+  },
+  {
+    "revisionBox":"every-week",
+    "greek":"Δαυιδ",
+    "french":"David",
+    "english":"David",
+    "chapter":1,
+    "lastRevised":"2019-02-01T23:10:24.879Z"
+  },
+  {
+    "revisionBox":"every-other-week",
+    "greek":"Ἰσρηλ",
+    "french":"Israël",
+    "english":"Israel",
+    "chapter":1,
+    "lastRevised":"2019-01-20T23:10:24.879Z"
+  }
+]

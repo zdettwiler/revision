@@ -6,7 +6,7 @@
     "start": "nodemon -r babel-register src/server.js",
     "build": "babel . --ignore node_modules,build --out-dir build --copy-files",
     "start:prod": "node build/src/server.js",
-    "test": "mocha --compilers js:babel-core/register"
+    "test": "NODE_ENV=test mocha --require babel-core/register"
   },
   "dependencies": {
     "babel-cli": "^6.26.0",

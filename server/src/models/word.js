@@ -35,10 +35,10 @@ const wordSchema = new mongoose.Schema({
     validate: value => validator.isIn(value, revisionBoxes)
   },
   lastRevised: {
-    type: Date,
+    type: Date
     // validate: value => validator.isBefore(value, new Date)
   }
-})
+}, { collection: 'nt-greek-duff' })
 
 
-module.exports = mongoose.model('nt-greek-duff', wordSchema)
+export default mongoose.model('nt-greek-duff', wordSchema)
