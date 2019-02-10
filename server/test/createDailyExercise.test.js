@@ -7,10 +7,11 @@ import mockWords from './setup/mockWords'
 
 
 describe('createDailyExercise()', () => {
-  var stub
+  var now = new Date()
 
   beforeEach(async () => {
     await Word.deleteMany({})
+
   })
 
   afterEach(() => {
@@ -45,7 +46,7 @@ describe('createDailyExercise()', () => {
 
   it('picks every-three-days words ', async () => {
     let fourDaysAgo = new Date()
-    fourDaysAgo.setDate(fourDaysAgo.getDate() - 4)
+    fourDaysAgo.setDate(now.getDate() - 4)
     let word = mockWords[1]
     word.lastRevised = fourDaysAgo.toISOString()
 
@@ -56,6 +57,42 @@ describe('createDailyExercise()', () => {
     expect(ex).to.deep.equal([{
       question: "πλοιον",
       answer: "boat",
+      response: undefined,
+      result: undefined
+    }])
+  })
+
+  it('picks every-week words ', async () => {
+    let eightDaysAgo = new Date()
+    eightDaysAgo.setDate(now.getDate() - 8)
+    let word = mockWords[2]
+    word.lastRevised = eightDaysAgo.toISOString()
+
+    await Word.create(word)
+
+    let ex = await createDailyExercise()
+
+    expect(ex).to.deep.equal([{
+      question: "Δαυιδ",
+      answer: "David",
+      response: undefined,
+      result: undefined
+    }])
+  })
+
+  it('picks every-other-week words ', async () => {
+    let fifteenDaysAgo = new Date()
+    fifteenDaysAgo.setDate(now.getDate() - 15)
+    let word = mockWords[3]
+    word.lastRevised = fifteenDaysAgo.toISOString()
+
+    await Word.create(word)
+
+    let ex = await createDailyExercise()
+
+    expect(ex).to.deep.equal([{
+      question: "Ἰσρηλ",
+      answer: "Israel",
       response: undefined,
       result: undefined
     }])

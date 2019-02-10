@@ -28,15 +28,37 @@ export default async function createDailyExercise(nbQuestions=5) {
     })
     wordsToTest.push(...everyThreeDays)
 
+    /*
+     * get all words in revisionBox[2] 'every-week'
+     *  - if NOW - 7days < lastRevised add to wordsToTest
+     * (= if lastRevised is more than a week ago)
+     */
 
-// get all words in revisionBox[2] 'every-week'
-//  - if NOW > lastRevised + 7days add to questionPool
+    let oneWeekAgo = new Date()
+    oneWeekAgo.setDate(now.getDate() - 7)
 
-// get all words in revisionBox[3] 'every-other-week'
-//  - if NOW > lastRevised + 14days add to questionPool
+    let everyWeek = await Word.find({
+      revisionBox: revisionBoxes[2],
+      lastRevised: { $lte: oneWeekAgo.toISOString() }
+    })
+    wordsToTest.push(...everyWeek)
 
-// take a random selection of available words for exercise
-// return exercise array
+    /*
+     * get all words in revisionBox[3] 'every-other-week'
+     *  - if NOW - 14days < lastRevised add to wordsToTest
+     * (= if lastRevised is more than two weeks ago)
+     */
+
+    let twoWeeksAgo = new Date()
+    twoWeeksAgo.setDate(now.getDate() - 7)
+
+    let everyOtherWeek = await Word.find({
+      revisionBox: revisionBoxes[3],
+      lastRevised: { $lte: twoWeeksAgo.toISOString() }
+    })
+    wordsToTest.push(...everyOtherWeek)
+
+    // take a random selection of available words for exercise
     let nextQuestionId
     while (wordsToTest.length > 0) {
       nextQuestionId = Math.round((wordsToTest.length-1) * Math.random())
