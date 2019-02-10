@@ -7,17 +7,28 @@ export default async function createDailyExercise(nbQuestions=5) {
   var wordsToTest = []
   let now = new Date()
 
-// get all words in revisionBox[0] 'every-day' or no revisionBox or no lastRevised
-// and add them all to questionPool
   try {
+
+    /*
+     * get all words in revisionBox[0] 'every-day'
+     * and all words without revisionBox or lastRevised date
+     */
+
+     // get all words in revisionBox[0] 'every-day' or no revisionBox or no lastRevised
+    // and add them all to questionPool
     let everyDay = await Word.find({
-      revisionBox: revisionBoxes[0]
+      $or: [
+        { revisionBox: { $in: [revisionBoxes[0], ''] } },
+        { lastRevised: '' },
+      ]
     })
     wordsToTest.push(...everyDay)
 
-    // get all words in revisionBox[1] 'every-three-days'
-    //  - if NOW - 3days < lastRevised add to questionPool
-    // (= if lastRevised is more than 3days ago)
+    /*
+     * get all words in revisionBox[1] 'every-three-days'
+     *  - if NOW - 3days < lastRevised add to wordsToTest
+     * (= if lastRevised is more than three days ago)
+     */
 
     let threeDaysAgo = new Date()
     threeDaysAgo.setDate(now.getDate() - 3)

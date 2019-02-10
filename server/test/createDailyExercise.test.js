@@ -31,8 +31,23 @@ describe('createDailyExercise()', () => {
     })
   })
 
-  it('picks every-day words ', async () => {
+  it('picks every-day words', async () => {
     await Word.create(mockWords[0])
+
+    let ex = await createDailyExercise()
+
+    expect(ex).to.deep.equal([{
+      question: "κακος",
+      answer: "bad",
+      response: undefined,
+      result: undefined
+    }])
+  })
+
+  it('picks words which don\'t have lastRevised as every-day', async () => {
+    let word = mockWords[0]
+    word.lastRevised = ''
+    await Word.create(word)
 
     let ex = await createDailyExercise()
 
