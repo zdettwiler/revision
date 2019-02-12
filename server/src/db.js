@@ -30,7 +30,8 @@ class DB {
       `mongodb://${credentials}@${server}/${database}`,
       { useNewUrlParser: true })
     .then(() => {
-      console.log('Database connection successful')
+      let test = process.env.NODE_ENV === 'test' ? 'test ' : ''
+      console.log(`Database ${test}connection successful`)
     })
     .catch(err => {
       console.error('Database connection error', err)
