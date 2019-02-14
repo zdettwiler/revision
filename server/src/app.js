@@ -19,6 +19,12 @@ app.get('/api/revise/:set/chapters/:chapters/questions/:nbQuestions', (req, res)
   res.json(createCustomExercise(req.params.set, req.params.chapters, req.params.nbQuestions))
 })
 
+// Query words
+app.post('/api/words', async (req, res) => {
+  let queryResults = await Word.find(req.body.find, '-_id -__v').exec()
+  res.status(200).json({ words: queryResults })
+})
+
 // Correct exercise
 app.post('/api/correction', async (req, res) => {
   // validation here
