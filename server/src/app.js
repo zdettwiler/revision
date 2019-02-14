@@ -1,53 +1,39 @@
 import express from 'express'
+import bodyParser from 'body-parser'
 import path from 'path'
 import createCustomExercise from './createCustomExercise'
 import createDailyExercise from './createDailyExercise'
+import correctExercise from './correctExercise'
 
 
 import db from './db'
 import Word from './models/word'
 
 const app = express()
+app.use(bodyParser.json()); // for parsing application/json
+app.use(bodyParser.urlencoded({ extended: true })); // for parsing application/x-www-form-urlencoded
 
-// API endpoint
+
+// API Create exercise
 app.get('/api/revise/:set/chapters/:chapters/questions/:nbQuestions', (req, res) => {
   res.json(createCustomExercise(req.params.set, req.params.chapters, req.params.nbQuestions))
 })
 
+// Correct exercise
+app.post('/api/correction', async (req, res) => {
+  // validation here
+  // -----
+  if (await correctExercise(req.body.exercise)) {
+    res.status(200).send({ info: 'Exercise corrected.' })
+  } else {
+    res.status(500).send({ error: 'Something went wrong!' })
+  }
+})
+
+
 // testing endpoint
 app.get('/test', async (req, res) => {
   res.send(await createDailyExercise())
-  // let word = new Word({
-  //   greek: 'κακος',
-  //   french: 'mauvais',
-  //   english: 'bad',
-  //   chapter: 2
-  // })
-
-  // let word = new Word({
-  //   greek: 'πλοιον',
-  //   french: 'bâteau',
-  //   english: 'boat',
-  //   chapter: 3
-  // })
-
-  // word.save()
-  //   .then(doc => {
-  //     res.send(doc)
-  //   })
-  //   .catch(err => {
-  //     console.error(err)
-  //   })
-
-  // Word.find({
-  //   revisionBox: 'every-day'
-  // }).limit(5)
-  // .then(doc => {
-  //   res.send(doc)
-  // })
-  // .catch(err => {
-  //   res.send(err)
-  // })
 })
 
 // handles any other requests

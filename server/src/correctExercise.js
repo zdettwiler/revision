@@ -31,7 +31,11 @@ export default async function correctExercise(exercise) {
           runValidators: true // validate before update
         }
       ).exec()
-      
-    } catch (err) { throw err }
+
+
+    } catch (err) { return { error: err } }
   }
+
+  // if all's worked fine
+  return true
 }

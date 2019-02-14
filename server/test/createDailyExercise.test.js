@@ -9,13 +9,8 @@ import mockWords from './setup/mockWords'
 describe('createDailyExercise()', () => {
   var now = new Date()
 
-  beforeEach(async () => {
+  afterEach(async () => {
     await Word.deleteMany({})
-
-  })
-
-  afterEach(() => {
-
   })
 
   it('formats exercise correctly', async () => {
