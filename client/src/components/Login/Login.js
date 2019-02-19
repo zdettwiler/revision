@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
 import { Redirect } from 'react-router-dom'
+import { connect } from 'react-redux'
+import { login } from '../../actions/AuthActions'
 
 import Auth from '../Auth/Auth.js'
 // import './Home.css'
@@ -10,11 +12,12 @@ class Login extends Component {
     this.state = {
       redirectToReferrer: false
     }
-    this.login = this.login.bind(this)
+    this.handleLogin = this.handleLogin.bind(this)
   }
 
-  login() {
-    Auth.login(() => {
+  handleLogin() {
+    console.log('logging in')
+    this.props.login('username', 'password', () => {
       this.props.history.push("/")
     })
   }
@@ -31,10 +34,19 @@ class Login extends Component {
       <div className='Home'>
         <h1>Login</h1>
         <p>You must log in to view the page at {from.pathname}</p>
-        <button onClick={this.login} type="button">Login</button>
+        <button onClick={this.handleLogin} type="button">Login</button>
       </div>
     )
   }
 }
 
-export default Login
+const mapStateToProps = (state) => ({
+  username: state.user.username,
+  email: state.user.email
+})
+
+const mapDispatchToProps = (dispatch) => ({
+  login
+})
+
+export default connect(mapStateToProps, {login})(Login)

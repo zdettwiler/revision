@@ -1,12 +1,18 @@
+import { login } from '../../actions/AuthActions'
+
 class Auth {
 
   constructor() {
     this.isAuth = false
   }
 
-  login(callback) {
+  login(username, password, callback) {
     this.isAuth = true
-    setTimeout(callback, 500)
+    return new Promise(function(resolve, reject) {
+      setTimeout(function() {
+        resolve({ username, email:'test@email.com' });
+      }, 500);
+    })
   }
 
   logout(callback) {
@@ -15,6 +21,7 @@ class Auth {
   }
 
   isAuthenticated() {
+    // console.log(store.getState())
     return this.isAuth
   }
 

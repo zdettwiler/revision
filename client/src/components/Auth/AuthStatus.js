@@ -17,8 +17,8 @@ class AuthStatus extends Component {
 
   render() {
     return Auth.isAuthenticated()
-      ? (<button onClick={this.logout}>Sign Out</button>)
-      : (<a href='/login'>Log In</a>)
+      ? (<button onClick={this.logout}>Logged In (Sign Out)</button>)
+      : (<a href='/login'>Logged Out (Log In)</a>)
   }
 }
 

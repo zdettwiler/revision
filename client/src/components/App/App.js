@@ -29,7 +29,7 @@ class App extends Component {
             <AuthStatus />
 
             <Switch>
-              <Route path='/' exact component={Home} />
+              <PrivateRoute path='/' exact component={Home} />
               <Route path='/login' component={Login} />
 
               <Route path='/public' component={Public} />
