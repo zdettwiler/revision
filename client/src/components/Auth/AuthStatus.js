@@ -14,15 +14,20 @@ class AuthStatus extends Component {
 
   logout() {
     this.props.logout(() => {
-      console.log('logout')
       this.props.history.push("/")
     })
   }
 
   render() {
-    return Auth.isAuthenticated()
-      ? (<button onClick={this.logout}>Logged In (Sign Out)</button>)
-      : (<a href='/login'>Logged Out (Log In)</a>)
+    return (
+      <div className='UserStatus float-right'>
+        {
+          Auth.isAuthenticated()
+          ? (<span>Welcome { localStorage.getItem('email') }! <button onClick={this.logout}>Log Out</button></span>)
+          : (<a className='button' href='/login'>Log In</a>)
+        }
+      </div>
+    )
   }
 }
 

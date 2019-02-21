@@ -1,12 +1,8 @@
 import React, { Component } from 'react'
 import { Redirect } from 'react-router-dom'
-import { connect } from 'react-redux'
-import { login } from '../../actions/AuthActions'
+import LoginForm from '../LoginForm/LoginForm.js'
 
-import Auth from '../Auth/Auth.js'
-// import './Home.css'
-
-class Login extends Component {
+class LoginPage extends Component {
   constructor(props) {
     super(props)
     this.state = {
@@ -16,10 +12,7 @@ class Login extends Component {
   }
 
   handleLogin() {
-    this.props.login('username', 'password', () => {
-      console.log('login')
-      this.props.history.push("/")
-    })
+    this.props.history.push("/")
   }
 
   render() {
@@ -31,22 +24,15 @@ class Login extends Component {
     }
 
     return (
-      <div className='Home'>
+      <div className="LoginPage">
         <h1>Login</h1>
         <p>You must log in to view the page at {from.pathname}</p>
-        <button onClick={this.handleLogin} type="button">Login</button>
+        <LoginForm
+          onLogin={this.handleLogin}
+        />
       </div>
     )
   }
 }
 
-const mapStateToProps = (state) => ({
-  username: state.user.username,
-  email: state.user.email
-})
-
-const mapDispatchToProps = (dispatch) => ({
-  login
-})
-
-export default connect(mapStateToProps, {login})(Login)
+export default LoginPage

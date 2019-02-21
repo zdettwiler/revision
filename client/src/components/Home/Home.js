@@ -1,18 +1,31 @@
 import React, { Component } from 'react'
 import Auth from '../Auth/Auth.js'
+import LoginForm from '../LoginForm/LoginForm.js'
 import './Home.css'
 
 class Home extends Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      userLoggedIn: Auth.isAuthenticated()
+    }
+    this.handleLogin = this.handleLogin.bind(this)
+  }
+
+  handleLogin() {
+    this.setState({ userLoggedIn: true })
+  }
+
   render() {
-
-
     return (
       <div className='Home'>
-        <h1>Home</h1>
+        <h1>Revise Vocab</h1>
 
         { Auth.isAuthenticated()
           ? (<p>Logged in ({ localStorage.getItem('email') })</p>)
-          : (<p>Logged out</p>)
+          : (<LoginForm
+            onLogin={this.handleLogin}
+          />)
         }
       </div>
     );

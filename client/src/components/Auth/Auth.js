@@ -2,15 +2,15 @@ import { login } from '../../actions/AuthActions'
 
 class Auth {
 
-  login(username, password) {
+  login(email, password) {
     return new Promise(function(resolve, reject) {
       setTimeout(function() {
         try {
-          localStorage.setItem('username', username)
-          localStorage.setItem('email', 'email@test.com')
+          localStorage.setItem('username', 'username')
+          localStorage.setItem('email', email)
           resolve({
-            username,
-            email: 'email@test.com'
+            email,
+            username: 'username'
           })
         } catch (err) {
           reject(err)
@@ -32,8 +32,8 @@ class Auth {
 
   isAuthenticated() {
     try {
-      let username = localStorage.getItem('username')
-      if (username) {
+      let email = localStorage.getItem('email')
+      if (email) {
         return true
       } else {
         return false
