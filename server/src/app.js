@@ -1,4 +1,5 @@
 import express from 'express'
+import bcrypt from 'bcrypt'
 import bodyParser from 'body-parser'
 import path from 'path'
 import createCustomExercise from './createCustomExercise'
@@ -8,6 +9,7 @@ import correctExercise from './correctExercise'
 
 import db from './db'
 import Word from './models/word'
+import User from './models/user'
 
 const app = express()
 app.use(bodyParser.json()); // for parsing application/json
@@ -34,6 +36,47 @@ app.post('/api/correction', async (req, res) => {
   } else {
     res.status(500).send({ error: 'Something went wrong!' })
   }
+})
+
+app.post('/api/login', async (req, res) => {
+  if (Object.keys(req.body).includes('email')
+  && Object.keys(req.body).includes('password')) {
+
+    try {
+      let user = await User.findOne({
+        email: req.body.email
+      }).exec()
+
+      if (bcrypt.compareSync(req.body.password, user.password)) {
+        res.status(200).send({
+          username: user.username,
+          token: user.token
+        })
+      } else {
+        res.status(200).send({ error: "Credentials don't match." })
+      }
+
+    } catch (err) { throw err }
+
+  } else if (Object.keys(req.body).includes('email')
+  && Object.keys(req.body).includes('token')) {
+
+    try {
+      let user = await User.findOne({
+        email: req.body.email,
+        token: req.body.token
+      }).exec()
+
+      if (user) {
+        res.status(200).send({ loggedIn: true })
+      } else {
+        res.status(200).send({ loggedIn: false })
+      }
+
+    } catch (err) { throw err }
+
+  }
+
 })
 
 
