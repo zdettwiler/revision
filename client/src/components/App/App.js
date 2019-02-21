@@ -5,6 +5,7 @@ import { BrowserRouter, Switch, Route, Link } from 'react-router-dom'
 import Home from 'components/Home/Home'
 import Revise from 'components/Revise/Revise'
 import Exercise from 'components/Exercise/Exercise'
+import WordsPage from 'components/WordsPage/WordsPage'
 
 class App extends Component {
   render() {
@@ -20,6 +21,7 @@ class App extends Component {
 
             <Switch>
               <Route path='/' exact component={Home} />
+              <Route path='/words' exact component={WordsPage} />
               // <Route path='/exercise' component={Exercise} />
               <Route path='/revise/:set/chapters/:chapters/questions/:nbQuestions' component={Revise} />
               <Route path='/revise/:savedEx' component={Revise} />
