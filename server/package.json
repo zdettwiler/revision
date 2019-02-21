@@ -6,20 +6,26 @@
     "start": "nodemon -r babel-register src/server.js",
     "build": "babel . --ignore node_modules,build --out-dir build --copy-files",
     "start:prod": "node build/src/server.js",
-    "test": "jest --watch"
+    "test": "NODE_ENV=test mocha --require babel-core/register"
   },
   "dependencies": {
     "babel-cli": "^6.26.0",
     "babel-plugin-transform-runtime": "^6.23.0",
     "babel-preset-env": "^1.7.0",
     "babel-preset-stage-0": "^6.24.1",
+    "bcrypt": "^3.0.4",
     "body-parser": "^1.18.3",
-    "express": "^4.16.4"
+    "dotenv": "^6.2.0",
+    "express": "^4.16.4",
+    "mongoose": "^5.4.10",
+    "validator": "^10.11.0"
   },
   "devDependencies": {
     "babel-register": "^6.26.0",
-    "jest": "^23.6.0",
+    "chai": "^4.2.0",
+    "mocha": "^5.2.0",
     "nodemon": "^1.18.9",
+    "sinon": "^7.2.3",
     "supertest": "^3.3.0"
   }
 }

@@ -1,0 +1,22 @@
+[
+  {
+    "question":"κακος",
+    "answer":"bad",
+    "result": true
+  },
+  {
+    "question":"πλοιον",
+    "answer":"boat",
+    "result": true
+  },
+  {
+    "question":"Δαυιδ",
+    "answer":"David",
+    "result": true
+  },
+  {
+    "question":"Ἰσρηλ",
+    "answer":"Israel",
+    "result": true
+  }
+]
