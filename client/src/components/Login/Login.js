@@ -16,8 +16,8 @@ class Login extends Component {
   }
 
   handleLogin() {
-    console.log('logging in')
     this.props.login('username', 'password', () => {
+      console.log('login')
       this.props.history.push("/")
     })
   }

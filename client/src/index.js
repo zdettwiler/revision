@@ -9,11 +9,19 @@ import { createStore, applyMiddleware } from 'redux'
 import { composeWithDevTools } from 'redux-devtools-extension'
 import thunk from 'redux-thunk'
 import rootReducer from 'reducers/RootReducer'
+import { loggedInAction } from 'actions/AuthActions'
 
 const store = createStore(
   rootReducer,
   composeWithDevTools(applyMiddleware(thunk))
 )
+
+if (localStorage.username && localStorage.email) {
+  store.dispatch(loggedInAction({
+    username: localStorage.username,
+    email: localStorage.email
+  }))
+}
 
 ReactDOM.render(
   <Provider store={store}>

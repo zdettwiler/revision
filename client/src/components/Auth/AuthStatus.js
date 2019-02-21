@@ -1,6 +1,9 @@
 import React, { Component } from 'react'
 import { withRouter } from 'react-router-dom'
+import { connect } from 'react-redux'
 import Auth from './Auth'
+import { logout } from '../../actions/AuthActions'
+
 
 
 class AuthStatus extends Component {
@@ -10,7 +13,8 @@ class AuthStatus extends Component {
   }
 
   logout() {
-    Auth.logout(() => {
+    this.props.logout(() => {
+      console.log('logout')
       this.props.history.push("/")
     })
   }
@@ -22,4 +26,9 @@ class AuthStatus extends Component {
   }
 }
 
-export default withRouter(AuthStatus)
+const mapStateToProps = (state) => ({
+  username: state.user.username,
+  email: state.user.email
+})
+
+export default connect(mapStateToProps, {logout})(withRouter(AuthStatus))

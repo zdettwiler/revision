@@ -2,27 +2,45 @@ import { login } from '../../actions/AuthActions'
 
 class Auth {
 
-  constructor() {
-    this.isAuth = false
-  }
-
-  login(username, password, callback) {
-    this.isAuth = true
+  login(username, password) {
     return new Promise(function(resolve, reject) {
       setTimeout(function() {
-        resolve({ username, email:'test@email.com' });
-      }, 500);
+        try {
+          localStorage.setItem('username', username)
+          localStorage.setItem('email', 'email@test.com')
+          resolve({
+            username,
+            email: 'email@test.com'
+          })
+        } catch (err) {
+          reject(err)
+        }
+      }, 500)
     })
   }
 
-  logout(callback) {
-    this.isAuth = false
-    setTimeout(callback, 500)
+  logout() {
+    try {
+      localStorage.removeItem('username')
+      localStorage.removeItem('email')
+      return true
+    } catch (err) {
+      console.log(err)
+      return false
+    }
   }
 
   isAuthenticated() {
-    // console.log(store.getState())
-    return this.isAuth
+    try {
+      let username = localStorage.getItem('username')
+      if (username) {
+        return true
+      } else {
+        return false
+      }
+    } catch (err) {
+      console.log(err)
+    }
   }
 
 }

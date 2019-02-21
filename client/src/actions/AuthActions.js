@@ -6,7 +6,7 @@ export const LOGGED_OUT = 'LOGGED_OUT'
 export const LOGIN_ERROR = 'LOGIN_ERROR'
 
 
-const loggedInAction = user => ({
+export const loggedInAction = user => ({
   type: LOGGED_IN,
   user
 })
@@ -20,4 +20,10 @@ export const login = (username, password, callback) => dispatch => {
     dispatch(loggedInAction(user))
     callback()
   })
+}
+
+export const logout = (callback) => dispatch => {
+  Auth.logout()
+  dispatch(loggedOutAction())
+  callback()
 }
