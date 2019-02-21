@@ -11,14 +11,17 @@ const userSchema = new mongoose.Schema({
   },
   username: {
     type: String,
+    required: true,
     validate: value => validator.isAlphanumeric(value)
   },
   password: {
     type: String,
+    required: true,
     validate: value => typeof value === 'string'
   },
   token: {
     type: String,
+    required: true,
     validate: value => typeof value === 'string'
   }
 }, { collection: 'users' })

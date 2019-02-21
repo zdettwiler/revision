@@ -47,7 +47,7 @@ app.post('/api/login', async (req, res) => {
         email: req.body.email
       }).exec()
 
-      if (bcrypt.compareSync(req.body.password, user.password)) {
+      if (user && bcrypt.compareSync(req.body.password, user.password)) {
         res.status(200).send({
           username: user.username,
           token: user.token
@@ -56,7 +56,7 @@ app.post('/api/login', async (req, res) => {
         res.status(200).send({ error: "Credentials don't match." })
       }
 
-    } catch (err) { throw err }
+    } catch (err) { res.status(500).send({ error: err }) }
 
   } else if (Object.keys(req.body).includes('email')
   && Object.keys(req.body).includes('token')) {
@@ -73,7 +73,7 @@ app.post('/api/login', async (req, res) => {
         res.status(200).send({ loggedIn: false })
       }
 
-    } catch (err) { throw err }
+    } catch (err) { res.status(500).send({ error: err }) }
 
   }
 

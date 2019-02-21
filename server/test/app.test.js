@@ -8,7 +8,7 @@ import Word from '../src/models/word'
 import mockWords from './setup/mockWords'
 import mockCompletedExercise from './setup/mockCompletedExercise'
 
-describe('API', () => {
+describe('API Exercise', () => {
 
   beforeEach(async () => {
     await Word.deleteMany({})
@@ -70,6 +70,69 @@ describe('API', () => {
           }
         ]
       })
+  })
+
+  it('POST login with email and password', () => {
+    return request(app).post("/api/login")
+      .send({
+        email: 'test@test.com',
+        password: 'test'
+      })
+      .set('Accept', 'application/json')
+      .expect(200, {
+        username: 'test',
+        token: 'test-token'
+      })
+  })
+
+  it('POST login error with wrong email', async () => {
+    return await request(app).post("/api/login")
+      .send({
+        email: 'tests@test.com',
+        password: 'test'
+      })
+      .set('Accept', 'application/json')
+      .expect(200, { error: "Credentials don't match." })
+  })
+
+  it('POST login error with wrong password', async () => {
+    return await request(app).post("/api/login")
+      .send({
+        email: 'test@test.com',
+        password: 'tests'
+      })
+      .set('Accept', 'application/json')
+      .expect(200, { error: "Credentials don't match." })
+  })
+
+  it('POST login auth email and token', async () => {
+    return await request(app).post("/api/login")
+      .send({
+        email: 'test@test.com',
+        token: 'test-token'
+      })
+      .set('Accept', 'application/json')
+      .expect(200, { loggedIn: true })
+  })
+
+  it('POST login auth error with wrong email', async () => {
+    return await request(app).post("/api/login")
+      .send({
+        email: 'tests@test.com',
+        token: 'test-token'
+      })
+      .set('Accept', 'application/json')
+      .expect(200, { loggedIn: false })
+  })
+
+  it('POST login auth error with wrong token', async () => {
+    return await request(app).post("/api/login")
+      .send({
+        email: 'test@test.com',
+        token: 'tests-token'
+      })
+      .set('Accept', 'application/json')
+      .expect(200, { loggedIn: false })
   })
 
   after(() => {
