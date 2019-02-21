@@ -1,28 +1,34 @@
+import axios from 'axios'
 import { login } from '../../actions/AuthActions'
 
 class Auth {
 
-  login(email, password) {
-    return new Promise(function(resolve, reject) {
-      setTimeout(function() {
-        try {
-          localStorage.setItem('username', 'username')
-          localStorage.setItem('email', email)
-          resolve({
-            email,
-            username: 'username'
-          })
-        } catch (err) {
-          reject(err)
-        }
-      }, 500)
-    })
+  async login(email, password) {
+    try {
+      let response = await axios.post('/api/login', {
+        email,
+        password
+      })
+      console.log(response)
+      if (!Object.keys(response.data).includes('error')) {
+        localStorage.setItem('email', email)
+        localStorage.setItem('username', response.data.username)
+        localStorage.setItem('token', response.data.token)
+      }
+
+      return response.data
+
+    } catch (err) {
+      throw err
+    }
+
   }
 
   logout() {
     try {
       localStorage.removeItem('username')
       localStorage.removeItem('email')
+      localStorage.removeItem('token')
       return true
     } catch (err) {
       console.log(err)

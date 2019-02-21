@@ -16,9 +16,11 @@ const loggedOutAction = () => ({
 })
 
 export const login = (username, password, callback) => dispatch => {
-  Auth.login(username, password).then(user => {
-    dispatch(loggedInAction(user))
-    callback()
+  Auth.login(username, password).then(resp => {
+    if (!Object.keys(resp).includes('error')) {
+      dispatch(loggedInAction(resp))
+      callback()
+    }
   })
 }
 
