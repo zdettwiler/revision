@@ -21,8 +21,8 @@ class Home extends Component {
       <div className='Home'>
         <h1>Revise Vocab</h1>
 
-        { Auth.isAuthenticated()
-          ? (<p>Logged in ({ localStorage.getItem('email') })</p>)
+        { this.state.userLoggedIn
+          ? (<a className='button' href='/revise/greek/chapters/1/questions/10'>Basic revision</a>)
           : (<LoginForm
             onLogin={this.handleLogin}
           />)
