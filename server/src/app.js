@@ -21,7 +21,7 @@ app.get('/api/revise/:set/chapters/:chapters/questions/:nbQuestions', (req, res)
   res.json(createCustomExercise(req.params.set, req.params.chapters, req.params.nbQuestions))
 })
 
-app.get('/api/revise/daily-revision', async (req, res) => {
+app.get('/api/revise/today', async (req, res) => {
   res.json(await createDailyExercise())
 })
 

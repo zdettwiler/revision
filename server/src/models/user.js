@@ -23,6 +23,11 @@ const userSchema = new mongoose.Schema({
     type: String,
     required: true,
     validate: value => typeof value === 'string'
+  },
+  upToChapter: {
+    type: Number,
+    required: true,
+    default: 1
   }
 }, { collection: 'users' })
 

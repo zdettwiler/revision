@@ -1,8 +1,8 @@
 import Word from './models/word'
 import { revisionBoxes } from './constants'
 
-export default async function createDailyExercise(nbQuestions=10) {
-
+export default async function createDailyExercise(nbQuestions=10, upToChapter=1) {
+  console.log(nbQuestions, upToChapter)
   let exercise = []
   var wordsToTest = []
   let now = new Date()
@@ -11,15 +11,13 @@ export default async function createDailyExercise(nbQuestions=10) {
 
     /*
      * get all words in revisionBox[0] 'every-day'
-     * and all words without revisionBox or lastRevised date
+     * up to chapter upToChapter of the user
      */
 
     let everyDay = await Word.find({
-      $or: [
-        { revisionBox: { $in: [revisionBoxes[0], ''] } },
-        { lastRevised: '' },
-      ]
-    })
+      revisionBox: revisionBoxes[0],
+      chapter: { $lte: upToChapter }
+    }).exec()
     wordsToTest.push(...everyDay)
 
     /*
@@ -33,8 +31,8 @@ export default async function createDailyExercise(nbQuestions=10) {
 
     let everyThreeDays = await Word.find({
       revisionBox: revisionBoxes[1],
-      lastRevised: { $lte: threeDaysAgo.toISOString() }
-    })
+      lastRevised: { $lte: threeDaysAgo.toISOString(), $ne: '' }
+    }).exec()
     wordsToTest.push(...everyThreeDays)
 
     /*
@@ -48,8 +46,8 @@ export default async function createDailyExercise(nbQuestions=10) {
 
     let everyWeek = await Word.find({
       revisionBox: revisionBoxes[2],
-      lastRevised: { $lte: oneWeekAgo.toISOString() }
-    })
+      lastRevised: { $lte: oneWeekAgo.toISOString(), $ne: '' }
+    }).exec()
     wordsToTest.push(...everyWeek)
 
     /*
@@ -63,8 +61,8 @@ export default async function createDailyExercise(nbQuestions=10) {
 
     let everyOtherWeek = await Word.find({
       revisionBox: revisionBoxes[3],
-      lastRevised: { $lte: twoWeeksAgo.toISOString() }
-    })
+      lastRevised: { $lte: twoWeeksAgo.toISOString(), $ne: '' }
+    }).exec()
     wordsToTest.push(...everyOtherWeek)
 
     // take a random selection of available words for exercise
