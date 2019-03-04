@@ -21,7 +21,7 @@ class Revise extends Component {
   }
 
   componentDidMount() {
-    if (this.props.match.path === '/revise/daily-revision') {
+    if (this.props.match.path === '/revise/today') {
       this.getDailyExercise()
 
     } else if (this.props.match.params.set
@@ -43,7 +43,7 @@ class Revise extends Component {
   }
 
   getDailyExercise() {
-    axios.get('/api/revise/daily-revision')
+    axios.get('/api/revise/today')
       .then(exercise => {
         this.setState({ exercise: exercise.data, status: 'revising' })
         console.log(exercise)

@@ -34,9 +34,10 @@ class App extends Component {
               <Route path='/login' component={Login} />
 
               // <Route path='/exercise' component={Exercise} />
-      
-              <PrivateRoute path='/revise/:set/chapters/:chapters/questions/:nbQuestions' component={Revise} />
-              <PrivateRoute path='/revise/:savedEx' component={Revise} />
+
+              <PrivateRoute path='/revise/today' component={Revise} />
+              // <PrivateRoute path='/revise/:set/chapters/:chapters/questions/:nbQuestions' component={Revise} />
+              // <PrivateRoute path='/revise/:savedEx' component={Revise} />
             </Switch>
 
           </div>
