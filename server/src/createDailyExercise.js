@@ -1,7 +1,7 @@
 import Word from './models/word'
 import { revisionBoxes } from './constants'
 
-export default async function createDailyExercise(nbQuestions=5) {
+export default async function createDailyExercise(nbQuestions=10) {
 
   let exercise = []
   var wordsToTest = []
@@ -14,8 +14,6 @@ export default async function createDailyExercise(nbQuestions=5) {
      * and all words without revisionBox or lastRevised date
      */
 
-     // get all words in revisionBox[0] 'every-day' or no revisionBox or no lastRevised
-    // and add them all to questionPool
     let everyDay = await Word.find({
       $or: [
         { revisionBox: { $in: [revisionBoxes[0], ''] } },
