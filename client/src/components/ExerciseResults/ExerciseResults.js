@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import axios from 'axios'
 import './ExerciseResults.css'
 
 class ExerciseResults extends Component {
@@ -8,6 +9,11 @@ class ExerciseResults extends Component {
       score: this.calculateScore(),
       nbQuestions: this.props.exercise.length
     }
+    this.correctExercise = this.correctExercise.bind(this)
+  }
+
+  componentDidMount() {
+    this.correctExercise()
   }
 
   calculateScore() {
@@ -16,6 +22,14 @@ class ExerciseResults extends Component {
     }).length
 
     return totalGoodAnswers / this.props.exercise.length * 100
+  }
+
+  async correctExercise() {
+    try {
+      // spinner
+      let resp = await axios.post('/api/correction', { exercise: this.props.exercise })
+      console.log(resp.data)
+    } catch (err) { throw err }
   }
 
   render() {

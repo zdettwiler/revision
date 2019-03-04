@@ -14,7 +14,7 @@ describe('createDailyExercise()', () => {
   })
 
   it('formats exercise correctly', async () => {
-    let ex = await createDailyExercise()
+    let ex = await createDailyExercise(5)
 
     ex.forEach(q => {
       expect(q).to.have.all.keys('question', 'answer', 'response', 'result')
@@ -29,7 +29,7 @@ describe('createDailyExercise()', () => {
   it('picks every-day words', async () => {
     await Word.create(mockWords[0])
 
-    let ex = await createDailyExercise()
+    let ex = await createDailyExercise(5)
 
     expect(ex).to.deep.equal([{
       question: "κακος",
@@ -44,7 +44,7 @@ describe('createDailyExercise()', () => {
     word.lastRevised = ''
     await Word.create(word)
 
-    let ex = await createDailyExercise()
+    let ex = await createDailyExercise(5)
 
     expect(ex).to.deep.equal([{
       question: "κακος",
@@ -62,7 +62,7 @@ describe('createDailyExercise()', () => {
 
     await Word.create(word)
 
-    let ex = await createDailyExercise()
+    let ex = await createDailyExercise(5)
 
     expect(ex).to.deep.equal([{
       question: "πλοιον",
@@ -80,7 +80,7 @@ describe('createDailyExercise()', () => {
 
     await Word.create(word)
 
-    let ex = await createDailyExercise()
+    let ex = await createDailyExercise(5)
 
     expect(ex).to.deep.equal([{
       question: "Δαυιδ",
@@ -98,7 +98,7 @@ describe('createDailyExercise()', () => {
 
     await Word.create(word)
 
-    let ex = await createDailyExercise()
+    let ex = await createDailyExercise(5)
 
     expect(ex).to.deep.equal([{
       question: "Ἰσρηλ",
