@@ -93,5 +93,33 @@ button:focus {
 h1 {
   font-size: 70px;
   font-weight: 400;
+}
 
+span.label {
+  font-family: Arial, sans-serif;
+  font-size: 15px;
+  color: white;
+
+  border-radius: 4px;
+  padding: 0 5px 2px 5px;
+}
+span.label.every-day {
+  background-color: #fc5c65;
+  /* background-color: #eb3b5a; */
+}
+span.label.every-three-days {
+  background-color: #fd9644;
+  /* background-color: #fa8231; */
+}
+span.label.every-week {
+  background-color: #fed330;
+  /* background-color: #f7b731 */
+}
+span.label.every-other-week {
+  background-color: #26de81;
+  /* background-color: #20bf6b */
+}
+span.label.before-test {
+  background-color: #2bcbba;
+  /* background-color: #0fb9b1 */
 }

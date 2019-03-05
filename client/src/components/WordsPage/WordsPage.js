@@ -26,23 +26,26 @@ class WordsPage extends Component {
       <div className='WordsPage'>
         <h1>Words</h1>
           <table>
-            <tr>
-              <th>Greek</th>
-              <th>English</th>
-              <th>Chapter</th>
-              <th>Revision Box</th>
-              <th>Last Revised on</th>
-            </tr>
-
-            { this.state.words.map(word => (
+            <tbody>
               <tr>
-                <td>{word.greek}</td>
-                <td>{word.english}</td>
-                <td>{word.chapter}</td>
-                <td>{word.revisionBox}</td>
-                <td>{word.lastRevised}</td>
+                <th>Greek</th>
+                <th>English</th>
+                <th>Chapter</th>
+                <th>Revision Box</th>
+                <th>Last Revised on</th>
               </tr>
-            )) }
+
+
+              { this.state.words.map(word => (
+                <tr>
+                  <td>{word.greek}</td>
+                  <td>{word.english}</td>
+                  <td>{word.chapter}</td>
+                  <td><span className={`label ${word.revisionBox}`}>{word.revisionBox}</span></td>
+                  <td>{word.lastRevised}</td>
+                </tr>
+              )) }
+              </tbody>
 
           </table>
 
