@@ -12,6 +12,7 @@ import AuthStatus from 'components/Auth/AuthStatus'
 import Home from 'components/Home/Home'
 import Revise from 'components/Revise/Revise'
 import Exercise from 'components/Exercise/Exercise'
+import WordsPage from 'components/WordsPage/WordsPage'
 
 
 class App extends Component {
@@ -31,8 +32,9 @@ class App extends Component {
 
             <Switch>
               <Route path='/' exact component={Home} />
-              <Route path='/login' component={Login} />
 
+              <PrivateRoute path='/words' exact component={WordsPage} />
+              <Route path='/login' component={Login} />
               // <Route path='/exercise' component={Exercise} />
 
               <PrivateRoute path='/revise/today' component={Revise} />
