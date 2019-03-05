@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import axios from 'axios'
 import './Revise.css'
 import QuestionAnswer from 'components/QuestionAnswer/QuestionAnswer'
 import ProgressTracker from 'components/ProgressTracker/ProgressTracker'
@@ -14,29 +15,42 @@ class Revise extends Component {
       status: 'loading'
     }
 
-    this.getExercise = this.getExercise.bind(this)
+    this.getCustomExercise = this.getCustomExercise.bind(this)
+    this.getDailyExercise = this.getDailyExercise.bind(this)
     this.checkAnswer = this.checkAnswer.bind(this)
   }
 
   componentDidMount() {
-    if (this.props.match.params.set
+    if (this.props.match.path === '/revise/daily-revision') {
+      this.getDailyExercise()
+
+    } else if (this.props.match.params.set
     && this.props.match.params.chapters
     && this.props.match.params.nbQuestions) {
-      this.getExercise()
-    } else {
-      // console.log('exercise config error')
+      this.getCustomExercise()
     }
   }
 
-  getExercise() {
+  getCustomExercise() {
     fetch('/api/revise/' + this.props.match.params.set
       + '/chapters/' + this.props.match.params.chapters
       + '/questions/' + this.props.match.params.nbQuestions)
       .then(resp => resp.json())
       .then(data => {
-        this.setState({ exercise: data, status: 'revising' })
+        // this.setState({ exercise: exercise.data, status: 'revising' })
       })
       .catch(e => console.log(e))
+  }
+
+  getDailyExercise() {
+    axios.get('/api/revise/daily-revision')
+      .then(exercise => {
+        this.setState({ exercise: exercise.data, status: 'revising' })
+        console.log(exercise)
+      })
+      .catch(e => console.log(e))
+
+
   }
 
   checkAnswer(value) {
@@ -58,8 +72,8 @@ class Revise extends Component {
   }
 
   render() {
+    console.log(this.state.exercise)
     let reversedEx = this.state.exercise.slice().reverse()
-    console.log(this.state.exercise, reversedEx)
     return (
       <div className='Revise'>
         {this.state.status === 'revising' && (
