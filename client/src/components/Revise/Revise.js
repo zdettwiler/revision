@@ -44,13 +44,15 @@ class Revise extends Component {
 
   getDailyExercise() {
     axios.get('/api/revise/today')
-      .then(exercise => {
-        this.setState({ exercise: exercise.data, status: 'revising' })
-        console.log(exercise)
+      .then(resp => {
+        console.log(resp)
+        if ('error' in resp.data) {
+          this.setState({ status: 'error', error: resp.data.error })
+        } else {
+          this.setState({ exercise: resp.data, status: 'revising' })
+        }
       })
       .catch(e => console.log(e))
-
-
   }
 
   checkAnswer(value) {
@@ -96,6 +98,10 @@ class Revise extends Component {
 
         {this.state.status === 'loading' && (
           'loading...'
+        )}
+
+        {this.state.status === 'error' && (
+          this.state.error
         )}
 
       </div>

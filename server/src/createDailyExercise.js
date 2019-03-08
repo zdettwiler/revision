@@ -1,13 +1,24 @@
 import Word from './models/word'
+import User from './models/user'
 import { revisionBoxes } from './constants'
 
 export default async function createDailyExercise(nbQuestions=10, upToChapter=1) {
-  console.log(nbQuestions, upToChapter)
-  let exercise = []
-  var wordsToTest = []
-  let now = new Date()
-
   try {
+
+    let user = await User.findOne({
+      "email": ""
+    }).exec()
+    let lastDailyRevision = user.lastDailyRevision
+    let now = new Date()
+
+    if (now.getFullYear() === lastDailyRevision.getFullYear()
+    && now.getMonth() === lastDailyRevision.getMonth()
+    && now.getDate() === lastDailyRevision.getDate()) {
+      return { error: "You've already done your daily revision today!" }
+    }
+
+    let exercise = []
+    var wordsToTest = []
 
     /*
      * get all words in revisionBox[0] 'every-day'
