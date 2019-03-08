@@ -18,7 +18,7 @@ class ExerciseResults extends Component {
 
   calculateScore() {
     let totalGoodAnswers = this.props.exercise.filter(q => {
-      return q.result === 'success'
+      return q.result
     }).length
 
     return totalGoodAnswers / this.props.exercise.length * 100
@@ -42,9 +42,9 @@ class ExerciseResults extends Component {
         <ul>
           { this.props.exercise.map((q, i) => {
               return (
-                <li key={i} className={q.result}>
+                <li key={i} className={q.result ? 'success' : 'fail'}>
                   {q.question + ' = ' + q.answer}
-                  {q.result === 'fail' ? ' (you: ' + q.response + ')' : ''}
+                  {!q.result ? ' (you: ' + q.response + ')' : ''}
                 </li>
               )
             })

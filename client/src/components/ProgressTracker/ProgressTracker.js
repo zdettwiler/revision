@@ -11,7 +11,7 @@ class ProgressTracker extends Component {
           { this.props.progress.map((q, i) => {
               if (q.result !== undefined) {
                 return (
-                  <li key={i} className={q.result}>
+                  <li key={i} className={q.result ? 'success' : 'fail'}>
                     {q.question + ' = ' + q.answer}
                   </li>
                 )

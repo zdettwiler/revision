@@ -60,8 +60,8 @@ class Revise extends Component {
 
     exercise[currentQuestion].response = value
     exercise[currentQuestion].result = exercise[currentQuestion].answer.split(', ').includes(value)
-      ? 'success'
-      : 'fail'
+      ? true
+      : false
 
     currentQuestion++
     let status = currentQuestion === exercise.length

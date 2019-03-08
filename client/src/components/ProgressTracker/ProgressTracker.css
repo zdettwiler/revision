@@ -24,12 +24,12 @@ li.success:before {
   font-family: 'Menlo';
   font-weight: bold;
   padding-right: 5px;
-  color: green;
+  color: #26de81;
 }
 li.fail:before {
   content: "✕";
   font-family: 'Menlo';
   font-weight: bold;
   padding-right: 5px;
-  color: red;
+  color: #fc5c65;
 }
