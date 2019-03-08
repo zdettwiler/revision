@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import moment from 'moment'
 // import './WordsPage.css'
 
 import axios from 'axios'
@@ -42,7 +43,7 @@ class WordsPage extends Component {
                   <td>{word.english}</td>
                   <td>{word.chapter}</td>
                   <td><span className={`label ${word.revisionBox}`}>{word.revisionBox}</span></td>
-                  <td>{word.lastRevised}</td>
+                  <td>{word.lastRevised ? moment(word.lastRevised).fromNow() : ''}</td>
                 </tr>
               )) }
               </tbody>
