@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
 import moment from 'moment'
-// import './WordsPage.css'
 
-import axios from 'axios'
+// import './WordsPage.css'
+import API from 'API'
 
 class WordsPage extends Component {
   constructor(props) {
@@ -14,14 +14,11 @@ class WordsPage extends Component {
 
   async componentDidMount() {
     try {
-      let response = await axios.post('/api/words', {
-        find: {}
-      })
-
+      let response = await API.findWords({ find: {} })
       this.setState({ words: response.data.words })
-
     } catch (err) { throw err }
   }
+
   render() {
     return (
       <div className='WordsPage'>

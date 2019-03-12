@@ -1,9 +1,10 @@
 import React, { Component } from 'react'
-import axios from 'axios'
+
 import './Revise.css'
 import QuestionAnswer from 'components/QuestionAnswer/QuestionAnswer'
 import ProgressTracker from 'components/ProgressTracker/ProgressTracker'
 import ExerciseResults from 'components/ExerciseResults/ExerciseResults'
+import API from 'API'
 
 class Revise extends Component {
 
@@ -15,7 +16,7 @@ class Revise extends Component {
       status: 'loading'
     }
 
-    this.getCustomExercise = this.getCustomExercise.bind(this)
+    // this.getCustomExercise = this.getCustomExercise.bind(this)
     this.getDailyExercise = this.getDailyExercise.bind(this)
     this.checkAnswer = this.checkAnswer.bind(this)
   }
@@ -27,32 +28,31 @@ class Revise extends Component {
     } else if (this.props.match.params.set
     && this.props.match.params.chapters
     && this.props.match.params.nbQuestions) {
-      this.getCustomExercise()
+      // this.getCustomExercise()
     }
   }
 
-  getCustomExercise() {
-    fetch('/api/revise/' + this.props.match.params.set
-      + '/chapters/' + this.props.match.params.chapters
-      + '/questions/' + this.props.match.params.nbQuestions)
-      .then(resp => resp.json())
-      .then(data => {
-        // this.setState({ exercise: exercise.data, status: 'revising' })
-      })
-      .catch(e => console.log(e))
-  }
+  // getCustomExercise() {
+  //   fetch('/api/revise/' + this.props.match.params.set
+  //     + '/chapters/' + this.props.match.params.chapters
+  //     + '/questions/' + this.props.match.params.nbQuestions)
+  //     .then(resp => resp.json())
+  //     .then(data => {
+  //       // this.setState({ exercise: exercise.data, status: 'revising' })
+  //     })
+  //     .catch(e => console.log(e))
+  // }
 
-  getDailyExercise() {
-    axios.get('/api/revise/today')
-      .then(resp => {
-        console.log(resp)
-        if ('error' in resp.data) {
-          this.setState({ status: 'error', error: resp.data.error })
-        } else {
-          this.setState({ exercise: resp.data, status: 'revising' })
-        }
-      })
-      .catch(e => console.log(e))
+  async getDailyExercise() {
+    try {
+      let resp = await API.getDailyExercise()
+
+      if ('error' in resp.data) {
+        this.setState({ status: 'error', error: resp.data.error })
+      } else {
+        this.setState({ exercise: resp.data, status: 'revising' })
+      }
+    } catch (err) { console.log(err) }
   }
 
   checkAnswer(value) {

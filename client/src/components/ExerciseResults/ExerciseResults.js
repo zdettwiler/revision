@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
-import axios from 'axios'
+
 import './ExerciseResults.css'
+import API from 'API'
 
 class ExerciseResults extends Component {
   constructor(props) {
@@ -27,7 +28,7 @@ class ExerciseResults extends Component {
   async correctExercise() {
     try {
       // spinner
-      let resp = await axios.post('/api/correction', { exercise: this.props.exercise })
+      let resp = await API.correctExercise({ exercise: this.props.exercise })
       console.log(resp.data)
     } catch (err) { throw err }
   }

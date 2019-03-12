@@ -12,7 +12,7 @@ class Auth {
       console.log(response)
       if (!Object.keys(response.data).includes('error')) {
         localStorage.setItem('email', email)
-        localStorage.setItem('username', response.data.username)
+        localStorage.setItem('username', response.data.user.username)
         localStorage.setItem('token', response.data.token)
       }
 
