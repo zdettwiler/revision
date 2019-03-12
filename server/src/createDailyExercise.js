@@ -2,21 +2,9 @@ import Word from './models/word'
 import User from './models/user'
 import { revisionBoxes } from './constants'
 
-export default async function createDailyExercise(nbQuestions=10, upToChapter=1) {
+export default async function createDailyExercise(upToChapter=1, nbQuestions=30) {
   try {
-
-    let user = await User.findOne({
-      "email": ""
-    }).exec()
-    let lastDailyRevision = user.lastDailyRevision
     let now = new Date()
-
-    if (now.getFullYear() === lastDailyRevision.getFullYear()
-    && now.getMonth() === lastDailyRevision.getMonth()
-    && now.getDate() === lastDailyRevision.getDate()) {
-      return { error: "You've already done your daily revision today!" }
-    }
-
     let exercise = []
     var wordsToTest = []
 
@@ -97,5 +85,5 @@ export default async function createDailyExercise(nbQuestions=10, upToChapter=1)
 
     return exercise
 
-  } catch (e) { return e }
+  } catch (e) { return { error: e } }
 }

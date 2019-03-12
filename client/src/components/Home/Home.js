@@ -22,7 +22,7 @@ class Home extends Component {
         <h1>Revise Vocab</h1>
 
         { this.state.userLoggedIn
-          ? (<a className='button' href='/revise/greek/chapters/1/questions/10'>Basic revision</a>)
+          ? (<a className='button' href='/revise/today'>Daily Revision</a>)
           : (<LoginForm
             onLogin={this.handleLogin}
           />)

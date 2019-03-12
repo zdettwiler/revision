@@ -22,7 +22,23 @@ app.get('/api/revise/:set/chapters/:chapters/questions/:nbQuestions', (req, res)
 })
 
 app.get('/api/revise/today', async (req, res) => {
-  res.json(await createDailyExercise())
+  // Get user and needed properties
+  let user = await User.findOne({
+    "email": ""
+  }).exec()
+  let lastDailyRevision = user.lastDailyRevision
+  let upToChapter = user.upToChapter
+
+  // Check user hasn't already revised today
+  let now = new Date()
+  if (now.getFullYear() === lastDailyRevision.getFullYear()
+  && now.getMonth() === lastDailyRevision.getMonth()
+  && now.getDate() === lastDailyRevision.getDate()) {
+    res.json({ error: "You've already done your daily revision today!" })
+  }
+
+  // return exercise
+  res.json(await createDailyExercise(upToChapter))
 })
 
 // Query words
