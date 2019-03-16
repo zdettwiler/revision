@@ -8,15 +8,16 @@ class LoginPage extends Component {
     this.state = {
       redirectToReferrer: false
     }
-    this.handleLogin = this.handleLogin.bind(this)
+    this.handleLogIn = this.handleLogIn.bind(this)
   }
 
-  handleLogin() {
-    this.props.history.push("/")
+  handleLogIn(username, password) {
+    this.props.onLogIn(username, password, () => {
+      this.setState({ redirectToReferrer: true })
+    })
   }
 
   render() {
-    console.log(this.props)
     const { from } = this.props.location.state || { from: { pathname: "/" } }
 
     if (this.state.redirectToReferrer) {
@@ -28,7 +29,7 @@ class LoginPage extends Component {
         <h1>Login</h1>
         <p>You must log in to view the page at {from.pathname}</p>
         <LoginForm
-          onLogin={this.handleLogin}
+          onLogIn={this.handleLogIn}
         />
       </div>
     )

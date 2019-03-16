@@ -1,19 +1,17 @@
 import React, { Component } from 'react'
-import Auth from '../Auth/Auth.js'
 import LoginForm from '../LoginForm/LoginForm.js'
 import './Home.css'
 
 class Home extends Component {
   constructor(props) {
     super(props)
-    this.state = {
-      userLoggedIn: Auth.isAuthenticated()
-    }
-    this.handleLogin = this.handleLogin.bind(this)
+    this.handleLogIn = this.handleLogIn.bind(this)
   }
 
-  handleLogin() {
-    this.setState({ userLoggedIn: true })
+  handleLogIn(username, password, callback) {
+    this.props.onLogIn(username, password, () => {
+      callback()
+    })
   }
 
   render() {
@@ -21,10 +19,10 @@ class Home extends Component {
       <div className='Home content'>
         <h1>Revise Vocab</h1>
 
-        { this.state.userLoggedIn
+        { this.props.userLoggedIn
           ? (<a className='button' href='/revise/today'>Daily Revision</a>)
           : (<LoginForm
-            onLogin={this.handleLogin}
+            onLogIn={this.handleLogIn}
           />)
         }
       </div>

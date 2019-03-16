@@ -1,22 +1,20 @@
 import axios from 'axios'
-import { login } from '../../actions/AuthActions'
 
 class Auth {
 
-  async login(email, password) {
+  async login(email, password, callback) {
     try {
       let response = await axios.post('/api/login', {
         email,
         password
       })
-      console.log(response)
+
       if (!Object.keys(response.data).includes('error')) {
         localStorage.setItem('email', email)
         localStorage.setItem('username', response.data.user.username)
         localStorage.setItem('token', response.data.token)
+        callback()
       }
-
-      return response.data
 
     } catch (err) {
       throw err
@@ -24,12 +22,12 @@ class Auth {
 
   }
 
-  logout() {
+  logout(callback) {
     try {
       localStorage.removeItem('username')
       localStorage.removeItem('email')
       localStorage.removeItem('token')
-      return true
+      callback()
     } catch (err) {
       console.log(err)
       return false

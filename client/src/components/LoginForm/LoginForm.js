@@ -1,8 +1,4 @@
 import React, { Component } from 'react'
-import { connect } from 'react-redux'
-import { login } from '../../actions/AuthActions'
-
-import Auth from '../Auth/Auth.js'
 import './LoginForm.css'
 
 class LoginForm extends Component {
@@ -13,10 +9,9 @@ class LoginForm extends Component {
 
   handleLogin(event) {
     event.preventDefault()
-    this.props.login(
+    this.props.onLogIn(
       event.target.email.value,
-      event.target.password.value,
-      this.props.onLogin
+      event.target.password.value
     )
   }
 
@@ -31,16 +26,11 @@ class LoginForm extends Component {
 
         <input type="password" id="password" placeholder="password"/>
 
-        <input type="submit" className='float-right' value='Login' />
+        <input type="submit" className='float-right' value='Log In' />
         </form>
       </div>
     )
   }
 }
 
-const mapStateToProps = (state) => ({
-  username: state.user.username,
-  email: state.user.email
-})
-
-export default connect(mapStateToProps, {login})(LoginForm)
+export default LoginForm
