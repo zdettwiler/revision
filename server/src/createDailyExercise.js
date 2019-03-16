@@ -1,22 +1,36 @@
-import Word from './models/word'
+import UserWord from './models/userword'
 import User from './models/user'
 import { revisionBoxes } from './constants'
 
-export default async function createDailyExercise(upToChapter=1, nbQuestions=30) {
+
+/**
+ * need user id to be provided.
+ * search in user's words
+ */
+export default async function createDailyExercise(userId, upToChapter=1, nbQuestions=30) {
   try {
     let now = new Date()
     let exercise = []
     var wordsToTest = []
+
+    let userWords = await UserWord.find({
+        user: userId,
+        known: true
+      }, '-_id -__v')
+      .populate('word')
+      .exec()
 
     /*
      * get all words in revisionBox[0] 'every-day'
      * up to chapter upToChapter of the user
      */
 
-    let everyDay = await Word.find({
-      revisionBox: revisionBoxes[0],
-      chapter: { $lte: upToChapter }
-    }).exec()
+    let everyDay = userWords.reduce((acc, cur) => {
+      if (cur.revisionBox === revisionBoxes[0]) {
+        acc.push(cur)
+      }
+      return acc
+    }, [])
     wordsToTest.push(...everyDay)
 
     /*
@@ -28,10 +42,12 @@ export default async function createDailyExercise(upToChapter=1, nbQuestions=30)
     let threeDaysAgo = new Date()
     threeDaysAgo.setDate(now.getDate() - 3)
 
-    let everyThreeDays = await Word.find({
-      revisionBox: revisionBoxes[1],
-      lastRevised: { $lte: threeDaysAgo.toISOString(), $ne: '' }
-    }).exec()
+    let everyThreeDays = userWords.reduce((acc, cur) => {
+      if (cur.revisionBox === revisionBoxes[1] && cur.lastRevised < threeDaysAgo && cur.lastRevised !== '') {
+        acc.push(cur)
+      }
+      return acc
+    }, [])
     wordsToTest.push(...everyThreeDays)
 
     /*
@@ -43,10 +59,12 @@ export default async function createDailyExercise(upToChapter=1, nbQuestions=30)
     let oneWeekAgo = new Date()
     oneWeekAgo.setDate(now.getDate() - 7)
 
-    let everyWeek = await Word.find({
-      revisionBox: revisionBoxes[2],
-      lastRevised: { $lte: oneWeekAgo.toISOString(), $ne: '' }
-    }).exec()
+    let everyWeek = userWords.reduce((acc, cur) => {
+      if (cur.revisionBox === revisionBoxes[2] && cur.lastRevised < oneWeekAgo && cur.lastRevised !== '') {
+        acc.push(cur)
+      }
+      return acc
+    }, [])
     wordsToTest.push(...everyWeek)
 
     /*
@@ -58,10 +76,12 @@ export default async function createDailyExercise(upToChapter=1, nbQuestions=30)
     let twoWeeksAgo = new Date()
     twoWeeksAgo.setDate(now.getDate() - 7)
 
-    let everyOtherWeek = await Word.find({
-      revisionBox: revisionBoxes[3],
-      lastRevised: { $lte: twoWeeksAgo.toISOString(), $ne: '' }
-    }).exec()
+    let everyOtherWeek = userWords.reduce((acc, cur) => {
+      if (cur.revisionBox === revisionBoxes[3] && cur.lastRevised < twoWeeksAgo && cur.lastRevised !== '') {
+        acc.push(cur)
+      }
+      return acc
+    }, [])
     wordsToTest.push(...everyOtherWeek)
 
     // take a random selection of available words for exercise
@@ -70,8 +90,9 @@ export default async function createDailyExercise(upToChapter=1, nbQuestions=30)
       nextQuestionId = Math.round((wordsToTest.length-1) * Math.random())
 
       exercise.push({
-        question: wordsToTest[nextQuestionId].greek,
-        answer: wordsToTest[nextQuestionId].english,
+        _id: wordsToTest[nextQuestionId].word._id,
+        question: wordsToTest[nextQuestionId].word.greek,
+        answer: wordsToTest[nextQuestionId].word.english,
         response: undefined,
         result: undefined
       })

@@ -70,7 +70,8 @@ app.post('/api/update-user-words', verifyToken, async (req, res) => {
       if (!userWords.find(uWord => uWord.word.equals(word._id) )) {
         userWordsToInsert.push({
           user: userId,
-          word: word._id
+          word: word._id,
+          entry: word.greek
         })
       }
     })
@@ -95,15 +96,15 @@ app.post('/api/revise/today', verifyToken, async (req, res) => {
   let upToChapter = user.upToChapter
 
   // Check user hasn't already revised today
-  let now = new Date()
-  if (now.getFullYear() === lastDailyRevision.getFullYear()
-  && now.getMonth() === lastDailyRevision.getMonth()
-  && now.getDate() === lastDailyRevision.getDate()) {
-    res.json({ error: "You've already done your daily revision today!" })
-  }
+  // let now = new Date()
+  // if (now.getFullYear() === lastDailyRevision.getFullYear()
+  // && now.getMonth() === lastDailyRevision.getMonth()
+  // && now.getDate() === lastDailyRevision.getDate()) {
+  //   res.json({ error: "You've already done your daily revision today!" })
+  // }
 
   // return exercise
-  res.json(await createDailyExercise(upToChapter))
+  res.json(await createDailyExercise(req.user.user._id, upToChapter))
 })
 
 /**
@@ -114,6 +115,7 @@ app.post('/api/correction', verifyToken, async (req, res) => {
   // -----
   // find user and update lastDailyRevision date
   try {
+    console.log(typeof req.user.user._id)
     await User.findByIdAndUpdate(
       req.user.user._id,
       {
@@ -126,8 +128,7 @@ app.post('/api/correction', verifyToken, async (req, res) => {
     ).exec()
   } catch (err) { res.status(500).send({ error: 'Could not update user revision date. ' + err }) }
 
-
-  if (await correctExercise(req.body.exercise)) {
+  if (await correctExercise(req.user.user._id, req.body.exercise)) {
     res.status(200).send({ info: 'Exercise corrected.' })
   } else {
     res.status(500).send({ error: 'Something went wrong!' })
@@ -142,7 +143,7 @@ app.post('/api/words', verifyToken, async (req, res) => {
     // let queryResults = await Word.find(req.body.find, '-__v').exec()
     let queryResults = await UserWord.find({ user: req.user.user._id }, '-_id -__v')
       .populate('word')
-      .sort({'word.chapter': 1})
+      // .sort({'word.chapter': 1})
       .exec()
     res.status(200).json({ words: sortByChapter(queryResults) })
   } catch (err) { res.status(500).send({ error: 'Could not find words. ' + err }) }

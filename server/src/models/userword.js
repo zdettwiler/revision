@@ -14,6 +14,10 @@ const userWordSchema = new mongoose.Schema({
     ref: 'users',
     required: true
   },
+  entry: {
+    type: String,
+    required: true
+  },
   revisionBox: {
     type: String,
     required: true,

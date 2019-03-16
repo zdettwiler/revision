@@ -1,16 +1,19 @@
+import mongoose from 'mongoose'
 import db from './db'
-import Word from './models/word'
+import UserWord from './models/userword'
 import { revisionBoxes } from './constants'
 
 
-export default async function correctExercise(exercise) {
+export default async function correctExercise(userId, exercise) {
   let correctionTime = new Date()
 
   // go through each word of the exercise
   for (let word of exercise) {
     try {
-
-      let wordRecord = await Word.findOne({ greek: word.question }).exec()
+      let wordRecord = await UserWord.findOne({
+        user: userId,
+        word: word._id
+      }).exec()
 
       // if correct answer, update to next revisionBoxes
       // if wrong answer, update to revisionBoxes[0]
@@ -18,8 +21,11 @@ export default async function correctExercise(exercise) {
         ? revisionBoxes[revisionBoxes.indexOf(wordRecord.revisionBox)+1]
         : revisionBoxes[0]
 
-      await Word.findByIdAndUpdate(
-        wordRecord._id,
+      await UserWord.findOneAndUpdate(
+        {
+          user: userId,
+          word: word._id
+        },
         {
           $set: {
             revisionBox: newRevisionBox,
@@ -33,7 +39,8 @@ export default async function correctExercise(exercise) {
       ).exec()
 
 
-    } catch (err) { return { error: err } }
+    } catch (err) { console.log(err)
+      return { error: err } }
   }
 
   // if all's worked fine
