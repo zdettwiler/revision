@@ -21,25 +21,27 @@ class WordsPage extends Component {
 
   render() {
     return (
-      <div className='WordsPage'>
+      <div className='WordsPage content'>
         <h1>Words</h1>
+
+
           <table>
             <tbody>
               <tr>
                 <th>Greek</th>
                 <th>English</th>
-                <th>Chapter</th>
-                <th>Revision Box</th>
+                <th class='centre'>Chapter</th>
+                <th class='centre'>Revision Box</th>
                 <th>Last Revised on</th>
               </tr>
 
 
               { this.state.words.map(word => (
                 <tr>
-                  <td>{word.greek}</td>
+                  <td class='greek-text'>{word.greek}</td>
                   <td>{word.english}</td>
-                  <td>{word.chapter}</td>
-                  <td><span className={`label ${word.revisionBox}`}>{word.revisionBox}</span></td>
+                  <td class='centre'>{word.chapter}</td>
+                  <td class='centre'><span className={`label ${word.revisionBox}`}>{word.revisionBox}</span></td>
                   <td>{word.lastRevised ? moment(word.lastRevised).fromNow() : ''}</td>
                 </tr>
               )) }

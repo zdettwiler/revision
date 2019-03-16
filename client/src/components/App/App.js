@@ -25,6 +25,7 @@ class App extends Component {
 
             <div className="Navigation">
               <Link to="/">Home</Link>
+              <Link to="/words">Words</Link>
               <AuthStatus />
             </div>
 
@@ -32,12 +33,12 @@ class App extends Component {
 
             <Switch>
               <Route path='/' exact component={Home} />
+              <Route path='/login' component={Login} />
 
               <PrivateRoute path='/words' exact component={WordsPage} />
-              <Route path='/login' component={Login} />
-              // <Route path='/exercise' component={Exercise} />
-
               <PrivateRoute path='/revise/today' component={Revise} />
+
+              // <Route path='/exercise' component={Exercise} />              
               // <PrivateRoute path='/revise/:set/chapters/:chapters/questions/:nbQuestions' component={Revise} />
               // <PrivateRoute path='/revise/:savedEx' component={Revise} />
             </Switch>

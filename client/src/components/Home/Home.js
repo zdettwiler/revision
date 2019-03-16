@@ -18,7 +18,7 @@ class Home extends Component {
 
   render() {
     return (
-      <div className='Home'>
+      <div className='Home content'>
         <h1>Revise Vocab</h1>
 
         { this.state.userLoggedIn

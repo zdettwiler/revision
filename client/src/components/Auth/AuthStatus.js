@@ -23,7 +23,7 @@ class AuthStatus extends Component {
       <div className='UserStatus float-right'>
         {
           Auth.isAuthenticated()
-          ? (<span>Welcome { localStorage.getItem('username') }! <button onClick={this.logout}>Log Out</button></span>)
+          ? (<span><i>{ localStorage.getItem('username') }</i> <button onClick={this.logout}>Log Out</button></span>)
           : (<a className='button' href='/login'>Log In</a>)
         }
       </div>
