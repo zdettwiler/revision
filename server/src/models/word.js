@@ -27,16 +27,6 @@ const wordSchema = new mongoose.Schema({
     type: Number,
     required: true,
     // validate: value => validator.isInt(value)
-  },
-  revisionBox: {
-    type: String,
-    required: true,
-    default: revisionBoxes[0],
-    validate: value => validator.isIn(value, revisionBoxes)
-  },
-  lastRevised: {
-    type: Date
-    // validate: value => validator.isBefore(value, new Date)
   }
 }, { collection: 'nt-greek-duff' })
 

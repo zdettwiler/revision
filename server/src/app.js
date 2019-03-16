@@ -3,6 +3,7 @@ import bcrypt from 'bcrypt'
 import bodyParser from 'body-parser'
 import path from 'path'
 import jwt from 'jsonwebtoken'
+import mongoose from 'mongoose'
 
 import createCustomExercise from './createCustomExercise'
 import createDailyExercise from './createDailyExercise'
@@ -11,11 +12,12 @@ import correctExercise from './correctExercise'
 import db from './db'
 import Word from './models/word'
 import User from './models/user'
+import UserWord from './models/userword'
 
 
 const app = express()
-app.use(bodyParser.json()); // for parsing application/json
-app.use(bodyParser.urlencoded({ extended: true })); // for parsing application/x-www-form-urlencoded
+app.use(bodyParser.json()) // for parsing application/json
+app.use(bodyParser.urlencoded({ extended: true })) // for parsing application/x-www-form-urlencoded
 
 
 /**
@@ -51,6 +53,31 @@ app.post('/api/login', async (req, res) => {
     res.status(401).send({ error: err })
   }
 
+})
+
+/**
+ * Update UserWords with Words
+ */
+app.post('/api/update-user-words', verifyToken, async (req, res) => {
+  const userId = req.user.user._id
+
+  try {
+    let words = await Word.find({}, '-__v').exec()
+    let userWords = await UserWord.find({ user: userId }, '-__v').exec()
+    let userWordsToInsert = []
+
+    words.forEach(word => {
+      if (!userWords.find(uWord => uWord.word.equals(word._id) )) {
+        userWordsToInsert.push({
+          user: userId,
+          word: word._id
+        })
+      }
+    })
+    await UserWord.insertMany(userWordsToInsert)
+    res.status(200).send({ info: userWordsToInsert.length + " new words have been added to user's words." })
+
+  } catch(err) { res.status(500).send({ error: "Could not update user's words. " + err }) }
 })
 
 // API Create exercise
@@ -112,8 +139,32 @@ app.post('/api/correction', verifyToken, async (req, res) => {
  */
 app.post('/api/words', verifyToken, async (req, res) => {
   try {
-    let queryResults = await Word.find(req.body.find, '-_id -__v').exec()
-    res.status(200).json({ words: queryResults })
+    // let queryResults = await Word.find(req.body.find, '-__v').exec()
+    let queryResults = await UserWord.find({ user: req.user.user._id }, '-_id -__v')
+      .populate('word')
+      .sort({'word.chapter': 1})
+      .exec()
+    res.status(200).json({ words: sortByChapter(queryResults) })
+  } catch (err) { res.status(500).send({ error: 'Could not find words. ' + err }) }
+})
+
+/**
+ * Update known words
+ */
+app.post('/api/update-known-words', verifyToken, async (req, res) => {
+  try {
+    await Promise.all(req.body.knownWords.map(word => {
+      UserWord.findOneAndUpdate(
+        { word: word._id },
+        { $set: { known: word.known } }
+      ).exec()
+    }))
+
+    // collect words again and send back
+    let queryResults = await UserWord.find({ user: req.user.user._id }, '-_id -__v')
+      .populate('word')
+      .exec()
+    res.status(200).json({ words: sortByChapter(queryResults) })
   } catch (err) { res.status(500).send({ error: 'Could not find words. ' + err }) }
 })
 
@@ -143,7 +194,29 @@ function verifyToken(req, res, next) {
 
 // testing endpoint
 app.post('/test', verifyToken, async (req, res) => {
-  res.json({ test: 'testing', authData: req.authData })
+  const userWord = new UserWord({
+    word: "5c8cf91bf9900e141acabb0c",
+    user: "5c6ee702fb6fc01c4ce9a245"
+  })
+
+  try {
+
+    await userWord.save().exec()
+
+  } catch (err) { res.send(err) }
+
+  // try {
+  //   console.log(req.user.user._id)
+  //
+  //   let word = await UserWord.find({ user: req.user.user._id })
+  //     .populate('word')
+  //     .exec()
+  //
+  //   res.send(word)
+  //
+  // } catch (err) { res.send(err) }
+
+
 })
 
 // handles any other requests
@@ -151,6 +224,14 @@ app.get('*', (req, res) => {
   console.log(path.join(__dirname, '../../../client/build/index.html'))
   res.status(200).sendFile(path.join(__dirname, '../../../client/build/index.html'))
 })
+
+function sortByChapter(array) {
+  return array.sort((a, b) => {
+    if (a.word.chapter < b.word.chapter) return -1
+    if (a.word.chapter > b.word.chapter) return 1
+    return 0
+  })
+}
 
 // get reference to the client build directory
 // pass the static files (react app) to the express app.

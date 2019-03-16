@@ -17,6 +17,10 @@ const API = {
 
   findWords: async (find) => {
     return axios.post('/api/words', find, { headers })
+  },
+
+  updateKnownWords: async (words) => {
+    return axios.post('/api/update-known-words', words, { headers })
   }
 }
 
