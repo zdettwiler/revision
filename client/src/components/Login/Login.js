@@ -13,6 +13,7 @@ class LoginPage extends Component {
 
   handleLogIn(username, password) {
     this.props.onLogIn(username, password, () => {
+      console.log(this)
       this.setState({ redirectToReferrer: true })
     })
   }

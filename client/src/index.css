@@ -27,6 +27,13 @@ div.content {
 table {
   border-collapse: collapse;
 }
+table th,
+table td {
+  padding: 0 5px;
+}
+table tr:hover {
+  background-color: #EDEDED;
+}
 table th {
   text-align: left;
   border-bottom: 1px solid black;

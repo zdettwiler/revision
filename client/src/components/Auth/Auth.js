@@ -14,6 +14,7 @@ class Auth {
         localStorage.setItem('username', response.data.user.username)
         localStorage.setItem('token', response.data.token)
         callback()
+        return true
       }
 
     } catch (err) {

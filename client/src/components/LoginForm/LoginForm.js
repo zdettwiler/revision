@@ -11,7 +11,8 @@ class LoginForm extends Component {
     event.preventDefault()
     this.props.onLogIn(
       event.target.email.value,
-      event.target.password.value
+      event.target.password.value,
+      ()=>{}
     )
   }
 

@@ -45,7 +45,7 @@ app.post('/api/login', async (req, res) => {
     // delete doesn't work...
     delete user.password
 
-    jwt.sign({ user }, 'secretkey', { expiresIn: '1day' }, (err, token) => {
+    jwt.sign({ user }, process.env.SECRET_KEY, { expiresIn: '1day' }, (err, token) => {
       res.status(200).send({ user, token })
     })
 
@@ -63,20 +63,24 @@ app.post('/api/update-user-words', verifyToken, async (req, res) => {
 
   try {
     let words = await Word.find({}, '-__v').exec()
-    let userWords = await UserWord.find({ user: userId }, '-__v').exec()
-    let userWordsToInsert = []
 
-    words.forEach(word => {
-      if (!userWords.find(uWord => uWord.word.equals(word._id) )) {
-        userWordsToInsert.push({
+    for (let word of words) {
+      await UserWord.findOneAndUpdate(
+        { user: userId, word: word._id },
+        {
           user: userId,
           word: word._id,
           entry: word.greek
-        })
-      }
-    })
-    await UserWord.insertMany(userWordsToInsert)
-    res.status(200).send({ info: userWordsToInsert.length + " new words have been added to user's words." })
+        },
+        {
+          upsert: true,
+          runValidators: true,
+          setDefaultsOnInsert: true
+        }
+      ).exec()
+    }
+
+    res.status(200).send({ info: words.length + " words have been added/updated to user's words." })
 
   } catch(err) { res.status(500).send({ error: "Could not update user's words. " + err }) }
 })
@@ -91,9 +95,8 @@ app.post('/api/update-user-words', verifyToken, async (req, res) => {
  */
 app.post('/api/revise/today', verifyToken, async (req, res) => {
   // Get user and needed properties
-  let user = await User.findById(req.user.user._id, 'lastDailyRevision upToChapter').exec()
+  let user = await User.findById(req.user.user._id, 'lastDailyRevision').exec()
   let lastDailyRevision = user.lastDailyRevision
-  let upToChapter = user.upToChapter
 
   // Check user hasn't already revised today
   // let now = new Date()
@@ -104,7 +107,7 @@ app.post('/api/revise/today', verifyToken, async (req, res) => {
   // }
 
   // return exercise
-  res.json(await createDailyExercise(req.user.user._id, upToChapter))
+  res.json(await createDailyExercise(req.user.user._id))
 })
 
 /**
@@ -115,7 +118,6 @@ app.post('/api/correction', verifyToken, async (req, res) => {
   // -----
   // find user and update lastDailyRevision date
   try {
-    console.log(typeof req.user.user._id)
     await User.findByIdAndUpdate(
       req.user.user._id,
       {
@@ -180,7 +182,7 @@ function verifyToken(req, res, next) {
     }
 
     const bearerToken = bearerHeader.split(' ')[1]
-    jwt.verify(bearerToken, 'secretkey', (err, user) => {
+    jwt.verify(bearerToken, process.env.SECRET_KEY, (err, user) => {
       if (err) {
         throw err
       }

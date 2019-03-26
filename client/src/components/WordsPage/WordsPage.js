@@ -31,11 +31,6 @@ class WordsPage extends Component {
       })
       this.setState({ words: response.data.words })
     } catch (err) { throw err }
-    // updateKnownWords
-    // console.log(e.target.id)
-    // let words = this.state.words
-    // words[e.target.id].known = !words[e.target.id].known
-    // this.setState({words})
   }
 
   render() {
@@ -63,7 +58,7 @@ class WordsPage extends Component {
                   <td>{word.word.english}</td>
                   <td className='centre'>{word.word.chapter}</td>
                   <td className='centre'><span className={`label ${word.revisionBox}`}>{word.revisionBox}</span></td>
-                  <td>{word.lastRevised ? moment(word.lastRevised).fromNow() : ''}</td>
+                  <td className='centre'>{word.lastRevised ? moment(word.lastRevised).fromNow() : ''}</td>
                 </tr>
               )) }
               </tbody>

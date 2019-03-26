@@ -74,7 +74,6 @@ class Revise extends Component {
   }
 
   render() {
-    console.log(this.state.exercise)
     let reversedEx = this.state.exercise.slice().reverse()
     return (
       <div className='Revise'>

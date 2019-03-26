@@ -7,12 +7,13 @@ import { revisionBoxes } from './constants'
  * need user id to be provided.
  * search in user's words
  */
-export default async function createDailyExercise(userId, upToChapter=1, nbQuestions=30) {
+export default async function createDailyExercise(userId, nbQuestions=30) {
   try {
     let now = new Date()
     let exercise = []
     var wordsToTest = []
 
+    // Select all of the user's known words
     let userWords = await UserWord.find({
         user: userId,
         known: true
@@ -99,9 +100,9 @@ export default async function createDailyExercise(userId, upToChapter=1, nbQuest
 
       wordsToTest.splice(nextQuestionId, 1)
 
-      if (exercise.length >= nbQuestions) {
-        break
-      }
+      // if (exercise.length >= nbQuestions) {
+      //   break
+      // }
     }
 
     return exercise

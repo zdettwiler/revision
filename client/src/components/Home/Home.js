@@ -9,9 +9,7 @@ class Home extends Component {
   }
 
   handleLogIn(username, password, callback) {
-    this.props.onLogIn(username, password, () => {
-      callback()
-    })
+    this.props.onLogIn(username, password, callback)
   }
 
   render() {
