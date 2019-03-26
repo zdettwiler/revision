@@ -4,9 +4,17 @@ import './ProgressTracker.css'
 class ProgressTracker extends Component {
 
   render() {
-    // console.log(this.props.progress)
+    let nbAnsweredQuestions = this.props.progress.reduce( (total, current) => {
+      if ('response' in current) {
+        total += 1
+      }
+      return total
+    }, 0)
+    let totalQuestions = this.props.progress.length
+
     return (
       <div className='ProgressTracker'>
+        <p className='align-right'>{nbAnsweredQuestions}/{totalQuestions}</p>
         <ul>
           { this.props.progress.map((q, i) => {
               if (q.result !== undefined) {
