@@ -121,6 +121,12 @@ button:focus {
 }
 
 
+ul.stats {
+	list-style: none;
+}
+ul.stats li {
+	display: inline;
+}
 
 span.label {
   font-family: Arial, sans-serif;
@@ -148,5 +154,9 @@ span.label.every-other-week {
 }
 span.label.before-test {
   background-color: #2bcbba;
+  /* background-color: #0fb9b1 */
+}
+span.label.total {
+  background-color: #8854d0;
   /* background-color: #0fb9b1 */
 }
