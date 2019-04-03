@@ -29,7 +29,7 @@ class Answer extends Component {
     while (pixelWidth(this.props.currentQuestion, {
       font: 'Times New Roman',
       size: questionFontSize
-    }) > 900) {
+    }) > 800) {
       questionFontSize -= 10
     }
 
