@@ -109,7 +109,8 @@ class GSheetDB {
       return obj
     })
 
-    // TODO: Clear all and replace with new data
+    // Clear all and replace with new data
+    this.data.clear()
     this.data.insert(dataObj)
   }
 
@@ -148,6 +149,7 @@ class GSheetDB {
   async save() {
     let wordsToUpdate = this.data.find({ update: true })
 
+    // prepare request
     let requests = wordsToUpdate.map(word => {
       let values = [
         word.greek,
@@ -166,6 +168,7 @@ class GSheetDB {
       }
     })
 
+    // update spreadsheet
     await sheetsApi.spreadsheets.values.batchUpdate({
       auth: this.client,
       spreadsheetId: this.spreadsheetId,
