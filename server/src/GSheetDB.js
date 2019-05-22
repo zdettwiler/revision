@@ -88,7 +88,9 @@ class GSheetDB {
   /**
    * Load data into Loki database
    */
-  async loadData() {
+  async loadData(force=false) {
+    if (!!this.data.data.length && !force) return
+
     let response = await sheetsApi.spreadsheets.values.get({
       auth: this.client,
       spreadsheetId: this.spreadsheetId,
@@ -112,6 +114,8 @@ class GSheetDB {
     // Clear all and replace with new data
     this.data.clear()
     this.data.insert(dataObj)
+
+    console.log('📀 Loaded data.')
   }
 
 
@@ -177,8 +181,10 @@ class GSheetDB {
         data: requests
       }
     })
-
     console.log('💾 Data saved.')
+
+    // reload data
+    await this.loadData(true)
   }
 
 
