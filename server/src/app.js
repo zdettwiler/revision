@@ -58,41 +58,6 @@ app.post('/api/login', async (req, res) => {
 })
 
 /**
- * Update UserWords with Words
- */
-app.post('/api/update-user-words', verifyToken, async (req, res) => {
-  const userId = req.user.user._id
-
-  try {
-    let words = await Word.find({}, '-__v').exec()
-
-    for (let word of words) {
-      await UserWord.findOneAndUpdate(
-        { user: userId, word: word._id },
-        {
-          user: userId,
-          word: word._id,
-          entry: word.greek
-        },
-        {
-          upsert: true,
-          runValidators: true,
-          setDefaultsOnInsert: true
-        }
-      ).exec()
-    }
-
-    res.status(200).send({ info: words.length + " words have been added/updated to user's words." })
-
-  } catch(err) { res.status(500).send({ error: "Could not update user's words. " + err }) }
-})
-
-// API Create exercise
-// app.post('/api/revise/:set/chapters/:chapters/questions/:nbQuestions', verifyToken, (req, res) => {
-//   res.json(createCustomExercise(req.params.set, req.params.chapters, req.params.nbQuestions))
-// })
-
-/**
  * Create Daily exercise
  */
 app.post('/api/revise/today', verifyToken, async (req, res) => {
@@ -141,25 +106,33 @@ app.post('/api/words', verifyToken, async (req, res) => {
   } catch (err) { res.status(500).send({ error: 'Could not find words. ' + err }) }
 })
 
-/**
- * Update known words
- */
-app.post('/api/update-known-words', verifyToken, async (req, res) => {
-  try {
-    await Promise.all(req.body.knownWords.map(word => {
-      UserWord.findOneAndUpdate(
-        { word: word._id },
-        { $set: { known: word.known } }
-      ).exec()
-    }))
 
-    // collect words again and send back
-    let queryResults = await UserWord.find({ user: req.user.user._id }, '-_id -__v')
-      .populate('word')
-      .exec()
-    res.status(200).json({ words: sortByChapter(queryResults) })
-  } catch (err) { res.status(500).send({ error: 'Could not find words. ' + err }) }
+
+
+// API Create exercise
+// app.post('/api/revise/:set/chapters/:chapters/questions/:nbQuestions', verifyToken, (req, res) => {
+//   res.json(createCustomExercise(req.params.set, req.params.chapters, req.params.nbQuestions))
+// })
+
+
+// testing endpoint
+app.post('/test', verifyToken, async (req, res) => {
+
+  try {
+
+    await gSheet.connect()
+    console.log(gSheet.getData())
+
+  } catch (err) { res.send(err) }
 })
+
+// handles any other requests
+app.get('*', (req, res) => {
+  console.log(path.join(__dirname, '../../../client/build/index.html'))
+  res.status(200).sendFile(path.join(__dirname, '../../../client/build/index.html'))
+})
+
+
 
 /**
  * Middleware to verify token and check user is connected
@@ -184,24 +157,9 @@ function verifyToken(req, res, next) {
   }
 }
 
-
-// testing endpoint
-app.post('/test', verifyToken, async (req, res) => {
-
-  try {
-
-    await gSheet.connect()
-    console.log(gSheet.getData())
-
-  } catch (err) { res.send(err) }
-})
-
-// handles any other requests
-app.get('*', (req, res) => {
-  console.log(path.join(__dirname, '../../../client/build/index.html'))
-  res.status(200).sendFile(path.join(__dirname, '../../../client/build/index.html'))
-})
-
+/**
+ * Helper function to sort by chapter
+ */
 function sortByChapter(array) {
   return array.sort((a, b) => {
     if (a.chapter < b.chapter) return -1
