@@ -4,16 +4,16 @@ import UserWord from './models/userword'
 import { revisionBoxes } from './constants'
 
 
-export default async function correctExercise(userId, exercise) {
+export default async function correctExercise(userId, exercise, sheet) {
   let correctionTime = new Date()
+  await sheet.connect()
 
   // go through each word of the exercise
-  for (let word of exercise) {
-    try {
-      let wordRecord = await UserWord.findOne({
-        user: userId,
-        word: word._id
-      }).exec()
+  try {
+    for (let word of exercise) {
+
+      let wordRecord = sheet.findOne({ greek: word.question })
+      console.log(wordRecord)
 
       // if correct answer, update to next revisionBoxes
       // if wrong answer, update to revisionBoxes[0]
@@ -21,26 +21,19 @@ export default async function correctExercise(userId, exercise) {
         ? revisionBoxes[revisionBoxes.indexOf(wordRecord.revisionBox)+1]
         : revisionBoxes[0]
 
-      await UserWord.findOneAndUpdate(
+      sheet.updateRow(
+        { greek: word.question },
         {
-          user: userId,
-          word: word._id
-        },
-        {
-          $set: {
-            revisionBox: newRevisionBox,
-            lastRevised: correctionTime.toISOString()
-          }
-        },
-        {
-          new: false, // don't return updated doc
-          runValidators: true // validate before update
+          revisionBox: newRevisionBox,
+          lastRevised: correctionTime
         }
-      ).exec()
+      )
+    }
 
+    await sheet.save()
 
-    } catch (err) { console.log(err)
-      return { error: err } }
+  } catch (err) { console.log(err)
+    return err
   }
 
   // if all's worked fine

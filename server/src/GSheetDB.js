@@ -118,6 +118,15 @@ class GSheetDB {
     return this.data.data
   }
 
+
+  /**
+   * Find one row
+   * @param {Object} findObj - object of format { key: needle }
+   */
+  findOne(findObj) {
+    return this.data.findOne(findObj)
+  }
+
   /**
    * Update a row
    * @param {Object} findObj - object of format { key: needle }

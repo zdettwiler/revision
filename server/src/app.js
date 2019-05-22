@@ -118,24 +118,13 @@ app.post('/api/revise/today', verifyToken, async (req, res) => {
 app.post('/api/correction', verifyToken, async (req, res) => {
   // validation here
   // -----
-  // find user and update lastDailyRevision date
-  try {
-    await User.findByIdAndUpdate(
-      req.user.user._id,
-      {
-        $set: { lastDailyRevision: new Date().toISOString() }
-      },
-      {
-        new: false, // don't return updated doc
-        runValidators: true // validate before update
-      }
-    ).exec()
-  } catch (err) { res.status(500).send({ error: 'Could not update user revision date. ' + err }) }
 
-  if (await correctExercise(req.user.user._id, req.body.exercise, gSheet)) {
+  let correction = await correctExercise(req.user.user._id, req.body.exercise, gSheet)
+
+  if (correction) {
     res.status(200).send({ info: 'Exercise corrected.' })
   } else {
-    res.status(500).send({ error: 'Something went wrong!' })
+    res.status(500).send({ error: correction })
   }
 })
 
@@ -148,7 +137,7 @@ app.post('/api/words', verifyToken, async (req, res) => {
     let userWords = gSheet.getData()
 
     res.status(200).json({ words: sortByChapter(userWords) })
-    
+
   } catch (err) { res.status(500).send({ error: 'Could not find words. ' + err }) }
 })
 
