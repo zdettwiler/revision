@@ -16,7 +16,6 @@ export default async function createDailyExercise(userId, sheet, nbQuestions=50)
     // Select all of the user's known words
     await sheet.connect()
     let userWords = sheet.getData()
-    console.log(userWords.length)
 
 
     /*
@@ -35,15 +34,13 @@ export default async function createDailyExercise(userId, sheet, nbQuestions=50)
     /*
      * get all words in revisionBox[1] 'every-three-days'
      *  - if NOW - 3days < lastRevised add to wordsToTest
-     * (= if lastRevised is more than three days ago)
+     * (= if three days ago is smaller (before) than lastRevised)
      */
 
     let threeDaysAgo = new Date()
     threeDaysAgo.setDate(now.getDate() - 3)
 
     let everyThreeDays = userWords.reduce((acc, cur) => {
-      console.log(new Date(cur.lastRevised), cur.greek)
-      console.log(new Date(cur.lastRevised) < threeDaysAgo)
       if (cur.revisionBox === revisionBoxes[1] && new Date(cur.lastRevised) < threeDaysAgo && cur.lastRevised !== '') {
         acc.push(cur)
       }
@@ -54,7 +51,7 @@ export default async function createDailyExercise(userId, sheet, nbQuestions=50)
     /*
      * get all words in revisionBox[2] 'every-week'
      *  - if NOW - 7days < lastRevised add to wordsToTest
-     * (= if lastRevised is more than a week ago)
+     * (= if a week ago is smaller (before) than lastRevised)
      */
 
     let oneWeekAgo = new Date()
@@ -71,7 +68,7 @@ export default async function createDailyExercise(userId, sheet, nbQuestions=50)
     /*
      * get all words in revisionBox[3] 'every-other-week'
      *  - if NOW - 14days < lastRevised add to wordsToTest
-     * (= if lastRevised is more than two weeks ago)
+     * (= if two weeks ago is smaller (before) than lastRevised)
      */
 
     let twoWeeksAgo = new Date()

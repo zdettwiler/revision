@@ -144,11 +144,11 @@ app.post('/api/correction', verifyToken, async (req, res) => {
  */
 app.post('/api/words', verifyToken, async (req, res) => {
   try {
-
     await gSheet.connect()
     let userWords = gSheet.getData()
+
     res.status(200).json({ words: sortByChapter(userWords) })
-    // res.status(200).json({ words: userWords })
+    
   } catch (err) { res.status(500).send({ error: 'Could not find words. ' + err }) }
 })
 
