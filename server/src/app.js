@@ -144,19 +144,11 @@ app.post('/api/correction', verifyToken, async (req, res) => {
  */
 app.post('/api/words', verifyToken, async (req, res) => {
   try {
-    // // let queryResults = await Word.find(req.body.find, '-__v').exec()
-    // let queryResults = await UserWord.find({ user: req.user.user._id }, '-_id -__v')
-    //   .populate('word')
-    //   // .sort({'word.chapter': 1})
-    //   .exec()
 
     await gSheet.connect()
     let userWords = gSheet.getData()
-    console.log(userWords[0])
-
-
-    // res.status(200).json({ words: sortByChapter(userWords) })
-    res.status(200).json({ words: userWords })
+    res.status(200).json({ words: sortByChapter(userWords) })
+    // res.status(200).json({ words: userWords })
   } catch (err) { res.status(500).send({ error: 'Could not find words. ' + err }) }
 })
 
@@ -223,8 +215,8 @@ app.get('*', (req, res) => {
 
 function sortByChapter(array) {
   return array.sort((a, b) => {
-    if (a.word.chapter < b.word.chapter) return -1
-    if (a.word.chapter > b.word.chapter) return 1
+    if (a.chapter < b.chapter) return -1
+    if (a.chapter > b.chapter) return 1
     return 0
   })
 }
