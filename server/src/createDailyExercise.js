@@ -7,19 +7,17 @@ import { revisionBoxes } from './constants'
  * need user id to be provided.
  * search in user's words
  */
-export default async function createDailyExercise(userId, nbQuestions=30) {
+export default async function createDailyExercise(userId, sheet, nbQuestions=50) {
   try {
     let now = new Date()
     let exercise = []
     var wordsToTest = []
 
     // Select all of the user's known words
-    let userWords = await UserWord.find({
-        user: userId,
-        known: true
-      }, '-_id -__v')
-      .populate('word')
-      .exec()
+    await sheet.connect()
+    let userWords = sheet.getData()
+    console.log(userWords.length)
+
 
     /*
      * get all words in revisionBox[0] 'every-day'
@@ -44,7 +42,9 @@ export default async function createDailyExercise(userId, nbQuestions=30) {
     threeDaysAgo.setDate(now.getDate() - 3)
 
     let everyThreeDays = userWords.reduce((acc, cur) => {
-      if (cur.revisionBox === revisionBoxes[1] && cur.lastRevised < threeDaysAgo && cur.lastRevised !== '') {
+      console.log(new Date(cur.lastRevised), cur.greek)
+      console.log(new Date(cur.lastRevised) < threeDaysAgo)
+      if (cur.revisionBox === revisionBoxes[1] && new Date(cur.lastRevised) < threeDaysAgo && cur.lastRevised !== '') {
         acc.push(cur)
       }
       return acc
@@ -61,7 +61,7 @@ export default async function createDailyExercise(userId, nbQuestions=30) {
     oneWeekAgo.setDate(now.getDate() - 7)
 
     let everyWeek = userWords.reduce((acc, cur) => {
-      if (cur.revisionBox === revisionBoxes[2] && cur.lastRevised < oneWeekAgo && cur.lastRevised !== '') {
+      if (cur.revisionBox === revisionBoxes[2] && new Date(cur.lastRevised) < oneWeekAgo && cur.lastRevised !== '') {
         acc.push(cur)
       }
       return acc
@@ -75,10 +75,10 @@ export default async function createDailyExercise(userId, nbQuestions=30) {
      */
 
     let twoWeeksAgo = new Date()
-    twoWeeksAgo.setDate(now.getDate() - 7)
+    twoWeeksAgo.setDate(now.getDate() - 14)
 
     let everyOtherWeek = userWords.reduce((acc, cur) => {
-      if (cur.revisionBox === revisionBoxes[3] && cur.lastRevised < twoWeeksAgo && cur.lastRevised !== '') {
+      if (cur.revisionBox === revisionBoxes[3] && new Date(cur.lastRevised) < twoWeeksAgo && cur.lastRevised !== '') {
         acc.push(cur)
       }
       return acc
@@ -91,18 +91,18 @@ export default async function createDailyExercise(userId, nbQuestions=30) {
       nextQuestionId = Math.round((wordsToTest.length-1) * Math.random())
 
       exercise.push({
-        _id: wordsToTest[nextQuestionId].word._id,
-        question: wordsToTest[nextQuestionId].word.greek,
-        answer: wordsToTest[nextQuestionId].word.english,
+        // _id: wordsToTest[nextQuestionId].word._id,
+        question: wordsToTest[nextQuestionId].greek,
+        answer: wordsToTest[nextQuestionId].english,
         response: undefined,
         result: undefined
       })
 
       wordsToTest.splice(nextQuestionId, 1)
 
-      // if (exercise.length >= nbQuestions) {
-      //   break
-      // }
+      if (exercise.length >= nbQuestions) {
+        break
+      }
     }
 
     return exercise

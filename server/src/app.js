@@ -14,6 +14,8 @@ import Word from './models/word'
 import User from './models/user'
 import UserWord from './models/userword'
 
+import gSheet from './GSheetDB'
+
 
 const app = express()
 app.use(bodyParser.json()) // for parsing application/json
@@ -107,7 +109,7 @@ app.post('/api/revise/today', verifyToken, async (req, res) => {
   // }
 
   // return exercise
-  res.json(await createDailyExercise(req.user.user._id))
+  res.json(await createDailyExercise(req.user.user._id, gSheet))
 })
 
 /**
@@ -130,7 +132,7 @@ app.post('/api/correction', verifyToken, async (req, res) => {
     ).exec()
   } catch (err) { res.status(500).send({ error: 'Could not update user revision date. ' + err }) }
 
-  if (await correctExercise(req.user.user._id, req.body.exercise)) {
+  if (await correctExercise(req.user.user._id, req.body.exercise, gSheet)) {
     res.status(200).send({ info: 'Exercise corrected.' })
   } else {
     res.status(500).send({ error: 'Something went wrong!' })
@@ -142,12 +144,19 @@ app.post('/api/correction', verifyToken, async (req, res) => {
  */
 app.post('/api/words', verifyToken, async (req, res) => {
   try {
-    // let queryResults = await Word.find(req.body.find, '-__v').exec()
-    let queryResults = await UserWord.find({ user: req.user.user._id }, '-_id -__v')
-      .populate('word')
-      // .sort({'word.chapter': 1})
-      .exec()
-    res.status(200).json({ words: sortByChapter(queryResults) })
+    // // let queryResults = await Word.find(req.body.find, '-__v').exec()
+    // let queryResults = await UserWord.find({ user: req.user.user._id }, '-_id -__v')
+    //   .populate('word')
+    //   // .sort({'word.chapter': 1})
+    //   .exec()
+
+    await gSheet.connect()
+    let userWords = gSheet.getData()
+    console.log(userWords[0])
+
+
+    // res.status(200).json({ words: sortByChapter(userWords) })
+    res.status(200).json({ words: userWords })
   } catch (err) { res.status(500).send({ error: 'Could not find words. ' + err }) }
 })
 
@@ -197,29 +206,13 @@ function verifyToken(req, res, next) {
 
 // testing endpoint
 app.post('/test', verifyToken, async (req, res) => {
-  const userWord = new UserWord({
-    word: "5c8cf91bf9900e141acabb0c",
-    user: "5c6ee702fb6fc01c4ce9a245"
-  })
 
   try {
 
-    await userWord.save().exec()
+    await gSheet.connect()
+    console.log(gSheet.getData())
 
   } catch (err) { res.send(err) }
-
-  // try {
-  //   console.log(req.user.user._id)
-  //
-  //   let word = await UserWord.find({ user: req.user.user._id })
-  //     .populate('word')
-  //     .exec()
-  //
-  //   res.send(word)
-  //
-  // } catch (err) { res.send(err) }
-
-
 })
 
 // handles any other requests

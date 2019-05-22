@@ -53,7 +53,7 @@ class WordsPage extends Component {
 
   render() {
     let stats = this.calculateStats()
-    console.log(stats)
+    console.log(this.state.words)
     return (
       <div className='WordsPage content'>
         <h1>Words</h1>
@@ -65,8 +65,6 @@ class WordsPage extends Component {
             <li><span className={'label before-test'}>{'before-test'}</span> {stats['before-test']}</li>
             <li><span className={'label total'}>{'total'}</span> {stats['total']}</li>
           </ul>
-
-
 
           <table>
             <tbody>
@@ -82,10 +80,10 @@ class WordsPage extends Component {
 
               { this.state.words.map((word, id) => (
                 <tr key={id}>
-                  <td className='centre'><input type="checkbox" id={word.word._id} defaultChecked={word.known} onChange={this.handleChange} /></td>
-                  <td className='greek-text'>{word.word.greek}</td>
-                  <td>{word.word.english}</td>
-                  <td className='centre'>{word.word.chapter}</td>
+                  <td className='centre'><input type="checkbox" id={word.$loki} defaultChecked={word.known} onChange={this.handleChange} /></td>
+                  <td className='greek-text'>{word.greek}</td>
+                  <td>{word.english}</td>
+                  <td className='centre'>{word.chapter}</td>
                   <td className='centre'><span className={`label ${word.revisionBox}`}>{word.revisionBox}</span></td>
                   <td className='centre'>{word.lastRevised ? moment(word.lastRevised).fromNow() : ''}</td>
                 </tr>
