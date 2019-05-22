@@ -69,12 +69,12 @@ class WordsPage extends Component {
           <table>
             <tbody>
               <tr>
-                <th>known</th>
+                <th className='centre'>known</th>
                 <th>Greek</th>
                 <th>English</th>
                 <th className='centre'>Chapter</th>
                 <th className='centre'>Revision Box</th>
-                <th>Last Revised on</th>
+                <th className='centre'>Last Revised on</th>
               </tr>
 
 

@@ -26,6 +26,7 @@ div.content {
 
 table {
   border-collapse: collapse;
+  width: 100%
 }
 table th,
 table td {
