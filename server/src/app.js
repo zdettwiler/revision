@@ -106,7 +106,27 @@ app.post('/api/words', verifyToken, async (req, res) => {
   } catch (err) { res.status(500).send({ error: 'Could not find words. ' + err }) }
 })
 
+/**
+ * Update known words from tickboxes
+ */
+app.post('/api/update-known-words', verifyToken, async (req, res) => {
+  try {
+    await gSheet.connect()
 
+    for (let word of req.body.knownWords) {
+      gSheet.updateRow(
+        { greek: word.greek },
+        { known: word.known }
+      )
+    }
+
+    await gSheet.save()
+
+    let userWords = gSheet.getData()
+    res.status(200).json({ words: sortByChapter(userWords) })
+
+  } catch (err) { res.status(500).send({ error: 'Could not find words. ' + err }) }
+})
 
 
 // API Create exercise
@@ -117,11 +137,10 @@ app.post('/api/words', verifyToken, async (req, res) => {
 
 // testing endpoint
 app.post('/test', verifyToken, async (req, res) => {
-
   try {
 
     await gSheet.connect()
-    console.log(gSheet.getData())
+    res.sendStatus(200)
 
   } catch (err) { res.send(err) }
 })

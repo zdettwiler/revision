@@ -43,7 +43,7 @@ class WordsPage extends Component {
       console.log(e.target.checked)
       let response = await API.updateKnownWords({
         knownWords: [ {
-          _id: e.target.id,
+          greek: e.target.id,
           known: e.target.checked
         } ]
       })
@@ -80,7 +80,7 @@ class WordsPage extends Component {
 
               { this.state.words.map((word, id) => (
                 <tr key={id}>
-                  <td className='centre'><input type="checkbox" id={word.$loki} defaultChecked={word.known} onChange={this.handleChange} /></td>
+                  <td className='centre'><input type="checkbox" id={word.greek} defaultChecked={word.known} onChange={this.handleChange} /></td>
                   <td className='greek-text'>{word.greek}</td>
                   <td>{word.english}</td>
                   <td className='centre'>{word.chapter}</td>
