@@ -13,8 +13,7 @@ export default async function correctExercise(userId, exercise, sheet) {
     for (let word of exercise) {
 
       let wordRecord = sheet.findOne({ greek: word.question })
-      console.log(wordRecord)
-
+      
       // if correct answer, update to next revisionBoxes
       // if wrong answer, update to revisionBoxes[0]
       let newRevisionBox = word.result

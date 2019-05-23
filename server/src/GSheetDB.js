@@ -69,7 +69,7 @@ class GSheetDB {
     await this.createClient()
     await this.loadData()
 
-    console.log('🎉 Connection to database successful.')
+    console.log('🔌 Connection to database successful.')
     return this
   }
 
