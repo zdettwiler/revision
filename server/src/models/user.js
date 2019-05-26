@@ -1,38 +1,34 @@
-import mongoose from 'mongoose'
-import validator from 'validator'
+import 'dotenv/config'
+import db from '../db'
+import Model from '../gsheetsdb/Model'
 
 
-const userSchema = new mongoose.Schema({
-  email: {
-    type: String,
-    required: true,
-    unique: true,
-    validate: value => validator.isEmail(value)
+let userSchema = [
+  {
+    column: 'A',
+    columnName: 'email',
+    type: String
   },
-  username: {
-    type: String,
-    required: true,
-    validate: value => validator.isAlphanumeric(value)
+  {
+    column: 'B',
+    columnName: 'username',
+    type: String
   },
-  password: {
-    type: String,
-    required: true,
-    validate: value => typeof value === 'string'
+  {
+    column: 'C',
+    columnName: 'password',
+    type: String
   },
-  token: {
-    type: String,
-    required: true,
-    validate: value => typeof value === 'string'
+  {
+    column: 'D',
+    columnName: 'upToChapter',
+    type: Number
   },
-  upToChapter: {
-    type: Number,
-    required: true,
-    default: 1
-  },
-  lastDailyRevision: {
-    type: Date
+  {
+    column: 'E',
+    columnName: 'lastDailyRevision',
+    type: String
   }
-}, { collection: 'users' })
+]
 
-
-export default mongoose.model('users', userSchema)
+export default new Model(db, process.env.GSHEET_USER_RANGE, userSchema)

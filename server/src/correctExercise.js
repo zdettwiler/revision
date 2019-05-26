@@ -1,6 +1,4 @@
-import mongoose from 'mongoose'
 import db from './db'
-import UserWord from './models/userword'
 import { revisionBoxes } from './constants'
 
 
@@ -13,7 +11,7 @@ export default async function correctExercise(userId, exercise, sheet) {
     for (let word of exercise) {
 
       let wordRecord = sheet.findOne({ greek: word.question })
-      
+
       // if correct answer, update to next revisionBoxes
       // if wrong answer, update to revisionBoxes[0]
       let newRevisionBox = word.result

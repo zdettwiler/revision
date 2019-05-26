@@ -1,5 +1,4 @@
-import UserWord from './models/userword'
-import User from './models/user'
+import GreekWord from './models/greekword'
 import { revisionBoxes } from './constants'
 
 
@@ -7,15 +6,15 @@ import { revisionBoxes } from './constants'
  * need user id to be provided.
  * search in user's words
  */
-export default async function createDailyExercise(userId, sheet, nbQuestions=50) {
+export default async function createDailyExercise(nbQuestions=5) {
   try {
     let now = new Date()
     let exercise = []
     var wordsToTest = []
 
     // Select all of the user's known words
-    await sheet.connect()
-    let userWords = sheet.getData()
+    await GreekWord.connect()
+    let userWords = GreekWord.getData()
 
 
     /*

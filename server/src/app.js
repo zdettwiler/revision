@@ -10,11 +10,8 @@ import createDailyExercise from './createDailyExercise'
 import correctExercise from './correctExercise'
 
 import db from './db'
-import Word from './models/word'
 import User from './models/user'
-import UserWord from './models/userword'
-
-import gSheet from './GSheetDB'
+import GreekWord from './models/greekword'
 
 
 const app = express()
@@ -35,9 +32,10 @@ app.post('/api/login', async (req, res) => {
       throw 'Credentials not provided.'
     }
 
-    var user = await User.findOne({
+    await User.connect()
+    var user = User.findOne({
       email: req.body.email
-    }, '_id username password email').exec()
+    })
 
     if (user === null || !bcrypt.compareSync(req.body.password, user.password)) {
       throw "Credentials don't match."
@@ -62,8 +60,8 @@ app.post('/api/login', async (req, res) => {
  */
 app.post('/api/revise/today', verifyToken, async (req, res) => {
   // Get user and needed properties
-  let user = await User.findById(req.user.user._id, 'lastDailyRevision').exec()
-  let lastDailyRevision = user.lastDailyRevision
+  // let user = await User.findOne(req.user.user._id, 'lastDailyRevision').exec()
+  // let lastDailyRevision = user.lastDailyRevision
 
   // Check user hasn't already revised today
   // let now = new Date()
@@ -74,7 +72,7 @@ app.post('/api/revise/today', verifyToken, async (req, res) => {
   // }
 
   // return exercise
-  res.json(await createDailyExercise(req.user.user._id, gSheet))
+  res.json(await createDailyExercise(req.user.user._id, GreekWord))
 })
 
 /**
@@ -84,7 +82,7 @@ app.post('/api/correction', verifyToken, async (req, res) => {
   // validation here
   // -----
 
-  let correction = await correctExercise(req.user.user._id, req.body.exercise, gSheet)
+  let correction = await correctExercise(req.user.user._id, req.body.exercise, GreekWord)
 
   if (correction) {
     res.status(200).send({ info: 'Exercise corrected.' })
@@ -98,8 +96,8 @@ app.post('/api/correction', verifyToken, async (req, res) => {
  */
 app.post('/api/words', verifyToken, async (req, res) => {
   try {
-    await gSheet.connect()
-    let userWords = gSheet.getData()
+    await GreekWord.connect()
+    let userWords = GreekWord.getData()
 
     res.status(200).json({ words: sortByChapter(userWords) })
 
@@ -111,18 +109,18 @@ app.post('/api/words', verifyToken, async (req, res) => {
  */
 app.post('/api/update-known-words', verifyToken, async (req, res) => {
   try {
-    await gSheet.connect()
+    await GreekWord.connect()
 
     for (let word of req.body.knownWords) {
-      gSheet.updateRow(
+      GreekWord.updateRow(
         { greek: word.greek },
         { known: word.known }
       )
     }
 
-    await gSheet.save()
+    await GreekWord.save()
 
-    let userWords = gSheet.getData()
+    let userWords = GreekWord.getData()
     res.status(200).json({ words: sortByChapter(userWords) })
 
   } catch (err) { res.status(500).send({ error: 'Could not find words. ' + err }) }
@@ -139,7 +137,7 @@ app.post('/api/update-known-words', verifyToken, async (req, res) => {
 app.post('/test', verifyToken, async (req, res) => {
   try {
 
-    await gSheet.connect()
+    await GreekWord.connect()
     res.sendStatus(200)
 
   } catch (err) { res.send(err) }
