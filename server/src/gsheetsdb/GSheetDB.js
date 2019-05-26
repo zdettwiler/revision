@@ -39,7 +39,12 @@ export default class GSheetDB {
    */
   async createClient() {
     if (!this.client) {
-      this.client = auth.fromJSON(credentials);
+      // if credentials.json does not exist, use environment var
+      const creds = credentials
+        ? credentials
+        : process.env.GOOGLE_AUTH_CREDS
+
+      this.client = auth.fromJSON(creds);
       this.client.scopes = SCOPES
       await this.client.authorize()
       console.log('✨ Created new client.')
