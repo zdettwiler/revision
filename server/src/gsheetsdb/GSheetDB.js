@@ -6,10 +6,9 @@
  *  - make edits;
  *  - don't forget to save changes to update spreadsheet db
  */
-
+import 'dotenv/config'
 import { google } from 'googleapis'
 import { auth } from 'google-auth-library'
-// import credentials from './credentials.json'
 
 const SCOPES = ['https://www.googleapis.com/auth/spreadsheets']
 const sheetsApi = google.sheets({ version: 'v4' })
@@ -40,12 +39,11 @@ export default class GSheetDB {
   async createClient() {
     if (!this.client) {
       // if credentials.json does not exist, use environment var
-      const credentials = require( "./credentials.json" )
-      const creds = credentials
-        ? credentials
-        : process.env.GOOGLE_AUTH_CREDS
+      const credentials = process.env.GOOGLE_AUTH_CREDS
+        ? process.env.GOOGLE_AUTH_CREDS
+        : require('./credentials.json')
 
-      this.client = auth.fromJSON(creds);
+      this.client = auth.fromJSON(credentials);
       this.client.scopes = SCOPES
       await this.client.authorize()
       console.log('✨ Created new client.')

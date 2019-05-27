@@ -9,7 +9,7 @@ export default class Model {
     this.db = db
     this.range = this.parseRange(range)
     this.schema = schema
-    this.data = lokiDB.addCollection('data')
+    this.data = lokiDB.addCollection(range)
     this.nbHeaderRows = nbHeaderRows
   }
 
