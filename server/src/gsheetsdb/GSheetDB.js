@@ -9,7 +9,7 @@
 
 import { google } from 'googleapis'
 import { auth } from 'google-auth-library'
-import credentials from './credentials.json'
+// import credentials from './credentials.json'
 
 const SCOPES = ['https://www.googleapis.com/auth/spreadsheets']
 const sheetsApi = google.sheets({ version: 'v4' })
@@ -40,6 +40,7 @@ export default class GSheetDB {
   async createClient() {
     if (!this.client) {
       // if credentials.json does not exist, use environment var
+      const credentials = require( "./credentials.json" )
       const creds = credentials
         ? credentials
         : process.env.GOOGLE_AUTH_CREDS
