@@ -36,7 +36,7 @@ app.post('/api/login', async (req, res) => {
     var user = User.findOne({
       email: req.body.email
     })
-    console.log('user', user)
+
     if (user === null || !bcrypt.compareSync(req.body.password, user.password)) {
       throw "Credentials don't match."
     }
@@ -146,12 +146,12 @@ app.post('/test', verifyToken, async (req, res) => {
 // handles any other requests
 app.get('*', (req, res) => {
   // console.log(path.join(__dirname, '../../../client/build/index.html'))
-  res.status(200).sendFile(path.join(__dirname, '../../../client/build'))
+  res.status(200).sendFile(path.join(__dirname, '../../../client/build', 'index.html'))
 })
 
 // get reference to the client build directory
 // pass the static files (react app) to the express app.
-console.log(path.join(__dirname, '../../client/build'))
+// console.log(path.join(__dirname, '../../client/build'))
 const staticFiles = express.static(path.join(__dirname, '../../../client/build'))
 app.use(staticFiles)
 

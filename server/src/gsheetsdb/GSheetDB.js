@@ -43,10 +43,8 @@ export default class GSheetDB {
         ? JSON.parse(process.env.GOOGLE_AUTH_CREDS)
         : require('./credentials.json')
 
-      console.log('fromJSON')
       this.client = auth.fromJSON(credentials);
       this.client.scopes = SCOPES
-      console.log('authorize')
       await this.client.authorize()
       console.log('✨ Created new client.')
     }
