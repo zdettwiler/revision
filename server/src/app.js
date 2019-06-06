@@ -36,7 +36,7 @@ app.post('/api/login', async (req, res) => {
     var user = User.findOne({
       email: req.body.email
     })
-
+    console.log('user', user)
     if (user === null || !bcrypt.compareSync(req.body.password, user.password)) {
       throw "Credentials don't match."
     }
