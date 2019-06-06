@@ -1,6 +1,6 @@
 {
   "name": "revision",
-  "homepage": "https://revisevocab.herokuapp.com/",
+  "homepage": ".",
   "version": "0.1.0",
   "main": "server/src/app.js",
   "private": true,

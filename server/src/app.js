@@ -145,7 +145,6 @@ app.post('/test', verifyToken, async (req, res) => {
 
 // handles any other requests
 app.get('*', (req, res) => {
-  console.log(__dirname)
   // console.log(path.join(__dirname, '../../../client/build/index.html'))
   res.status(200).sendFile(path.join(__dirname, '../../../client/build/index.html'))
 })
