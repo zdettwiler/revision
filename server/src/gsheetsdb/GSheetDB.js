@@ -40,7 +40,7 @@ export default class GSheetDB {
     if (!this.client) {
       // if credentials.json does not exist, use environment var
       const credentials = process.env.GOOGLE_AUTH_CREDS
-        ? process.env.GOOGLE_AUTH_CREDS
+        ? JSON.parse(process.env.GOOGLE_AUTH_CREDS)
         : require('./credentials.json')
 
       console.log('fromJSON')
