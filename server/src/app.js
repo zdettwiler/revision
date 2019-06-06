@@ -1,3 +1,5 @@
+import 'dotenv/config'
+
 import express from 'express'
 import bcrypt from 'bcrypt'
 import bodyParser from 'body-parser'
@@ -134,11 +136,13 @@ app.post('/api/update-known-words', verifyToken, async (req, res) => {
 
 
 // testing endpoint
-app.post('/test', verifyToken, async (req, res) => {
+app.get('/test', verifyToken, async (req, res) => {
   try {
 
-    await GreekWord.connect()
-    res.sendStatus(200)
+    // await GreekWord.connect()
+    // res.sendStatus(200)
+
+    res.status(500).send({ error: 'Could not find words. ' + err })
 
   } catch (err) { res.send(err) }
 })
@@ -148,6 +152,12 @@ app.get('*', (req, res) => {
   // console.log(path.join(__dirname, '../../../client/build/index.html'))
   res.status(200).sendFile(path.join(__dirname, '../../../client/build'))
 })
+
+// get reference to the client build directory
+// pass the static files (react app) to the express app.
+console.log(path.join(__dirname, '../../client/build'))
+const staticFiles = express.static(path.join(__dirname, '../../../client/build'))
+app.use(staticFiles)
 
 
 
@@ -184,11 +194,5 @@ function sortByChapter(array) {
     return 0
   })
 }
-
-// get reference to the client build directory
-// pass the static files (react app) to the express app.
-console.log(path.join(__dirname, '../../client/build'))
-const staticFiles = express.static(path.join(__dirname, '../../../client/build'))
-app.use(staticFiles)
 
 export default app
