@@ -22,7 +22,7 @@ class LoginPage extends Component {
     const { from } = this.props.location.state || { from: { pathname: "/" } }
 
     if (this.state.redirectToReferrer) {
-      return <Redirect to={from} />
+      return (<Redirect to={from} />)
     }
 
     return (
