@@ -134,13 +134,8 @@ app.post('/api/update-known-words', verifyToken, async (req, res) => {
 
 
 // testing endpoint
-app.post('/test', verifyToken, async (req, res) => {
-  try {
-
-    await GreekWord.connect()
-    res.sendStatus(200)
-
-  } catch (err) { res.send(err) }
+app.get('/api/test', async (req, res) => {
+  res.status(200).json({ msg: 'all good' })
 })
 
 // handles any other requests
