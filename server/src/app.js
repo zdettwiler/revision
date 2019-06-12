@@ -18,6 +18,11 @@ const app = express()
 app.use(bodyParser.json()) // for parsing application/json
 app.use(bodyParser.urlencoded({ extended: true })) // for parsing application/x-www-form-urlencoded
 
+// get reference to the client build directory
+// pass the static files (react app) to the express app.
+// console.log(path.join(__dirname, '../../client/build'))
+const staticFiles = express.static(path.join(__dirname, '../../../client/build'))
+app.use(staticFiles)
 
 /**
  * Login endpoint
@@ -144,11 +149,7 @@ app.get('*', (req, res) => {
   res.status(200).sendFile(path.join(__dirname, '../../../client/build', 'index.html'))
 })
 
-// get reference to the client build directory
-// pass the static files (react app) to the express app.
-// console.log(path.join(__dirname, '../../client/build'))
-const staticFiles = express.static(path.join(__dirname, '../../../client/build'))
-app.use(staticFiles)
+
 
 
 
