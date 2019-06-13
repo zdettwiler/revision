@@ -1,3 +1,4 @@
+import 'dotenv/config'
 import express from 'express'
 import bcrypt from 'bcrypt'
 import bodyParser from 'body-parser'
@@ -38,24 +39,30 @@ app.post('/api/login', async (req, res) => {
     }
 
     await User.connect()
+    console.log('data', User.getData())
     var user = User.findOne({
       email: req.body.email
     })
 
+    // console.log(User.uid, req.body.password, user.password)
     if (user === null || !bcrypt.compareSync(req.body.password, user.password)) {
       throw "Credentials don't match."
     }
 
-    user.password = null
-    // delete doesn't work...
-    delete user.password
+    // delete user.password
 
     jwt.sign({ user }, process.env.SECRET_KEY, { expiresIn: '1day' }, (err, token) => {
-      res.status(200).send({ user, token })
+      res.status(200).send({ user: {
+        email: user.email,
+        username: user.username,
+        upToChapter: user.upToChapter,
+        lastDailyRevision: user.lastDailyRevision,
+        token
+      } })
     })
 
   } catch (err) {
-    res.status(401).send({ error: err })
+    res.status(401).send({ error: 'Login error: ' + err })
   }
 
 })
@@ -172,7 +179,7 @@ function verifyToken(req, res, next) {
       next()
     })
   } catch (err) {
-    res.sendStatus(403)
+    res.status(403).send({ error: 'Token error: ' + err })
   }
 }
 

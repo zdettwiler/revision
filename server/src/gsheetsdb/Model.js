@@ -11,11 +11,12 @@ export default class Model {
     this.schema = schema
     this.data = lokiDB.addCollection(range)
     this.nbHeaderRows = nbHeaderRows
+    this.uid = Math.random().toString(36).substr(2, 9)
   }
 
-  async connect() {
+  async connect(reload=false) {
     await this.db.connect()
-    await this.loadData()
+    await this.loadData(reload)
   }
 
   /**
@@ -37,8 +38,8 @@ export default class Model {
   /**
    * Load data from spreadsheet into Loki
    */
-  async loadData(force=false) {
-    if (!!this.data.data.length && !force) return
+  async loadData(reload=false) {
+    if (!!this.data.data.length && !reload) return
 
     let response = await this.db.fetchData(this.range.range)
     let values = response.data.values.slice(this.nbHeaderRows)

@@ -12,7 +12,7 @@ class Auth {
       if (!Object.keys(response.data).includes('error')) {
         localStorage.setItem('email', email)
         localStorage.setItem('username', response.data.user.username)
-        localStorage.setItem('token', response.data.token)
+        localStorage.setItem('token', response.data.user.token)
         callback()
         return true
       }
