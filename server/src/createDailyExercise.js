@@ -6,7 +6,7 @@ import { revisionBoxes } from './constants'
  * need user id to be provided.
  * search in user's words
  */
-export default async function createDailyExercise(nbQuestions=30) {
+export default async function createDailyExercise(upToChapter, nbQuestions=30) {
   try {
     let now = new Date()
     let exercise = []
@@ -14,8 +14,7 @@ export default async function createDailyExercise(nbQuestions=30) {
 
     // Select all of the user's known words
     await GreekWord.connect()
-    let userWords = GreekWord.getData()
-
+    let userWords = GreekWord.getData().filter(word => word.chapter <= upToChapter)
 
     /*
      * get all words in revisionBox[0] 'every-day'
@@ -23,7 +22,7 @@ export default async function createDailyExercise(nbQuestions=30) {
      */
 
     let everyDay = userWords.reduce((acc, cur) => {
-      if (cur.revisionBox === revisionBoxes[0]) {
+      if (cur.revisionBox === revisionBoxes[0] || !cur.revisionBox) {
         acc.push(cur)
       }
       return acc
@@ -103,5 +102,5 @@ export default async function createDailyExercise(nbQuestions=30) {
 
     return exercise
 
-  } catch (e) { return { error: e } }
+  } catch (e) { return { error: 'Could not create daily exercise. ' + e } }
 }

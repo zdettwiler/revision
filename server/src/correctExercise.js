@@ -15,7 +15,9 @@ export default async function correctExercise(userId, exercise, sheet) {
       // if correct answer, update to next revisionBoxes
       // if wrong answer, update to revisionBoxes[0]
       let newRevisionBox = word.result
-        ? revisionBoxes[revisionBoxes.indexOf(wordRecord.revisionBox)+1]
+        ? !wordRecord.revisionBox
+          ? revisionBoxes[1]
+          : revisionBoxes[revisionBoxes.indexOf(wordRecord.revisionBox)+1]
         : revisionBoxes[0]
 
       sheet.updateRow(
@@ -29,7 +31,8 @@ export default async function correctExercise(userId, exercise, sheet) {
 
     await sheet.save()
 
-  } catch (err) { console.log(err)
+  } catch (err) {
+    console.log(err)
     return err
   }
 

@@ -39,7 +39,6 @@ app.post('/api/login', async (req, res) => {
     }
 
     await User.connect()
-    console.log('data', User.getData())
     var user = User.findOne({
       email: req.body.email
     })
@@ -71,20 +70,25 @@ app.post('/api/login', async (req, res) => {
  * Create Daily exercise
  */
 app.post('/api/revise/today', verifyToken, async (req, res) => {
-  // Get user and needed properties
-  // let user = await User.findOne(req.user.user._id, 'lastDailyRevision').exec()
-  // let lastDailyRevision = user.lastDailyRevision
+  try {
+    // Get user and needed properties
+    await User.connect()
+    var user = User.findOne({
+      email: req.user.user.email
+    })
 
-  // Check user hasn't already revised today
-  // let now = new Date()
-  // if (now.getFullYear() === lastDailyRevision.getFullYear()
-  // && now.getMonth() === lastDailyRevision.getMonth()
-  // && now.getDate() === lastDailyRevision.getDate()) {
-  //   res.json({ error: "You've already done your daily revision today!" })
-  // }
+    // Check user hasn't already revised today
+    // let now = new Date()
+    // if (now.getFullYear() === lastDailyRevision.getFullYear()
+    // && now.getMonth() === lastDailyRevision.getMonth()
+    // && now.getDate() === lastDailyRevision.getDate()) {
+    //   res.json({ error: "You've already done your daily revision today!" })
+    // }
 
-  // return exercise
-  res.json(await createDailyExercise(req.user.user._id, GreekWord))
+    let dailyExercise = await createDailyExercise(user.upToChapter)
+    res.status(200).json(dailyExercise)
+
+  } catch (err) { res.status(500).send({ error: 'Could not create exercise: ' + err }) }
 })
 
 /**
@@ -111,7 +115,15 @@ app.post('/api/words', verifyToken, async (req, res) => {
     await GreekWord.connect()
     let userWords = GreekWord.getData()
 
-    res.status(200).json({ words: sortByChapter(userWords) })
+    await User.connect()
+    let user = User.findOne({
+      email: req.user.user.email
+    })
+
+    res.status(200).json({
+      words: sortByChapter(userWords),
+      upToChapter: user.upToChapter
+    })
 
   } catch (err) { res.status(500).send({ error: 'Could not find words. ' + err }) }
 })
@@ -121,21 +133,16 @@ app.post('/api/words', verifyToken, async (req, res) => {
  */
 app.post('/api/update-known-words', verifyToken, async (req, res) => {
   try {
-    await GreekWord.connect()
+    await User.connect()
+    User.updateRow(
+      { email: req.user.user.email },
+      { upToChapter: req.body.upToChapter }
+    )
+    await User.save()
 
-    for (let word of req.body.knownWords) {
-      GreekWord.updateRow(
-        { greek: word.greek },
-        { known: word.known }
-      )
-    }
+    res.status(200).json({ upToChapter: req.body.upToChapter })
 
-    await GreekWord.save()
-
-    let userWords = GreekWord.getData()
-    res.status(200).json({ words: sortByChapter(userWords) })
-
-  } catch (err) { res.status(500).send({ error: 'Could not find words. ' + err }) }
+  } catch (err) { res.status(500).send({ error: 'Could not update upToChapter. ' + err }) }
 })
 
 
