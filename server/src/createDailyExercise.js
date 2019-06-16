@@ -6,7 +6,7 @@ import { revisionBoxes } from './constants'
  * need user id to be provided.
  * search in user's words
  */
-export default async function createDailyExercise(upToChapter, nbQuestions=30) {
+export default async function createDailyExercise(upToChapter, nbQuestions=5) {
   try {
     let now = new Date()
     let exercise = []
@@ -22,7 +22,7 @@ export default async function createDailyExercise(upToChapter, nbQuestions=30) {
      */
 
     let everyDay = userWords.reduce((acc, cur) => {
-      if (cur.revisionBox === revisionBoxes[0] || !cur.revisionBox) {
+      if (!cur.revisionBox || cur.revisionBox === revisionBoxes[0]) {
         acc.push(cur)
       }
       return acc
@@ -39,7 +39,7 @@ export default async function createDailyExercise(upToChapter, nbQuestions=30) {
     threeDaysAgo.setDate(now.getDate() - 3)
 
     let everyThreeDays = userWords.reduce((acc, cur) => {
-      if (cur.revisionBox === revisionBoxes[1] && new Date(cur.lastRevised) < threeDaysAgo && cur.lastRevised !== '') {
+      if (cur.revisionBox && cur.revisionBox === revisionBoxes[1] && new Date(cur.lastRevised) < threeDaysAgo) {
         acc.push(cur)
       }
       return acc
@@ -56,7 +56,7 @@ export default async function createDailyExercise(upToChapter, nbQuestions=30) {
     oneWeekAgo.setDate(now.getDate() - 7)
 
     let everyWeek = userWords.reduce((acc, cur) => {
-      if (cur.revisionBox === revisionBoxes[2] && new Date(cur.lastRevised) < oneWeekAgo && cur.lastRevised !== '') {
+      if (cur.revisionBox && cur.revisionBox === revisionBoxes[2] && new Date(cur.lastRevised) < oneWeekAgo) {
         acc.push(cur)
       }
       return acc
@@ -73,12 +73,29 @@ export default async function createDailyExercise(upToChapter, nbQuestions=30) {
     twoWeeksAgo.setDate(now.getDate() - 14)
 
     let everyOtherWeek = userWords.reduce((acc, cur) => {
-      if (cur.revisionBox === revisionBoxes[3] && new Date(cur.lastRevised) < twoWeeksAgo && cur.lastRevised !== '') {
+      if (cur.revisionBox && cur.revisionBox === revisionBoxes[3] && new Date(cur.lastRevised) < twoWeeksAgo) {
         acc.push(cur)
       }
       return acc
     }, [])
     wordsToTest.push(...everyOtherWeek)
+
+    /*
+     * get all words in revisionBox[4] 'every-month'
+     *  - if NOW - 30days < lastRevised add to wordsToTest
+     * (= if 30 days ago is smaller (before) than lastRevised)
+     */
+
+    let oneMonthAgo = new Date()
+    oneMonthAgo.setDate(now.getDate() - 30)
+
+    let everyMonth = userWords.reduce((acc, cur) => {
+      if (cur.revisionBox && cur.revisionBox === revisionBoxes[4] && new Date(cur.lastRevised) < oneMonthAgo) {
+        acc.push(cur)
+      }
+      return acc
+    }, [])
+    wordsToTest.push(...everyMonth)
 
     // take a random selection of available words for exercise
     let nextQuestionId

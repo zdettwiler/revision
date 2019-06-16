@@ -41,7 +41,7 @@ class WordsPage extends Component {
       'every-three-days': 0,
       'every-week': 0,
       'every-other-week': 0,
-      'before-test': 0
+      'every-month': 0
     })
 
     stats.total = this.state.words.length
@@ -81,7 +81,7 @@ class WordsPage extends Component {
             <li><span className={'label every-three-days'}>{'every-three-days'}</span> {stats['every-three-days']}</li>
             <li><span className={'label every-week'}>{'every-week'}</span> {stats['every-week']}</li>
             <li><span className={'label every-other-week'}>{'every-other-week'}</span> {stats['every-other-week']}</li>
-            <li><span className={'label before-test'}>{'before-test'}</span> {stats['before-test']}</li>
+            <li><span className={'label every-month'}>{'every-month'}</span> {stats['every-month']}</li>
             <li><span className={'label total'}>{'total'}</span> {stats['total']}</li>
           </ul>
         </div>

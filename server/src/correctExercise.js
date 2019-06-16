@@ -17,7 +17,7 @@ export default async function correctExercise(userId, exercise, sheet) {
       let newRevisionBox = word.result
         ? !wordRecord.revisionBox
           ? revisionBoxes[1]
-          : revisionBoxes[revisionBoxes.indexOf(wordRecord.revisionBox)+1]
+          : revisionBoxes[Math.min(revisionBoxes.indexOf(wordRecord.revisionBox)+1, 4)]
         : revisionBoxes[0]
 
       sheet.updateRow(
