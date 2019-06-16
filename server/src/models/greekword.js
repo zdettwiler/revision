@@ -26,17 +26,17 @@ let wordSchema = [
   },
   {
     column: 'E',
-    columnName: 'known',
-    type: Boolean
-  },
-  {
-    column: 'F',
     columnName: 'revisionBox',
     type: String
   },
   {
-    column: 'G',
+    column: 'F',
     columnName: 'lastRevised',
+    type: String
+  },
+  {
+    column: 'G',
+    columnName: 'categories',
     type: String
   }
 ]
