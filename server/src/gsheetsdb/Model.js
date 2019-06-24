@@ -39,7 +39,7 @@ export default class Model {
    * Load data from spreadsheet into Loki
    */
   async loadData(reload=false) {
-    if (!!this.data.data.length && !reload) return
+    // if (!!this.data.data.length && !reload) return
 
     let response = await this.db.fetchData(this.range.range)
     let values = response.data.values.slice(this.nbHeaderRows)

@@ -59,7 +59,6 @@ class WordsPage extends Component {
 
   render() {
     let stats = this.calculateStats()
-    console.log(this.state.chapters)
     return (
       <div className='WordsPage content'>
         <h1>Words</h1>
