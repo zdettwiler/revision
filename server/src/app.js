@@ -177,7 +177,6 @@ function verifyToken(req, res, next) {
     }
 
     const bearerToken = bearerHeader.split(' ')[1]
-    console.log(bearerToken)
     jwt.verify(bearerToken, process.env.SECRET_KEY, (err, user) => {
       if (err) {
         throw err

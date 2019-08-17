@@ -13,7 +13,7 @@ const API = {
   },
 
   correctExercise: async (ex) => {
-    return axios.post('/api/correction', ex, { headerheaders: makeHeaders() })
+    return axios.post('/api/correction', ex, { headers: makeHeaders() })
   },
 
   findWords: async (find) => {
