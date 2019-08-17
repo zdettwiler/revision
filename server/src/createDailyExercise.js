@@ -6,7 +6,7 @@ import { revisionBoxes } from './constants'
  * need user id to be provided.
  * search in user's words
  */
-export default async function createDailyExercise(upToChapter, nbQuestions=30) {
+export default async function createDailyExercise(upToChapter, nbQuestions=50) {
   try {
     let now = new Date()
     let exercise = []

@@ -23,7 +23,7 @@ class Auth {
 
   }
 
-  logout(callback) {
+  logout(callback=()=>{}) {
     try {
       localStorage.removeItem('username')
       localStorage.removeItem('email')
@@ -36,16 +36,16 @@ class Auth {
   }
 
   isAuthenticated() {
-    try {
-      let email = localStorage.getItem('email')
-      if (email) {
-        return true
-      } else {
-        return false
-      }
-    } catch (err) {
-      console.log(err)
+    let token = localStorage.getItem('token')
+    if (!token) return false
+
+    let session = JSON.parse(window.atob(token.split('.')[1].replace('-', '+').replace('_', '/')))
+    if (Date.now() >= session.exp * 1000) {
+      this.logout()
+      return false
     }
+
+    return true
   }
 
 }

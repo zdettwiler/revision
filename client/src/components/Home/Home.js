@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import LoginForm from '../LoginForm/LoginForm.js'
 import './Home.css'
+import Auth from '../Auth/Auth'      
 
 class Home extends Component {
   constructor(props) {
@@ -17,7 +18,7 @@ class Home extends Component {
       <div className='Home content'>
         <h1>Revise Vocab</h1>
 
-        { this.props.userLoggedIn
+        { Auth.isAuthenticated()
           ? (<a className='button' href='/revise/today'>Daily Revision</a>)
           : (<LoginForm
             onLogIn={this.handleLogIn}

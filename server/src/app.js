@@ -31,7 +31,6 @@ app.use(staticFiles)
  * Returns token
  */
 app.post('/api/login', async (req, res) => {
-
   try {
     if (!Object.keys(req.body).includes('email')
     || !Object.keys(req.body).includes('password')) {
@@ -48,7 +47,7 @@ app.post('/api/login', async (req, res) => {
       throw "Credentials don't match."
     }
 
-    // delete user.password
+    delete user.password
 
     jwt.sign({ user }, process.env.SECRET_KEY, { expiresIn: '1day' }, (err, token) => {
       res.status(200).send({ user: {
@@ -178,6 +177,7 @@ function verifyToken(req, res, next) {
     }
 
     const bearerToken = bearerHeader.split(' ')[1]
+    console.log(bearerToken)
     jwt.verify(bearerToken, process.env.SECRET_KEY, (err, user) => {
       if (err) {
         throw err
