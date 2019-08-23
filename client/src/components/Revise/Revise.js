@@ -19,6 +19,7 @@ class Revise extends Component {
     // this.getCustomExercise = this.getCustomExercise.bind(this)
     this.getDailyExercise = this.getDailyExercise.bind(this)
     this.checkAnswer = this.checkAnswer.bind(this)
+    this.nextQuestion = this.nextQuestion.bind(this)
   }
 
   componentDidMount() {
@@ -56,21 +57,56 @@ class Revise extends Component {
   }
 
   checkAnswer(value) {
-    // console.log(value)
     let currentQuestion = this.state.currentQuestion
     let exercise = this.state.exercise
 
-    exercise[currentQuestion].response = value
-    exercise[currentQuestion].result = exercise[currentQuestion].answer.split(', ').includes(value)
-      ? true
-      : false
+    if (!exercise[currentQuestion].hasOwnProperty('response')
+    && !exercise[currentQuestion].hasOwnProperty('result')) {
+      exercise[currentQuestion].response = value
+      exercise[currentQuestion].result = exercise[currentQuestion].answer.split(', ').includes(value)
+        ? true
+        : false
 
-    currentQuestion++
-    let status = currentQuestion === exercise.length
-      ? 'finished'
-      : this.state.status
+    } else {
+      exercise[currentQuestion].retry = exercise[currentQuestion].answer.split(', ').includes(value)
+        ? true
+        : false
+    }
 
-    this.setState({ exercise, currentQuestion, status })
+    this.setState({ exercise })
+    this.nextQuestion()
+  }
+
+  nextQuestion() {
+    let status = this.state.status
+    let currentQuestion = this.state.currentQuestion
+    let failedQuestionsIndex = []
+
+    let unansweredQuestions = this.state.exercise.filter(q => {
+      return !q.hasOwnProperty('result')
+    })
+
+    if (!!unansweredQuestions.length) {
+      currentQuestion++
+
+    } else {
+      // if all questions have been answered, let the user try again the failed ones
+      failedQuestionsIndex = this.state.exercise.reduce((acc, cur, i) => {
+        if (!cur.result && !cur.retry) {
+          acc.push(i)
+        }
+        return acc
+      }, [])
+      currentQuestion = failedQuestionsIndex[ Math.floor(Math.random() * failedQuestionsIndex.length) ]
+
+    }
+
+    // if all questions have been answered and user got them all right eventually, end
+    if (!unansweredQuestions.length && !failedQuestionsIndex.length) {
+      status = 'finished'
+    }
+
+    this.setState({ currentQuestion, status })
   }
 
   render() {
