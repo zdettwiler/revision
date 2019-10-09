@@ -45,17 +45,6 @@ class DictionaryPage extends Component {
         <div id='results-container'>
           <input type='text' className='search-dictionary' onChange={this.handleChange}/>
 
-          <div className='result-card'>
-            <div className='left'>
-              <div className='greek'>ἀμην</div>
-              <div className='english'>amen, truly</div>
-            </div>
-            <div className='right'>
-              <div className='revision'><span className={'label every-day'}>{'every-day'}</span></div>
-              <div className='last-revised'>lastRevised</div>              
-            </div>
-          </div>
-
           {this.state.foundWords.map(word => (
             <div className='result-card' key={ word.$loki }>
               <div className='left'>
