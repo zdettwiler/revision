@@ -1,0 +1,45 @@
+#results-container {
+  /* display: block; */
+  margin: auto;
+  width: 500px;
+  border: 2px solid black;
+  border-radius: 4px;
+
+  box-shadow: 0 5px 5px 0 rgba(32, 32, 32, 0.24);
+}
+
+
+input.search-dictionary {
+  font-size: 30px;
+  width: 100%;
+  height: 50px;
+  padding: 0 20px;
+  border: none;
+  box-shadow: none;
+}
+
+.result-card {
+  padding: 10px;
+  /* height: 50px; */
+  border-top: 1px solid #AAAAAA;
+  display: flex;
+  flex-direction:row;
+  justify-content: stretch;
+}
+
+.result-card .left {
+  flex-grow: 1;
+}
+.result-card .right {
+  flex-grow: 1;
+  text-align: right;
+}
+.result-card .greek {
+  font-weight: bold;
+}
+.result-card .english {
+  
+}
+.result-card .revision {
+}
+

@@ -22,6 +22,10 @@ const API = {
 
   updateKnownWords: async (words) => {
     return axios.post('/api/update-known-words', words, { headers: makeHeaders() })
+  },
+
+  searchDictionary: async (needle) => {
+    return axios.post('/api/search-words', needle, { headers: makeHeaders() })
   }
 }
 

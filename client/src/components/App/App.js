@@ -11,6 +11,7 @@ import AuthStatus from 'components/Auth/AuthStatus'
 import Home from 'components/Home/Home'
 import Revise from 'components/Revise/Revise'
 import WordsPage from 'components/WordsPage/WordsPage'
+import DictionaryPage from 'components/DictionaryPage/DictionaryPage'
 
 
 class App extends Component {
@@ -48,6 +49,7 @@ class App extends Component {
               <div className="nav-links">
                 <Link to="/">Home</Link>
                 <Link to="/words">Words</Link>
+                <Link to="/dictionary">Dictionary</Link>
               </div>
               <AuthStatus
                 userLoggedIn={this.state.userLoggedIn}
@@ -80,6 +82,7 @@ class App extends Component {
               />
 
               <PrivateRoute path='/words' exact component={WordsPage} />
+              <PrivateRoute path='/dictionary' exact component={DictionaryPage} />
               <PrivateRoute path='/revise/today' component={Revise} />
 
               {/*<Route path='/exercise' component={Exercise} />

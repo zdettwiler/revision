@@ -144,6 +144,22 @@ app.post('/api/update-known-words', verifyToken, async (req, res) => {
   } catch (err) { res.status(500).send({ error: 'Could not update upToChapter. ' + err }) }
 })
 
+/**
+ * Search for words
+ */
+app.post('/api/search-words', verifyToken, async (req, res) => {
+  try {
+    console.log('needle', req.body.needle)
+    await GreekWord.connect()
+    let foundWords = GreekWord.find({
+      english: { $contains: req.body.needle }
+    })
+
+    res.status(200).json({ results: foundWords })
+
+  } catch (err) { res.status(500).send({ error: 'Could not search dictionary. ' + err }) }
+})
+
 
 // API Create exercise
 // app.post('/api/revise/:set/chapters/:chapters/questions/:nbQuestions', verifyToken, (req, res) => {
