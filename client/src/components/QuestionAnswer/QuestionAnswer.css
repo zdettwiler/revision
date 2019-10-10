@@ -1,7 +1,6 @@
 .QuestionAnswer {
   order: 1;
   flex-grow: 1;
-  border: 1px purple solid
 }
 
 .QuestionAnswer .Question {
@@ -10,7 +9,6 @@
   font-style: italic;
   font-size: 150px;
   text-align: center;
-  border: 2px solid red;
 }
 
 .QuestionAnswer input {

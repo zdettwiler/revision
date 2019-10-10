@@ -35,6 +35,7 @@ input.search-dictionary {
   text-align: right;
 }
 .result-card .greek {
+  font-family: 'SBL Greek', serif;
   font-weight: bold;
 }
 .result-card .english {
