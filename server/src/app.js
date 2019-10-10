@@ -149,11 +149,12 @@ app.post('/api/update-known-words', verifyToken, async (req, res) => {
  */
 app.post('/api/search-words', verifyToken, async (req, res) => {
   try {
-    console.log('needle', req.body.needle)
     await GreekWord.connect()
-    let foundWords = GreekWord.find({
-      english: { $contains: req.body.needle }
-    })
+    let foundWords = req.body.needle.length
+      ? GreekWord.find({
+        english: { $contains: req.body.needle }
+      })
+      : []
 
     res.status(200).json({ results: foundWords })
 

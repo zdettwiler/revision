@@ -2,10 +2,10 @@
   /* display: block; */
   margin: auto;
   width: 500px;
-  border: 2px solid black;
+  border: 1px solid black;
   border-radius: 4px;
 
-  box-shadow: 0 5px 5px 0 rgba(32, 32, 32, 0.24);
+  box-shadow: 0 4px 4px 0 rgba(32, 32, 32, 0.24);
 }
 
 
